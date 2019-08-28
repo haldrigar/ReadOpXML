@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadOpXML", "ReadOpXML\ReadOpXML.csproj", "{270759B5-294B-4F91-B7A8-A88E8E462538}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "EPPlus", "EPPlus\EPPlus.shproj", "{FA2AB179-DBD8-4E2A-A7AA-72A0518E1B4F}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		EPPlus\EPPlus.projitems*{270759b5-294b-4f91-b7a8-a88e8e462538}*SharedItemsImports = 4
+		EPPlus\EPPlus.projitems*{fa2ab179-dbd8-4e2a-a7aa-72a0518e1b4f}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{270759B5-294B-4F91-B7A8-A88E8E462538}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{270759B5-294B-4F91-B7A8-A88E8E462538}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{270759B5-294B-4F91-B7A8-A88E8E462538}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{270759B5-294B-4F91-B7A8-A88E8E462538}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3E10E0E0-61E4-4260-B8D7-878F4BDE1574}
+	EndGlobalSection
+EndGlobal
