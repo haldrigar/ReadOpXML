@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema elementFormDefault="qualified" targetNamespace="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema">
+
+	<simpleType name="PZG_CelPracy">
+		<restriction base="string">
+			<enumeration value="założenie ewidencji gruntów i budynków (EGiB)"/>
+			<enumeration value="modernizacja ewidencji gruntów i budynków (EGiB)"/>
+			<enumeration value="aktualizacja ewidencji gruntów i budynków (EGiB)"/>
+			<enumeration value="utworzenie bazy danych geodezyjnej sieci uzbrojenia terenu (GESUT)"/>
+			<enumeration value="aktualizacja bazy danych geodezyjnej sieci uzbrojenia terenu (GESUT)"/>
+			<enumeration value="utworzenie bazy danych obiektów topograficznych (BDOT500)"/>
+			<enumeration value="aktualizacja bazy danych obiektów topograficznych (BDOT500)"/>
+			<enumeration value="utworzenie bazy danych szczegółowych osnów geodezyjnych (BDSOG)"/>
+			<enumeration value="aktualizacja bazy danych szczegółowych osnów geodezyjnych (BDSOG)"/>
+			<enumeration value="mapa z projektem podziału nieruchomości"/>
+			<enumeration value="mapa z projektem podziału nieruchomości rolnej/leśnej"/>
+			<enumeration value="mapa z projektem scalenia i podziału nieruchomości"/>
+			<enumeration value="projekt scalenia gruntów"/>
+			<enumeration value="projekt wymiany gruntów"/>
+			<enumeration value="inna mapa do celów prawnych"/>
+			<enumeration value="rozgraniczenie nieruchomości"/>
+			<enumeration value="wznowienie znaków granicznych/wyznaczenie punktów/ustalenie przebiegu granic działek"/>
+			<enumeration value="mapa do celów projektowych"/>
+			<enumeration value="geodezyjna inwentaryzacja powykonawcza obiektów budowlanych"/>
+			<enumeration value="tyczenie obiektów budowlanych"/>
+			<enumeration value="inny cel"/>
+			<enumeration value="zalozenieEGiB"/>
+			<enumeration value="modernizacjaEGiB"/>
+			<enumeration value="aktualizacjaEGiB"/>
+			<enumeration value="utworzenieGESUT"/>
+			<enumeration value="aktualizacjaGESUT"/>
+			<enumeration value="utworzenieBDOT500"/>
+			<enumeration value="aktualizacjaBDOT500"/>
+			<enumeration value="utworzenieBDSOG"/>
+			<enumeration value="aktualizacjaBDSOG"/>
+			<enumeration value="mapaZProjPodzialu"/>
+			<enumeration value="mapaZProjPodzialuRL"/>
+			<enumeration value="mapaZProjScalenia"/>
+			<enumeration value="projScaleniaGruntow"/>
+			<enumeration value="projWymianyGruntow"/>
+			<enumeration value="innaMapaDoCelowPr"/>
+			<enumeration value="rozgrNieruchomosci"/>
+			<enumeration value="wznZnakowGrWyznPGr"/>
+			<enumeration value="mapaDoCelowProj"/>
+			<enumeration value="geodInwPowykObBud"/>
+			<enumeration value="tyczenieObBud"/>
+			<enumeration value="innyCel"/>
+		</restriction>
+	</simpleType>
+	
+</schema>

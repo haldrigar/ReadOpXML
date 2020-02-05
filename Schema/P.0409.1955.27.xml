@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+attributeFormDefault="unqualified" version="1.0">
+<!-- ============================================================-->
+<PZG_MaterialZasobu>
+	<pzg_IdMaterialu>
+		<pierwszyCzlon>P</pierwszyCzlon>
+		<drugiCzlon>0409</drugiCzlon>
+		<trzeciCzlon>1955</trzeciCzlon>
+		<czwartyCzlon>27</czwartyCzlon>
+	</pzg_IdMaterialu>
+	<pzg_dataPrzyjecia>1955-05-15</pzg_dataPrzyjecia>
+	<dataWplywu>1955-04-25</dataWplywu>
+	<pzg_nazwa>operat techniczny</pzg_nazwa>
+	<pzg_polozenieObszaru>POLYGON ((6496005.38 5836149.76, 6495547.12 5836234.18, 6495570.53 5836377.91, 6496184.86 5836271.84, 6496005.38 5836149.76))</pzg_polozenieObszaru>
+	<obreb>040903_4.0001</obreb>
+	<pzg_tworca>
+		<nazwa>PREZYDIUM POWIATOWEJ RADY NARODOWEJ WYDZIAŁ ROLNICTWA I LEŚNICTWA W MOGILNIE</nazwa>
+	</pzg_tworca>
+	<pzg_sposobPozyskania>przekazanieRezultPracGeod</pzg_sposobPozyskania>
+	<pzg_postacMaterialu>mieszana</pzg_postacMaterialu>
+	<pzg_rodzNosnika>papier</pzg_rodzNosnika>
+	<pzg_dostep>bezOgraniczen</pzg_dostep>
+	<pzg_przyczynyOgraniczen></pzg_przyczynyOgraniczen>
+	<pzg_typMaterialu>tekst</pzg_typMaterialu>
+	<pzg_katArchiwalna>A</pzg_katArchiwalna>
+	<pzg_jezyk>pol</pzg_jezyk>
+	<pzg_opis>Operat zawiera 23 stron</pzg_opis>
+	<pzg_oznMaterialuZasobu>M-44/1955</pzg_oznMaterialuZasobu>
+	<oznMaterialuZasobuTyp></oznMaterialuZasobuTyp>
+	<oznMaterialuZasobuJedn>M</oznMaterialuZasobuJedn>
+	<oznMaterialuZasobuNr>44</oznMaterialuZasobuNr>
+	<oznMaterialuZasobuRok>1955</oznMaterialuZasobuRok>
+	<oznMaterialuZasobuTom></oznMaterialuZasobuTom>
+	<oznMaterialuZasobuSepJednNr>-</oznMaterialuZasobuSepJednNr>
+	<oznMaterialuZasobuSepNrRok>/</oznMaterialuZasobuSepNrRok>
+	<celArchiwalny>ustalenie punktów granicznych</celArchiwalny>
+	<dzialkaPrzed></dzialkaPrzed>
+	<dzialkaPo></dzialkaPo>
+	<opis2></opis2>
+</PZG_MaterialZasobu>
+<PZG_Zgloszenie>
+	<pzg_idZgloszenia>M-44/1955</pzg_idZgloszenia>
+	<idZgloszeniaJedn>M</idZgloszeniaJedn>
+	<idZgloszeniaNr>44</idZgloszeniaNr>
+	<idZgloszeniaRok>1955</idZgloszeniaRok>
+	<idZgloszeniaEtap></idZgloszeniaEtap>
+	<idZgloszeniaSepJednNr>-</idZgloszeniaSepJednNr>
+	<idZgloszeniaSepNrRok>/</idZgloszeniaSepNrRok>
+	<pzg_dataZgloszenia>1955-01-01</pzg_dataZgloszenia>
+	<pzg_polozenieObszaru>POLYGON ((6496005.38 5836149.76, 6495547.12 5836234.18, 6495570.53 5836377.91, 6496184.86 5836271.84, 6496005.38 5836149.76))</pzg_polozenieObszaru>
+	<obreb>040903_4.0001</obreb>
+	<pzg_podmiotZglaszajacy>
+		<nazwa>PREZYDIUM POWIATOWEJ RADY NARODOWEJ WYDZIAŁ ROLNICTWA I LEŚNICTWA W MOGILNIE</nazwa>
+	</pzg_podmiotZglaszajacy>
+	<osobaUprawniona>
+		<imie></imie>
+		<nazwisko></nazwisko>
+		<numer_uprawnien></numer_uprawnien>
+	</osobaUprawniona>
+	<celArchiwalny>ustalenie punktów granicznych</celArchiwalny>
+	<pzg_rodzaj></pzg_rodzaj>
+</PZG_Zgloszenie>
+</schema>

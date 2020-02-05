@@ -2,14 +2,17 @@
 {
     class PzgMaterialZasobu
     {
-        public string XmlFile { get; set; }
+        public int IdFile { get; set; }
+        public string XmlPath { get; set; }
+        public string IdMaterialu { get; set; }
         public string IdMaterialuPierwszyCzlon { get; set; }
         public string IdMaterialuDrugiCzlon { get; set; }
         public string IdMaterialuTrzeciCzlon { get; set; }
         public string IdMaterialuCzwartyCzlon { get; set; }
         public string PzgDataPrzyjecia { get; set; }
-        public string PzgDataWplywu { get; set; }
+        public string DataWplywu { get; set; }
         public string PzgNazwa { get; set; }
+        public string PzgPolozenieObszaru { get; set; }
         public string Obreb { get; set; }
         public string PzgTworcaNazwa { get; set; }
         public string PzgTworcaRegon { get; set; }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema elementFormDefault="qualified" targetNamespace="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema">
+
+	<simpleType name="PZG_SposobPozyskania">
+		<restriction base="string">
+			<enumeration value="dzialaniaWlasne"/>
+			<enumeration value="wspoldzialaniePodmiotow"/>
+			<enumeration value="przyjecieDarowizny"/>
+			<enumeration value="przekazanieWycZOpSzac"/>
+			<enumeration value="przekazanieRezultPracGeod"/>
+		</restriction>
+	</simpleType>
+	
+</schema>

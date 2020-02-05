@@ -2,8 +2,11 @@
 {
     class PzgZgloszenie
     {
-        public string XmlFile { get; set; }
+        public int IdFile { get; set; }
+        public string XmlPath { get; set; }
+        public string IdMaterialu { get; set; }
         public string PzgIdZgloszenia { get; set; }
+        public string PzgPolozenieObszaru { get; set; }
         public string IdZgloszeniaJedn { get; set; }
         public string IdZgloszeniaNr { get; set; }
         public string IdZgloszeniaRok { get; set; }
@@ -15,9 +18,7 @@
         public string PzgPodmiotZglaszajacyNazwa { get; set; }
         public string PzgPodmiotZglaszajacyRegon { get; set; }
         public string PzgPodmiotZglaszajacyPesel { get; set; }
-        public string OsobaUprawnionaImie { get; set; }
-        public string OsobaUprawnionaNazwisko { get; set; }
-        public string OsobaUprawnionaNumerUprawnien { get; set; }
+        public string OsobaUprawniona { get; set; }
         public string PzgCel { get; set; }
         public string CelArchiwalny { get; set; }
         public string PzgRodzaj { get; set; }
