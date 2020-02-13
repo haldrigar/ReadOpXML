@@ -9,12 +9,9 @@ namespace ReadOpXML
     {
         public static void SaveMessage(string fileName, string message, [CallerMemberName] string callerName = "")
         {
-            string appdataPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            string cfgfilePath = Path.Combine(appdataPath ?? throw new InvalidOperationException(), fileName);
-
-            using (StreamWriter str = new StreamWriter(new FileStream(cfgfilePath, FileMode.Append), Encoding.UTF8))
+            using (StreamWriter str = new StreamWriter(new FileStream(fileName, FileMode.Append), Encoding.UTF8))
             {
-                str.WriteLine($"{DateTime.Now}\t{callerName.PadRight(25, ' ')}:\t{message}");
+                str.WriteLine($"{DateTime.Now}\t{callerName}:\t{message}");
             }
         }
     }

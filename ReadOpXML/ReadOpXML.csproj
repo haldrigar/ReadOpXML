@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>ReadOpXML</RootNamespace>
     <AssemblyName>ReadOpXML</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -27,6 +27,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -51,6 +52,7 @@
     <ApplicationIcon>Resources\ikona.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -70,6 +72,7 @@
     <Compile Include="ErrorLog.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="LogFile.cs" />
+    <Compile Include="Options.cs" />
     <Compile Include="OsobaUprawniona.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,6 +109,15 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <Import Project="..\EPPlus\EPPlus.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\commandline-master\src\CommandLine\CommandLine.csproj">
+      <Project>{e2ce3547-71ad-4310-ba1d-e6b56fd72871}</Project>
+      <Name>CommandLine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EPPlus-master\EPPlus\EPPlus.csproj">
+      <Project>{be4a6343-f411-44a3-8d6f-f40747ed7ba5}</Project>
+      <Name>EPPlus</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

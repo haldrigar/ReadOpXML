@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Schema;
+using CommandLine;
 using OfficeOpenXml;
 
 namespace ReadOpXML
@@ -26,12 +27,6 @@ namespace ReadOpXML
             bool zgloszeniaCelArchExport = true;
             bool zgloszeniaOsobaUprawnionaExport = true;
 
-            bool walidacjaExport = true;
-
-            bool poprawa = true;
-
-            string starupPath = args.Length > 0 ? args[0] : Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-
             List<PzgMaterialZasobu> pzgMaterialZasobuList = new List<PzgMaterialZasobu>();
             List<PzgCel> pzgMaterialZasobuCelList = new List<PzgCel>();
             List<CelArchiwalny> pzgMaterialZasobuCelArchList = new List<CelArchiwalny>();
@@ -43,13 +38,33 @@ namespace ReadOpXML
             List<CelArchiwalny> pzgZgloszenieCelArchList = new List<CelArchiwalny>();
             List<OsobaUprawniona> pzgZgloszenieOsobaUprawnionaList = new List<OsobaUprawniona>();
 
-            Console.WriteLine("Wyszukiwanie plików XML...");
-            List<string> xmlFiles = Directory.EnumerateFiles(starupPath ?? throw new InvalidOperationException(), "*.xml", SearchOption.AllDirectories).ToList();
+            string startupPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            bool poprawa = false;
+            bool walidacja = false;
+
+            Parser.Default.ParseArguments<Options>(args).WithParsed(RunOptions).WithNotParsed(HandleParseError);
+
+            void RunOptions(Options opts)
+            {
+                startupPath = opts.StarupPath;
+                poprawa = opts.Poprawa;
+                
+            }
+            void HandleParseError(IEnumerable<Error> errs)
+            {
+                Console.ReadKey(false);
+                Environment.Exit(0);
+            }
+
+            Console.WriteLine("Wyszukiwanie plików XML w katalogu {0}...", startupPath);
+
+            List<string> xmlFiles = Directory.EnumerateFiles(startupPath ?? throw new InvalidOperationException(), "*.xml", SearchOption.AllDirectories).ToList();
+            
             Console.WriteLine("Znaleziono {0} plików XML.\n", xmlFiles.Count);
 
             bool isError = false;
 
-            Console.WriteLine("Test i wstępna poprawa plików XML...\n");
+            Console.WriteLine(poprawa ? "Walidacja syntaktyczna i automatyczna poprawa plików XML...\n" : "Waliadacja syntaktyczna plików XML...\n");
 
             foreach (string xmlFile in xmlFiles)
             {
@@ -60,168 +75,168 @@ namespace ReadOpXML
                     doc.Load(xmlFile);
 
                     if (poprawa)
-                    {
+                    { 
                         XmlNamespaceManager nsmgr = new XmlNamespaceManager(doc.NameTable);
-                    nsmgr.AddNamespace("xmls", "http://www.w3.org/2001/XMLSchema");
+                        nsmgr.AddNamespace("xmls", "http://www.w3.org/2001/XMLSchema");
 
-                    int rok = 0;   
+                        int rok = 0;   
 
-                    string fileName = Path.GetFileName(xmlFile);
+                        string fileName = Path.GetFileName(xmlFile);
 
-                    if (fileName != null && Regex.IsMatch(fileName.ToUpper(), @"^P\.[0-9]{4}\.[0-9]{4}\.[0-9]+\.XML$"))
-                    {
-                        rok = Convert.ToInt32(fileName.Substring(7, 4));
-                    }
-
-                    //  ---------------------------------------------------------------------------
-                    //  POPRAWA oznMaterialuZasobuSepJednNr z NULL i z pustego
-                    
-                    XmlNode xmlNode = doc.DocumentElement?.SelectSingleNode("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:oznMaterialuZasobuSepJednNr", nsmgr);
-
-                    if (xmlNode != null && (xmlNode.InnerText == "null" || xmlNode.InnerText == "" || xmlNode.InnerText == "/") && rok > 2013)
-                    {
-                        xmlNode.InnerText = ".";
-                    }
-
-                    if (xmlNode != null && (xmlNode.InnerText == "null" || xmlNode.InnerText == "" || xmlNode.InnerText == "/") && rok > 0 && rok <=2013)
-                    {
-                        xmlNode.InnerText = "-";
-                    }
-
-                    //  ---------------------------------------------------------------------------
-                    //  POPRAWA idZgloszeniaSepJednNr z NULL i z pustego
-                    
-                    xmlNode = doc.DocumentElement?.SelectSingleNode("/xmls:schema/xmls:PZG_Zgloszenie/xmls:idZgloszeniaSepJednNr", nsmgr);
-
-                    if (xmlNode != null && (xmlNode.InnerText == "null" || xmlNode.InnerText == "" || xmlNode.InnerText == "/") && rok > 2013)
-                    {
-                        xmlNode.InnerText = ".";
-                    }
-
-                    if (xmlNode != null && (xmlNode.InnerText == "null" || xmlNode.InnerText == "" || xmlNode.InnerText == "/") && rok > 0 && rok <=2013)
-                    {
-                        xmlNode.InnerText = "-";
-                    }
-
-                    //  ---------------------------------------------------------------------------
-                    //  POPRAWA pzg_nazwa z 'operat techniczny' na 'operatTechniczny'
-
-                    xmlNode = doc.DocumentElement?.SelectSingleNode("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:pzg_nazwa", nsmgr);
-
-                    if (xmlNode != null && (xmlNode.InnerText == "operat techniczny" || xmlNode.InnerText == ""))
-                    {
-                        xmlNode.InnerText = "operatTechniczny";
-                    }
-
-                    //  ---------------------------------------------------------------------------
-                    //  POPRAWA pzg_tworca/nazwa z pustego na 'TWÓRCA NIEZNANY'
-
-                    xmlNode = doc.DocumentElement?.SelectSingleNode("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:pzg_tworca/xmls:nazwa", nsmgr);
-
-                    if (xmlNode != null && xmlNode.InnerText == "")
-                    {
-                        xmlNode.InnerText = "TWÓRCA NIEZNANY";
-                    }
-
-                    //  ---------------------------------------------------------------------------
-                    //  POPRAWA pzg_podmiotZglaszajacy/nazwa z pustego na 'TWÓRCA NIEZNANY'
-
-                    xmlNode = doc.DocumentElement?.SelectSingleNode("/xmls:schema/xmls:PZG_Zgloszenie/xmls:pzg_podmiotZglaszajacy/xmls:nazwa", nsmgr);
-
-                    if (xmlNode != null && xmlNode.InnerText == "")
-                    {
-                        xmlNode.InnerText = "TWÓRCA NIEZNANY";
-                    }
-
-                    //  ---------------------------------------------------------------------------
-                    //  POPRAWA REGON dla PZG_MaterialZasobu/tworca
-
-                    xmlNode = doc.DocumentElement?.SelectSingleNode("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:pzg_tworca/xmls:REGON", nsmgr);
-
-                    if (xmlNode != null && xmlNode.InnerText.Length == 8)
-                    {
-                        xmlNode.InnerText = "0" + xmlNode.InnerText;
-                    }
-
-                    //  ---------------------------------------------------------------------------
-                    //  POPRAWA REGON dla PZG_Zgloszenie/pzg_podmiotZglaszajacy
-
-                    xmlNode = doc.DocumentElement?.SelectSingleNode("/xmls:schema/xmls:PZG_Zgloszenie/xmls:pzg_podmiotZglaszajacy/xmls:REGON", nsmgr);
-
-                    if (xmlNode != null && xmlNode.InnerText.Length == 8)
-                    {
-                        xmlNode.InnerText = "0" + xmlNode.InnerText;
-                    }
-
-                    //  ---------------------------------------------------------------------------
-                    //  POPRAWA spacji w numerze działki PRZED
-                    
-                    XmlNodeList xmlNodeList = doc.DocumentElement?.SelectNodes("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:dzialkaPrzed", nsmgr);
-
-                    foreach (XmlNode node in xmlNodeList)
-                    {
-                        node.InnerText = node.InnerText.Replace(" ", "");
-                    }
-
-                    //  ---------------------------------------------------------------------------
-                    //  POPRAWA spacji w numerze działki PO
-                    
-                    xmlNodeList = doc.DocumentElement?.SelectNodes("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:dzialkaPo", nsmgr);
-
-                    foreach (XmlNode node in xmlNodeList)
-                    {
-                        node.InnerText = node.InnerText.Replace(" ", "");
-                    }
-
-                    //  ---------------------------------------------------------------------------
-                    //  POPRAWA numeru w dzialkaPrzed
-                    
-                    xmlNodeList = doc.DocumentElement?.SelectNodes("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:dzialkaPrzed", nsmgr);
-
-                    foreach (XmlNode node in xmlNodeList)
-                    {
-                        // jedna litera na końcu numeru działki 040903_5.0006.871a
-                        if (Regex.IsMatch(node.InnerText, @"^[0-9]{6}_.\.[0-9]{4}\.[0-9]+[a-z]{1}$"))
+                        if (fileName != null && Regex.IsMatch(fileName.ToUpper(), @"^P\.[0-9]{4}\.[0-9]{4}\.[0-9]+\.XML$"))
                         {
-                            node.InnerText = node.InnerText.Substring(0, node.InnerText.Length - 1) + "-" + node.InnerText.Substring(node.InnerText.Length - 1, 1);
+                            rok = Convert.ToInt32(fileName.Substring(7, 4));
                         }
 
-                        // jedna litera na końcu numeru działki 040903_5.0006.871/11a
-                        if (Regex.IsMatch(node.InnerText, @"^[0-9]{6}_.\.[0-9]{4}\.[0-9]+\/[0-9]+[a-z]{1}$"))
-                        {
-                            node.InnerText = node.InnerText.Substring(0, node.InnerText.Length - 1) + "-" + node.InnerText.Substring(node.InnerText.Length - 1, 1);
-                        }
-                    }
+                        //  ---------------------------------------------------------------------------
+                        //  POPRAWA oznMaterialuZasobuSepJednNr z NULL i z pustego
+                        
+                        XmlNode xmlNode = doc.DocumentElement?.SelectSingleNode("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:oznMaterialuZasobuSepJednNr", nsmgr);
 
-                    //  ---------------------------------------------------------------------------
-                    //  POPRAWA numeru w dzialkaPo
-                    
-                    xmlNodeList = doc.DocumentElement?.SelectNodes("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:dzialkaPo", nsmgr);
-
-                    foreach (XmlNode node in xmlNodeList)
-                    {
-                        // jedna litera na końcu numeru działki 040903_5.0006.871a
-                        if (Regex.IsMatch(node.InnerText, @"^[0-9]{6}_.\.[0-9]{4}\.[0-9]+[a-z]{1}$"))
+                        if (xmlNode != null && (xmlNode.InnerText == "null" || xmlNode.InnerText == "" || xmlNode.InnerText == "/") && rok > 2013)
                         {
-                            node.InnerText = node.InnerText.Substring(0, node.InnerText.Length - 1) + "-" + node.InnerText.Substring(node.InnerText.Length - 1, 1);
+                            xmlNode.InnerText = ".";
                         }
 
-                        // jedna litera na końcu numeru działki 040903_5.0006.871/11a
-                        if (Regex.IsMatch(node.InnerText, @"^[0-9]{6}_.\.[0-9]{4}\.[0-9]+\/[0-9]+[a-z]{1}$"))
+                        if (xmlNode != null && (xmlNode.InnerText == "null" || xmlNode.InnerText == "" || xmlNode.InnerText == "/") && rok > 0 && rok <=2013)
                         {
-                            node.InnerText = node.InnerText.Substring(0, node.InnerText.Length - 1) + "-" + node.InnerText.Substring(node.InnerText.Length - 1, 1);
+                            xmlNode.InnerText = "-";
                         }
-                    }
 
-                    //  ---------------------------------------------------------------------------
+                        //  ---------------------------------------------------------------------------
+                        //  POPRAWA idZgloszeniaSepJednNr z NULL i z pustego
+                        
+                        xmlNode = doc.DocumentElement?.SelectSingleNode("/xmls:schema/xmls:PZG_Zgloszenie/xmls:idZgloszeniaSepJednNr", nsmgr);
 
-                    doc.Save(xmlFile);  // Zapisanie dokumentu
+                        if (xmlNode != null && (xmlNode.InnerText == "null" || xmlNode.InnerText == "" || xmlNode.InnerText == "/") && rok > 2013)
+                        {
+                            xmlNode.InnerText = ".";
+                        }
+
+                        if (xmlNode != null && (xmlNode.InnerText == "null" || xmlNode.InnerText == "" || xmlNode.InnerText == "/") && rok > 0 && rok <=2013)
+                        {
+                            xmlNode.InnerText = "-";
+                        }
+
+                        //  ---------------------------------------------------------------------------
+                        //  POPRAWA pzg_nazwa z 'operat techniczny' na 'operatTechniczny'
+
+                        xmlNode = doc.DocumentElement?.SelectSingleNode("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:pzg_nazwa", nsmgr);
+
+                        if (xmlNode != null && (xmlNode.InnerText == "operat techniczny" || xmlNode.InnerText == ""))
+                        {
+                            xmlNode.InnerText = "operatTechniczny";
+                        }
+
+                        //  ---------------------------------------------------------------------------
+                        //  POPRAWA pzg_tworca/nazwa z pustego na 'TWÓRCA NIEZNANY'
+
+                        xmlNode = doc.DocumentElement?.SelectSingleNode("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:pzg_tworca/xmls:nazwa", nsmgr);
+
+                        if (xmlNode != null && xmlNode.InnerText == "")
+                        {
+                            xmlNode.InnerText = "TWÓRCA NIEZNANY";
+                        }
+
+                        //  ---------------------------------------------------------------------------
+                        //  POPRAWA pzg_podmiotZglaszajacy/nazwa z pustego na 'TWÓRCA NIEZNANY'
+
+                        xmlNode = doc.DocumentElement?.SelectSingleNode("/xmls:schema/xmls:PZG_Zgloszenie/xmls:pzg_podmiotZglaszajacy/xmls:nazwa", nsmgr);
+
+                        if (xmlNode != null && xmlNode.InnerText == "")
+                        {
+                            xmlNode.InnerText = "TWÓRCA NIEZNANY";
+                        }
+
+                        //  ---------------------------------------------------------------------------
+                        //  POPRAWA REGON dla PZG_MaterialZasobu/tworca
+
+                        xmlNode = doc.DocumentElement?.SelectSingleNode("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:pzg_tworca/xmls:REGON", nsmgr);
+
+                        if (xmlNode != null && xmlNode.InnerText.Length == 8)
+                        {
+                            xmlNode.InnerText = "0" + xmlNode.InnerText;
+                        }
+
+                        //  ---------------------------------------------------------------------------
+                        //  POPRAWA REGON dla PZG_Zgloszenie/pzg_podmiotZglaszajacy
+
+                        xmlNode = doc.DocumentElement?.SelectSingleNode("/xmls:schema/xmls:PZG_Zgloszenie/xmls:pzg_podmiotZglaszajacy/xmls:REGON", nsmgr);
+
+                        if (xmlNode != null && xmlNode.InnerText.Length == 8)
+                        {
+                            xmlNode.InnerText = "0" + xmlNode.InnerText;
+                        }
+
+                        //  ---------------------------------------------------------------------------
+                        //  POPRAWA spacji w numerze działki PRZED
+                        
+                        XmlNodeList xmlNodeList = doc.DocumentElement?.SelectNodes("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:dzialkaPrzed", nsmgr);
+
+                        foreach (XmlNode node in xmlNodeList)
+                        {
+                            node.InnerText = node.InnerText.Replace(" ", "");
+                        }
+
+                        //  ---------------------------------------------------------------------------
+                        //  POPRAWA spacji w numerze działki PO
+                        
+                        xmlNodeList = doc.DocumentElement?.SelectNodes("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:dzialkaPo", nsmgr);
+
+                        foreach (XmlNode node in xmlNodeList)
+                        {
+                            node.InnerText = node.InnerText.Replace(" ", "");
+                        }
+
+                        //  ---------------------------------------------------------------------------
+                        //  POPRAWA numeru w dzialkaPrzed
+                        
+                        xmlNodeList = doc.DocumentElement?.SelectNodes("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:dzialkaPrzed", nsmgr);
+
+                        foreach (XmlNode node in xmlNodeList)
+                        {
+                            // jedna litera na końcu numeru działki 040903_5.0006.871a
+                            if (Regex.IsMatch(node.InnerText, @"^[0-9]{6}_.\.[0-9]{4}\.[0-9]+[a-z]{1}$"))
+                            {
+                                node.InnerText = node.InnerText.Substring(0, node.InnerText.Length - 1) + "-" + node.InnerText.Substring(node.InnerText.Length - 1, 1);
+                            }
+
+                            // jedna litera na końcu numeru działki 040903_5.0006.871/11a
+                            if (Regex.IsMatch(node.InnerText, @"^[0-9]{6}_.\.[0-9]{4}\.[0-9]+\/[0-9]+[a-z]{1}$"))
+                            {
+                                node.InnerText = node.InnerText.Substring(0, node.InnerText.Length - 1) + "-" + node.InnerText.Substring(node.InnerText.Length - 1, 1);
+                            }
+                        }
+
+                        //  ---------------------------------------------------------------------------
+                        //  POPRAWA numeru w dzialkaPo
+                        
+                        xmlNodeList = doc.DocumentElement?.SelectNodes("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:dzialkaPo", nsmgr);
+
+                        foreach (XmlNode node in xmlNodeList)
+                        {
+                            // jedna litera na końcu numeru działki 040903_5.0006.871a
+                            if (Regex.IsMatch(node.InnerText, @"^[0-9]{6}_.\.[0-9]{4}\.[0-9]+[a-z]{1}$"))
+                            {
+                                node.InnerText = node.InnerText.Substring(0, node.InnerText.Length - 1) + "-" + node.InnerText.Substring(node.InnerText.Length - 1, 1);
+                            }
+
+                            // jedna litera na końcu numeru działki 040903_5.0006.871/11a
+                            if (Regex.IsMatch(node.InnerText, @"^[0-9]{6}_.\.[0-9]{4}\.[0-9]+\/[0-9]+[a-z]{1}$"))
+                            {
+                                node.InnerText = node.InnerText.Substring(0, node.InnerText.Length - 1) + "-" + node.InnerText.Substring(node.InnerText.Length - 1, 1);
+                            }
+                        }
+
+                        //  ---------------------------------------------------------------------------
+
+                        doc.Save(xmlFile);  // Zapisanie dokumentu
                     }
                 }
                 catch (XmlException e)
                 {
                     Console.WriteLine($@"{xmlFile}: {e.Message}");
-                    LogFile.SaveMessage("ReadOpXML.log", xmlFile + " => " + e.Message);
+                    LogFile.SaveMessage(Path.Combine(startupPath, "ReadOpXML.log"), xmlFile + " => " + e.Message);
 
                     isError = true;
                 }
@@ -231,10 +246,10 @@ namespace ReadOpXML
             {
                 Console.WriteLine("\nMusisz ręcznie poprawić wskazane błedy by zaczytać pliki XML!!!");
                 Console.ReadKey(true);
-                return;
+                Environment.Exit(0);
             }
 
-            Console.WriteLine("Wczytywanie i walidacja plików XML...");
+            Console.WriteLine(walidacja ? "Wczytywanie i walidacja plików XML...\n" : "Wczytywanie plików XML...\n");
 
             int idFile = 0;
 
@@ -243,10 +258,14 @@ namespace ReadOpXML
                 idFile++;
 
                 XmlReaderSettings settings = new XmlReaderSettings();
-                settings.Schemas.Add("http://www.w3.org/2001/XMLSchema", starupPath + "\\xsd\\schemat.xsd");
-                settings.ValidationType = ValidationType.Schema;
-                settings.ValidationFlags = XmlSchemaValidationFlags.AllowXmlAttributes | XmlSchemaValidationFlags.ProcessIdentityConstraints | XmlSchemaValidationFlags.ProcessInlineSchema | XmlSchemaValidationFlags.ReportValidationWarnings;
-                settings.ValidationEventHandler += ValidationEventHandler;
+
+                if (walidacja)
+                {
+                    settings.Schemas.Add("http://www.w3.org/2001/XMLSchema", startupPath + "\\xsd\\schemat.xsd");
+                    settings.ValidationType = ValidationType.Schema;
+                    settings.ValidationFlags = XmlSchemaValidationFlags.AllowXmlAttributes | XmlSchemaValidationFlags.ProcessIdentityConstraints | XmlSchemaValidationFlags.ProcessInlineSchema | XmlSchemaValidationFlags.ReportValidationWarnings;
+                    settings.ValidationEventHandler += ValidationEventHandler;
+                }
 
                 XmlReader reader = XmlReader.Create(xmlFile, settings);
 
@@ -428,8 +447,6 @@ namespace ReadOpXML
 
             using (ExcelPackage excelPackage = new ExcelPackage())
             {
-                Console.Write('\n');
-
                 //  -------------------------------------------------------------------------------
 
                 if (operatyExport)
@@ -625,7 +642,7 @@ namespace ReadOpXML
 
                 //  -------------------------------------------------------------------------------
 
-                if (walidacjaExport)
+                if (walidacja)
                 {
                     Console.WriteLine(@"Eksport danych do XLS [błędy walidacji]...");
 
@@ -644,7 +661,7 @@ namespace ReadOpXML
 
                 //  -------------------------------------------------------------------------------
 
-                using (FileStream fileStream = new FileStream(Path.Combine(starupPath, "xml.xlsx"), FileMode.Create))
+                using (FileStream fileStream = new FileStream(Path.Combine(startupPath, "xml.xlsx"), FileMode.Create))
                 {
                     Console.WriteLine(@"Zapis pliku XLS...");
                     excelPackage.SaveAs(fileStream);
@@ -654,7 +671,6 @@ namespace ReadOpXML
             Console.WriteLine(@"Koniec");
             Console.ReadKey(true);
         }
-
 
         private static void ValidationEventHandler(object sender, ValidationEventArgs e)
         {
