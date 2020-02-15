@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Schema;
 using CommandLine;
@@ -16,17 +15,6 @@ namespace ReadOpXML
 
         public static void Main(string[] args)
         {
-            bool operatyExport = true;
-            bool operatyCelExport = true;
-            bool operatyCelArchExport = true;
-            bool operatyDzialkaPrzedExport = true;
-            bool operatyDzialkaPoExport = true;
-
-            bool zgloszeniaExport = true;
-            bool zgloszeniaCelExport = true;
-            bool zgloszeniaCelArchExport = true;
-            bool zgloszeniaOsobaUprawnionaExport = true;
-
             List<PzgMaterialZasobu> pzgMaterialZasobuList = new List<PzgMaterialZasobu>();
             List<PzgCel> pzgMaterialZasobuCelList = new List<PzgCel>();
             List<CelArchiwalny> pzgMaterialZasobuCelArchList = new List<CelArchiwalny>();
@@ -38,7 +26,7 @@ namespace ReadOpXML
             List<CelArchiwalny> pzgZgloszenieCelArchList = new List<CelArchiwalny>();
             List<OsobaUprawniona> pzgZgloszenieOsobaUprawnionaList = new List<OsobaUprawniona>();
 
-            string startupPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            string startupPath = string.Empty;
             bool poprawa = false;
             bool walidacja = false;
 
@@ -48,8 +36,9 @@ namespace ReadOpXML
             {
                 startupPath = opts.StarupPath;
                 poprawa = opts.Poprawa;
-                
+                walidacja = opts.Walidacja;
             }
+
             void HandleParseError(IEnumerable<Error> errs)
             {
                 Console.ReadKey(false);
@@ -64,174 +53,14 @@ namespace ReadOpXML
 
             bool isError = false;
 
-            Console.WriteLine(poprawa ? "Walidacja syntaktyczna i automatyczna poprawa plików XML...\n" : "Waliadacja syntaktyczna plików XML...\n");
+            Console.WriteLine("Walidacja syntaktyczna plików XML...\n");
 
             foreach (string xmlFile in xmlFiles)
             {
                 try
                 {
                     XmlDocument doc = new XmlDocument {PreserveWhitespace = true};
-
                     doc.Load(xmlFile);
-
-                    if (poprawa)
-                    { 
-                        XmlNamespaceManager nsmgr = new XmlNamespaceManager(doc.NameTable);
-                        nsmgr.AddNamespace("xmls", "http://www.w3.org/2001/XMLSchema");
-
-                        int rok = 0;   
-
-                        string fileName = Path.GetFileName(xmlFile);
-
-                        if (fileName != null && Regex.IsMatch(fileName.ToUpper(), @"^P\.[0-9]{4}\.[0-9]{4}\.[0-9]+\.XML$"))
-                        {
-                            rok = Convert.ToInt32(fileName.Substring(7, 4));
-                        }
-
-                        //  ---------------------------------------------------------------------------
-                        //  POPRAWA oznMaterialuZasobuSepJednNr z NULL i z pustego
-                        
-                        XmlNode xmlNode = doc.DocumentElement?.SelectSingleNode("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:oznMaterialuZasobuSepJednNr", nsmgr);
-
-                        if (xmlNode != null && (xmlNode.InnerText == "null" || xmlNode.InnerText == "" || xmlNode.InnerText == "/") && rok > 2013)
-                        {
-                            xmlNode.InnerText = ".";
-                        }
-
-                        if (xmlNode != null && (xmlNode.InnerText == "null" || xmlNode.InnerText == "" || xmlNode.InnerText == "/") && rok > 0 && rok <=2013)
-                        {
-                            xmlNode.InnerText = "-";
-                        }
-
-                        //  ---------------------------------------------------------------------------
-                        //  POPRAWA idZgloszeniaSepJednNr z NULL i z pustego
-                        
-                        xmlNode = doc.DocumentElement?.SelectSingleNode("/xmls:schema/xmls:PZG_Zgloszenie/xmls:idZgloszeniaSepJednNr", nsmgr);
-
-                        if (xmlNode != null && (xmlNode.InnerText == "null" || xmlNode.InnerText == "" || xmlNode.InnerText == "/") && rok > 2013)
-                        {
-                            xmlNode.InnerText = ".";
-                        }
-
-                        if (xmlNode != null && (xmlNode.InnerText == "null" || xmlNode.InnerText == "" || xmlNode.InnerText == "/") && rok > 0 && rok <=2013)
-                        {
-                            xmlNode.InnerText = "-";
-                        }
-
-                        //  ---------------------------------------------------------------------------
-                        //  POPRAWA pzg_nazwa z 'operat techniczny' na 'operatTechniczny'
-
-                        xmlNode = doc.DocumentElement?.SelectSingleNode("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:pzg_nazwa", nsmgr);
-
-                        if (xmlNode != null && (xmlNode.InnerText == "operat techniczny" || xmlNode.InnerText == ""))
-                        {
-                            xmlNode.InnerText = "operatTechniczny";
-                        }
-
-                        //  ---------------------------------------------------------------------------
-                        //  POPRAWA pzg_tworca/nazwa z pustego na 'TWÓRCA NIEZNANY'
-
-                        xmlNode = doc.DocumentElement?.SelectSingleNode("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:pzg_tworca/xmls:nazwa", nsmgr);
-
-                        if (xmlNode != null && xmlNode.InnerText == "")
-                        {
-                            xmlNode.InnerText = "TWÓRCA NIEZNANY";
-                        }
-
-                        //  ---------------------------------------------------------------------------
-                        //  POPRAWA pzg_podmiotZglaszajacy/nazwa z pustego na 'TWÓRCA NIEZNANY'
-
-                        xmlNode = doc.DocumentElement?.SelectSingleNode("/xmls:schema/xmls:PZG_Zgloszenie/xmls:pzg_podmiotZglaszajacy/xmls:nazwa", nsmgr);
-
-                        if (xmlNode != null && xmlNode.InnerText == "")
-                        {
-                            xmlNode.InnerText = "TWÓRCA NIEZNANY";
-                        }
-
-                        //  ---------------------------------------------------------------------------
-                        //  POPRAWA REGON dla PZG_MaterialZasobu/tworca
-
-                        xmlNode = doc.DocumentElement?.SelectSingleNode("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:pzg_tworca/xmls:REGON", nsmgr);
-
-                        if (xmlNode != null && xmlNode.InnerText.Length == 8)
-                        {
-                            xmlNode.InnerText = "0" + xmlNode.InnerText;
-                        }
-
-                        //  ---------------------------------------------------------------------------
-                        //  POPRAWA REGON dla PZG_Zgloszenie/pzg_podmiotZglaszajacy
-
-                        xmlNode = doc.DocumentElement?.SelectSingleNode("/xmls:schema/xmls:PZG_Zgloszenie/xmls:pzg_podmiotZglaszajacy/xmls:REGON", nsmgr);
-
-                        if (xmlNode != null && xmlNode.InnerText.Length == 8)
-                        {
-                            xmlNode.InnerText = "0" + xmlNode.InnerText;
-                        }
-
-                        //  ---------------------------------------------------------------------------
-                        //  POPRAWA spacji w numerze działki PRZED
-                        
-                        XmlNodeList xmlNodeList = doc.DocumentElement?.SelectNodes("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:dzialkaPrzed", nsmgr);
-
-                        foreach (XmlNode node in xmlNodeList)
-                        {
-                            node.InnerText = node.InnerText.Replace(" ", "");
-                        }
-
-                        //  ---------------------------------------------------------------------------
-                        //  POPRAWA spacji w numerze działki PO
-                        
-                        xmlNodeList = doc.DocumentElement?.SelectNodes("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:dzialkaPo", nsmgr);
-
-                        foreach (XmlNode node in xmlNodeList)
-                        {
-                            node.InnerText = node.InnerText.Replace(" ", "");
-                        }
-
-                        //  ---------------------------------------------------------------------------
-                        //  POPRAWA numeru w dzialkaPrzed
-                        
-                        xmlNodeList = doc.DocumentElement?.SelectNodes("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:dzialkaPrzed", nsmgr);
-
-                        foreach (XmlNode node in xmlNodeList)
-                        {
-                            // jedna litera na końcu numeru działki 040903_5.0006.871a
-                            if (Regex.IsMatch(node.InnerText, @"^[0-9]{6}_.\.[0-9]{4}\.[0-9]+[a-z]{1}$"))
-                            {
-                                node.InnerText = node.InnerText.Substring(0, node.InnerText.Length - 1) + "-" + node.InnerText.Substring(node.InnerText.Length - 1, 1);
-                            }
-
-                            // jedna litera na końcu numeru działki 040903_5.0006.871/11a
-                            if (Regex.IsMatch(node.InnerText, @"^[0-9]{6}_.\.[0-9]{4}\.[0-9]+\/[0-9]+[a-z]{1}$"))
-                            {
-                                node.InnerText = node.InnerText.Substring(0, node.InnerText.Length - 1) + "-" + node.InnerText.Substring(node.InnerText.Length - 1, 1);
-                            }
-                        }
-
-                        //  ---------------------------------------------------------------------------
-                        //  POPRAWA numeru w dzialkaPo
-                        
-                        xmlNodeList = doc.DocumentElement?.SelectNodes("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:dzialkaPo", nsmgr);
-
-                        foreach (XmlNode node in xmlNodeList)
-                        {
-                            // jedna litera na końcu numeru działki 040903_5.0006.871a
-                            if (Regex.IsMatch(node.InnerText, @"^[0-9]{6}_.\.[0-9]{4}\.[0-9]+[a-z]{1}$"))
-                            {
-                                node.InnerText = node.InnerText.Substring(0, node.InnerText.Length - 1) + "-" + node.InnerText.Substring(node.InnerText.Length - 1, 1);
-                            }
-
-                            // jedna litera na końcu numeru działki 040903_5.0006.871/11a
-                            if (Regex.IsMatch(node.InnerText, @"^[0-9]{6}_.\.[0-9]{4}\.[0-9]+\/[0-9]+[a-z]{1}$"))
-                            {
-                                node.InnerText = node.InnerText.Substring(0, node.InnerText.Length - 1) + "-" + node.InnerText.Substring(node.InnerText.Length - 1, 1);
-                            }
-                        }
-
-                        //  ---------------------------------------------------------------------------
-
-                        doc.Save(xmlFile);  // Zapisanie dokumentu
-                    }
                 }
                 catch (XmlException e)
                 {
@@ -244,28 +73,42 @@ namespace ReadOpXML
 
             if (isError)
             {
-                Console.WriteLine("\nMusisz ręcznie poprawić wskazane błedy by zaczytać pliki XML!!!");
+                Console.WriteLine("Musisz ręcznie poprawić wskazane błedy by zaczytać pliki XML!!!");
                 Console.ReadKey(true);
                 Environment.Exit(0);
             }
 
+            if (poprawa)
+            {
+                Console.WriteLine("Automatyczna poprawa plików XML...\n");
+
+                foreach (string xmlFile in xmlFiles)
+                {
+                    XmlDocument doc = new XmlDocument {PreserveWhitespace = true};
+
+                    doc.Load(xmlFile);
+                    doc.FixErrors();
+                    doc.Save(xmlFile);
+                }
+            }
+
             Console.WriteLine(walidacja ? "Wczytywanie i walidacja plików XML...\n" : "Wczytywanie plików XML...\n");
+
+            XmlReaderSettings settings = new XmlReaderSettings();
+
+            if (walidacja)
+            {
+                settings.Schemas.Add("http://www.w3.org/2001/XMLSchema", startupPath + "\\xsd\\schemat.xsd");
+                settings.ValidationType = ValidationType.Schema;
+                settings.ValidationFlags = XmlSchemaValidationFlags.AllowXmlAttributes | XmlSchemaValidationFlags.ProcessIdentityConstraints | XmlSchemaValidationFlags.ProcessInlineSchema | XmlSchemaValidationFlags.ReportValidationWarnings;
+                settings.ValidationEventHandler += ValidationEventHandler;
+            }
 
             int idFile = 0;
 
             foreach (string xmlFile in xmlFiles)
             {
                 idFile++;
-
-                XmlReaderSettings settings = new XmlReaderSettings();
-
-                if (walidacja)
-                {
-                    settings.Schemas.Add("http://www.w3.org/2001/XMLSchema", startupPath + "\\xsd\\schemat.xsd");
-                    settings.ValidationType = ValidationType.Schema;
-                    settings.ValidationFlags = XmlSchemaValidationFlags.AllowXmlAttributes | XmlSchemaValidationFlags.ProcessIdentityConstraints | XmlSchemaValidationFlags.ProcessInlineSchema | XmlSchemaValidationFlags.ReportValidationWarnings;
-                    settings.ValidationEventHandler += ValidationEventHandler;
-                }
 
                 XmlReader reader = XmlReader.Create(xmlFile, settings);
 
@@ -278,47 +121,49 @@ namespace ReadOpXML
 
                 PzgMaterialZasobu pzgMaterialZasobu = new PzgMaterialZasobu
                 {
-                IdFile = idFile,
+                    IdFile = idFile,
                     XmlPath = xmlFile,
-                    IdMaterialu = Path.GetFileNameWithoutExtension(xmlFile),
-                    IdMaterialuPierwszyCzlon = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_IdMaterialu", "pierwszyCzlon"),
-                    IdMaterialuDrugiCzlon = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_IdMaterialu", "drugiCzlon"),
-                    IdMaterialuTrzeciCzlon = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_IdMaterialu", "trzeciCzlon"),
-                    IdMaterialuCzwartyCzlon = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_IdMaterialu", "czwartyCzlon"),
-                    PzgDataPrzyjecia = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_dataPrzyjecia"),
-                    DataWplywu = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "dataWplywu"),
-                    PzgNazwa = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_nazwa"),
-                    PzgPolozenieObszaru = string.Concat(doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_polozenieObszaru").Take(32767)),
-                    Obreb = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "obreb"),
-                    PzgTworcaNazwa = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_tworca", "nazwa"),
-                    PzgTworcaRegon = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_tworca", "REGON"),
-                    PzgTworcaPesel = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_tworca", "PESEL"),
-                    PzgSposobPozyskania = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_sposobPozyskania"),
-                    PzgPostacMaterialu = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_postacMaterialu"),
-                    PzgRodzNosnika = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_rodzNosnika"),
-                    PzgDostep = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_dostep"),
-                    PzgPrzyczynyOgraniczen = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_przyczynyOgraniczen"),
-                    PzgTypMaterialu = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_typMaterialu"),
-                    PzgKatArchiwalna = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_katArchiwalna"),
-                    PzgJezyk = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_jezyk"),
-                    PzgOpis = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_opis"),
-                    PzgOznMaterialuZasobu = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_oznMaterialuZasobu"),
-                    OznMaterialuZasobuTyp = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "oznMaterialuZasobuTyp"),
-                    OznMaterialuZasobuJedn = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "oznMaterialuZasobuJedn"),
-                    OznMaterialuZasobuNr = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "oznMaterialuZasobuNr"),
-                    OznMaterialuZasobuRok = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "oznMaterialuZasobuRok"),
-                    OznMaterialuZasobuTom = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "oznMaterialuZasobuTom"),
-                    OznMaterialuZasobuSepJednNr = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "oznMaterialuZasobuSepJednNr"),
-                    OznMaterialuZasobuSepNrRok = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "oznMaterialuZasobuSepNrRok"),
-                    PzgDokumentWyl = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_dokumentWyl"),
-                    PzgDataWyl = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_dataWyl"),
-                    PzgDataArchLubBrak = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_dataArchLubBrak"),
-                    PzgCel = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_cel"),
-                    CelArchiwalny = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "celArchiwalny"),
-                    DzialkaPrzed = string.Concat(doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "dzialkaPrzed").Take(32767)),
-                    DzialkaPo = string.Concat(doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "dzialkaPo").Take(32767)),
-                    Opis2 = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "opis2")
+                    IdMaterialu = Path.GetFileNameWithoutExtension(xmlFile)
+
                 };
+
+                pzgMaterialZasobu.IdMaterialuPierwszyCzlon = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_IdMaterialu", "pierwszyCzlon");
+                pzgMaterialZasobu.IdMaterialuDrugiCzlon = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_IdMaterialu", "drugiCzlon");
+                pzgMaterialZasobu.IdMaterialuTrzeciCzlon = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_IdMaterialu", "trzeciCzlon");
+                pzgMaterialZasobu.IdMaterialuCzwartyCzlon = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_IdMaterialu", "czwartyCzlon");
+                pzgMaterialZasobu.PzgDataPrzyjecia = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_dataPrzyjecia");
+                pzgMaterialZasobu.DataWplywu = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "dataWplywu");
+                pzgMaterialZasobu.PzgNazwa = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_nazwa");
+                pzgMaterialZasobu.PzgPolozenieObszaru = string.Concat(doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_polozenieObszaru").Take(32767));
+                pzgMaterialZasobu.Obreb = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "obreb");
+                pzgMaterialZasobu.PzgTworcaNazwa = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_tworca", "nazwa");
+                pzgMaterialZasobu.PzgTworcaRegon = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_tworca", "REGON");
+                pzgMaterialZasobu.PzgTworcaPesel = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_tworca", "PESEL");
+                pzgMaterialZasobu.PzgSposobPozyskania = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_sposobPozyskania");
+                pzgMaterialZasobu.PzgPostacMaterialu = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_postacMaterialu");
+                pzgMaterialZasobu.PzgRodzNosnika = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_rodzNosnika");
+                pzgMaterialZasobu.PzgDostep = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_dostep");
+                pzgMaterialZasobu.PzgPrzyczynyOgraniczen = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_przyczynyOgraniczen");
+                pzgMaterialZasobu.PzgTypMaterialu = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_typMaterialu");
+                pzgMaterialZasobu.PzgKatArchiwalna = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_katArchiwalna");
+                pzgMaterialZasobu.PzgJezyk = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_jezyk");
+                pzgMaterialZasobu.PzgOpis = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_opis");
+                pzgMaterialZasobu.PzgOznMaterialuZasobu = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_oznMaterialuZasobu");
+                pzgMaterialZasobu.OznMaterialuZasobuTyp = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "oznMaterialuZasobuTyp");
+                pzgMaterialZasobu.OznMaterialuZasobuJedn = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "oznMaterialuZasobuJedn");
+                pzgMaterialZasobu.OznMaterialuZasobuNr = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "oznMaterialuZasobuNr");
+                pzgMaterialZasobu.OznMaterialuZasobuRok = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "oznMaterialuZasobuRok");
+                pzgMaterialZasobu.OznMaterialuZasobuTom = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "oznMaterialuZasobuTom");
+                pzgMaterialZasobu.OznMaterialuZasobuSepJednNr = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "oznMaterialuZasobuSepJednNr");
+                pzgMaterialZasobu.OznMaterialuZasobuSepNrRok = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "oznMaterialuZasobuSepNrRok");
+                pzgMaterialZasobu.PzgDokumentWyl = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_dokumentWyl");
+                pzgMaterialZasobu.PzgDataWyl = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_dataWyl");
+                pzgMaterialZasobu.PzgDataArchLubBrak = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_dataArchLubBrak");
+                pzgMaterialZasobu.PzgCel = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_cel");
+                pzgMaterialZasobu.CelArchiwalny = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "celArchiwalny");
+                pzgMaterialZasobu.DzialkaPrzed = string.Concat(doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "dzialkaPrzed").Take(32767));
+                pzgMaterialZasobu.DzialkaPo = string.Concat(doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "dzialkaPo").Take(32767));
+                pzgMaterialZasobu.Opis2 = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "opis2");
 
                 pzgMaterialZasobuList.Add(pzgMaterialZasobu);
 
@@ -374,25 +219,26 @@ namespace ReadOpXML
                 {
                     IdFile = idFile,
                     XmlPath = xmlFile,
-                    IdMaterialu = Path.GetFileNameWithoutExtension(xmlFile),
-                    PzgIdZgloszenia = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "pzg_idZgloszenia"),
-                    IdZgloszeniaJedn = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "idZgloszeniaJedn"),
-                    IdZgloszeniaNr = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "idZgloszeniaNr"),
-                    IdZgloszeniaRok = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "idZgloszeniaRok"),
-                    IdZgloszeniaEtap = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "idZgloszeniaEtap"),
-                    IdZgloszeniaSepJednNr = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "idZgloszeniaSepJednNr"),
-                    IdZgloszeniaSepNrRok = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "idZgloszeniaSepNrRok"),
-                    PzgDataZgloszenia = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "pzg_dataZgloszenia"),
-                    PzgPolozenieObszaru = string.Concat(doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_polozenieObszaru").Take(32767)),
-                    Obreb = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "obreb"),
-                    PzgPodmiotZglaszajacyNazwa = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "pzg_podmiotZglaszajacy", "nazwa"),
-                    PzgPodmiotZglaszajacyRegon = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "pzg_podmiotZglaszajacy", "REGON"),
-                    PzgPodmiotZglaszajacyPesel = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "pzg_podmiotZglaszajacy", "PESEL"),
-                    OsobaUprawniona = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "osobaUprawniona"),
-                    PzgCel = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "pzg_cel"),
-                    CelArchiwalny = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "celArchiwalny"),
-                    PzgRodzaj = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "pzg_rodzaj")
+                    IdMaterialu = Path.GetFileNameWithoutExtension(xmlFile)
                 };
+
+                pzgZgloszenie.PzgIdZgloszenia = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "pzg_idZgloszenia");
+                pzgZgloszenie.IdZgloszeniaJedn = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "idZgloszeniaJedn");
+                pzgZgloszenie.IdZgloszeniaNr = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "idZgloszeniaNr");
+                pzgZgloszenie.IdZgloszeniaRok = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "idZgloszeniaRok");
+                pzgZgloszenie.IdZgloszeniaEtap = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "idZgloszeniaEtap");
+                pzgZgloszenie.IdZgloszeniaSepJednNr = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "idZgloszeniaSepJednNr");
+                pzgZgloszenie.IdZgloszeniaSepNrRok = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "idZgloszeniaSepNrRok");
+                pzgZgloszenie.PzgDataZgloszenia = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "pzg_dataZgloszenia");
+                pzgZgloszenie.PzgPolozenieObszaru = string.Concat(doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_polozenieObszaru").Take(32767));
+                pzgZgloszenie.Obreb = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "obreb");
+                pzgZgloszenie.PzgPodmiotZglaszajacyNazwa = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "pzg_podmiotZglaszajacy", "nazwa");
+                pzgZgloszenie.PzgPodmiotZglaszajacyRegon = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "pzg_podmiotZglaszajacy", "REGON");
+                pzgZgloszenie.PzgPodmiotZglaszajacyPesel = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "pzg_podmiotZglaszajacy", "PESEL");
+                pzgZgloszenie.OsobaUprawniona = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "osobaUprawniona");
+                pzgZgloszenie.PzgCel = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "pzg_cel");
+                pzgZgloszenie.CelArchiwalny = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "celArchiwalny");
+                pzgZgloszenie.PzgRodzaj = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "pzg_rodzaj");
 
                 pzgZgloszenieList.Add(pzgZgloszenie);
 
@@ -447,15 +293,56 @@ namespace ReadOpXML
 
             using (ExcelPackage excelPackage = new ExcelPackage())
             {
-                //  -------------------------------------------------------------------------------
+                string[] arkusze = {"operaty", "operaty_cel", "operaty_cel_arch", "operaty_dzialka_przed", "operaty_dzialka_po", "zgłoszenia", "zgłoszenia_cel", "zgłoszenia_cel_arch", "zgłoszenia_osoba_uprawniona", "walidacja"};
 
-                if (operatyExport)
+                foreach (string arkusz in arkusze)
                 {
-                    Console.WriteLine(@"Eksport danych do XLS [operaty]...");
+                    Console.WriteLine($"Eksport danych do XLS [{arkusz}]...");    
 
-                    ExcelWorksheet sheet = excelPackage.Workbook.Worksheets.Add("operaty");
+                    ExcelWorksheet sheet = excelPackage.Workbook.Worksheets.Add(arkusz);
 
-                    sheet.Cells[1, 1].LoadFromCollection(pzgMaterialZasobuList, true);
+                    switch (arkusz)
+                    {
+                        case "operaty" :
+                            sheet.Cells[1, 1].LoadFromCollection(pzgMaterialZasobuList, true);
+                            break;
+
+                        case "operaty_cel":
+                            sheet.Cells[1, 1].LoadFromCollection(pzgMaterialZasobuCelList, true);
+                            break;
+
+                        case "operaty_cel_arch":
+                            sheet.Cells[1, 1].LoadFromCollection(pzgMaterialZasobuCelArchList, true);
+                            break;
+
+                        case "operaty_dzialka_przed":
+                            sheet.Cells[1, 1].LoadFromCollection(pzgMaterialZasobuDzialkaPrzedList, true);
+                            break;
+
+                        case "operaty_dzialka_po":
+                            sheet.Cells[1, 1].LoadFromCollection(pzgMaterialZasobuDzialkaPoList, true);
+                            break;
+
+                        case "zgłoszenia":
+                            sheet.Cells[1, 1].LoadFromCollection(pzgZgloszenieList, true);
+                            break;
+
+                        case "zgłoszenia_cel":
+                            sheet.Cells[1, 1].LoadFromCollection(pzgZgloszenieCelList, true);
+                            break;
+
+                        case "zgłoszenia_cel_arch":
+                            sheet.Cells[1, 1].LoadFromCollection(pzgZgloszenieCelArchList, true);
+                            break;
+
+                        case "zgłoszenia_osoba_uprawniona":
+                            sheet.Cells[1, 1].LoadFromCollection(pzgZgloszenieOsobaUprawnionaList, true);
+                            break;
+
+                        case "walidacja":
+                            sheet.Cells[1, 1].LoadFromCollection(ErrorLogsList, true);
+                            break;
+                    }
 
                     int rowsCount = sheet.Dimension.Rows;
                     int columnsCount = sheet.Dimension.Columns;
@@ -465,197 +352,8 @@ namespace ReadOpXML
                     sheet.Cells[1, 1, rowsCount, columnsCount].Style.Numberformat.Format = "@";
 
                     ExcelRange range = sheet.Cells[1, 1, sheet.Dimension.End.Row, sheet.Dimension.End.Column];
-                    sheet.Tables.Add(range, "operaty");
+                    sheet.Tables.Add(range, arkusz);
 
-                    sheet.Cells.AutoFitColumns(10, 50);
-                }
-
-                //  -------------------------------------------------------------------------------
-
-                if (operatyCelExport)
-                {
-                    Console.WriteLine(@"Eksport danych do XLS [operaty_cel]...");
-
-                    ExcelWorksheet sheet = excelPackage.Workbook.Worksheets.Add("operaty_cel");
-
-                    sheet.Cells[1, 1].LoadFromCollection(pzgMaterialZasobuCelList, true);
-
-                    int rowsCount = sheet.Dimension.Rows;
-                    int columnsCount = sheet.Dimension.Columns;
-
-                    sheet.View.FreezePanes(2, 1);
-
-                    sheet.Cells[1, 1, rowsCount, columnsCount].Style.Numberformat.Format = "@";
-
-                    sheet.Cells[1, 1, rowsCount, columnsCount].AutoFilter = true;
-                    sheet.Cells.AutoFitColumns(10, 50);
-                }
-
-                //  -------------------------------------------------------------------------------
-
-                if (operatyCelArchExport)
-                {
-                    Console.WriteLine(@"Eksport danych do XLS [operaty_cel_arch]...");
-
-                    ExcelWorksheet sheet = excelPackage.Workbook.Worksheets.Add("operaty_cel_arch");
-
-                    sheet.Cells[1, 1].LoadFromCollection(pzgMaterialZasobuCelArchList, true);
-
-                    int rowsCount = sheet.Dimension.Rows;
-                    int columnsCount = sheet.Dimension.Columns;
-
-                    sheet.View.FreezePanes(2, 1);
-
-                    sheet.Cells[1, 1, rowsCount, columnsCount].Style.Numberformat.Format = "@";
-
-                    sheet.Cells[1, 1, rowsCount, columnsCount].AutoFilter = true;
-                    sheet.Cells.AutoFitColumns(10, 50);
-                }
-
-                //  -------------------------------------------------------------------------------
-
-                if (operatyDzialkaPrzedExport)
-                {
-                    Console.WriteLine(@"Eksport danych do XLS [operaty_dzialka_przed]...");
-
-                    ExcelWorksheet sheet = excelPackage.Workbook.Worksheets.Add("operaty_dzialka_przed");
-
-                    sheet.Cells[1, 1].LoadFromCollection(pzgMaterialZasobuDzialkaPrzedList, true);
-
-                    int rowsCount = sheet.Dimension.Rows;
-                    int columnsCount = sheet.Dimension.Columns;
-
-                    sheet.View.FreezePanes(2, 1);
-
-                    sheet.Cells[1, 1, rowsCount, columnsCount].Style.Numberformat.Format = "@";
-
-                    sheet.Cells[1, 1, rowsCount, columnsCount].AutoFilter = true;
-                    sheet.Cells.AutoFitColumns(10, 50);
-                }
-
-                //  -------------------------------------------------------------------------------
-
-                if (operatyDzialkaPoExport)
-                {
-                    Console.WriteLine(@"Eksport danych do XLS [operaty_dzialka_po]...");
-
-                    ExcelWorksheet sheet = excelPackage.Workbook.Worksheets.Add("operaty_dzialka_po");
-
-                    sheet.Cells[1, 1].LoadFromCollection(pzgMaterialZasobuDzialkaPoList, true);
-
-                    int rowsCount = sheet.Dimension.Rows;
-                    int columnsCount = sheet.Dimension.Columns;
-
-                    sheet.View.FreezePanes(2, 1);
-
-                    sheet.Cells[1, 1, rowsCount, columnsCount].Style.Numberformat.Format = "@";
-
-                    sheet.Cells[1, 1, rowsCount, columnsCount].AutoFilter = true;
-                    sheet.Cells.AutoFitColumns(10, 50);
-                }
-
-                //  -------------------------------------------------------------------------------
-
-                if (zgloszeniaExport)
-                {
-                    Console.WriteLine(@"Eksport danych do XLS [zgłoszenia]...");
-
-                    ExcelWorksheet sheet = excelPackage.Workbook.Worksheets.Add("zgłoszenia");
-
-                    sheet.Cells[1, 1].LoadFromCollection(pzgZgloszenieList, true);
-
-                    int rowsCount = sheet.Dimension.Rows;
-                    int columnsCount = sheet.Dimension.Columns;
-
-                    sheet.View.FreezePanes(2, 1);
-
-                    sheet.Cells[1, 1, rowsCount, columnsCount].Style.Numberformat.Format = "@";
-
-                    ExcelRange range = sheet.Cells[1, 1, sheet.Dimension.End.Row, sheet.Dimension.End.Column];
-                    sheet.Tables.Add(range, "zgłoszenia");
-
-                    sheet.Cells.AutoFitColumns(10, 50);
-                }
-                
-                //  -------------------------------------------------------------------------------
-
-                if (zgloszeniaCelExport)
-                {
-                    Console.WriteLine(@"Eksport danych do XLS [zgłoszenia_cel]...");
-
-                    ExcelWorksheet sheet = excelPackage.Workbook.Worksheets.Add("zgłoszenia_cel");
-
-                    sheet.Cells[1, 1].LoadFromCollection(pzgZgloszenieCelList, true);
-
-                    int rowsCount = sheet.Dimension.Rows;
-                    int columnsCount = sheet.Dimension.Columns;
-
-                    sheet.View.FreezePanes(2, 1);
-
-                    sheet.Cells[1, 1, rowsCount, columnsCount].Style.Numberformat.Format = "@";
-
-                    sheet.Cells[1, 1, rowsCount, columnsCount].AutoFilter = true;
-                    sheet.Cells.AutoFitColumns(10, 50);
-                }
-                
-                //  -------------------------------------------------------------------------------
-
-                if (zgloszeniaCelArchExport)
-                {
-                    Console.WriteLine(@"Eksport danych do XLS [zgłoszenia_cel_arch]...");
-
-                    ExcelWorksheet sheet = excelPackage.Workbook.Worksheets.Add("zgłoszenia_cel_arch");
-
-                    sheet.Cells[1, 1].LoadFromCollection(pzgZgloszenieCelArchList, true);
-
-                    int rowsCount = sheet.Dimension.Rows;
-                    int columnsCount = sheet.Dimension.Columns;
-
-                    sheet.View.FreezePanes(2, 1);
-
-                    sheet.Cells[1, 1, rowsCount, columnsCount].Style.Numberformat.Format = "@";
-
-                    sheet.Cells[1, 1, rowsCount, columnsCount].AutoFilter = true;
-                    sheet.Cells.AutoFitColumns(10, 50);
-                }
-
-                //  -------------------------------------------------------------------------------
-
-                if (zgloszeniaOsobaUprawnionaExport)
-                {
-                    Console.WriteLine(@"Eksport danych do XLS [zgłoszenia_osoba_uprawniona]...");
-
-                    ExcelWorksheet sheet = excelPackage.Workbook.Worksheets.Add("zgłoszenia_osoba_uprawniona");
-
-                    sheet.Cells[1, 1].LoadFromCollection(pzgZgloszenieOsobaUprawnionaList, true);
-
-                    int rowsCount = sheet.Dimension.Rows;
-                    int columnsCount = sheet.Dimension.Columns;
-
-                    sheet.View.FreezePanes(2, 1);
-
-                    sheet.Cells[1, 1, rowsCount, columnsCount].Style.Numberformat.Format = "@";
-
-                    sheet.Cells[1, 1, rowsCount, columnsCount].AutoFilter = true;
-                    sheet.Cells.AutoFitColumns(10, 50);
-                }
-
-                //  -------------------------------------------------------------------------------
-
-                if (walidacja)
-                {
-                    Console.WriteLine(@"Eksport danych do XLS [błędy walidacji]...");
-
-                    ExcelWorksheet sheet = excelPackage.Workbook.Worksheets.Add("walidacja");
-
-                    sheet.Cells[1, 1].LoadFromCollection(ErrorLogsList, true);
-
-                    int rowsCount = sheet.Dimension.Rows;
-                    int columnsCount = sheet.Dimension.Columns;
-
-                    sheet.View.FreezePanes(2, 1);
-
-                    sheet.Cells[1, 1, rowsCount, columnsCount].AutoFilter = true;
                     sheet.Cells.AutoFitColumns(10, 50);
                 }
 
@@ -663,12 +361,14 @@ namespace ReadOpXML
 
                 using (FileStream fileStream = new FileStream(Path.Combine(startupPath, "xml.xlsx"), FileMode.Create))
                 {
-                    Console.WriteLine(@"Zapis pliku XLS...");
+                    Console.WriteLine("\nZapis pliku XLS...");
+
                     excelPackage.SaveAs(fileStream);
                 }
             }
             
-            Console.WriteLine(@"Koniec");
+            Console.WriteLine("\nKoniec");
+
             Console.ReadKey(true);
         }
 

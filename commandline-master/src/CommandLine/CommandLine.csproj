@@ -29,6 +29,10 @@
 		<DebugType>portable</DebugType>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+	  <DocumentationFile />
+	</PropertyGroup>
+
 	<ItemGroup Condition="'$(BuildTarget)' != 'fsharp'">
 		<Compile Remove="Infrastructure\FSharpOptionHelper.cs" />
 	</ItemGroup>
