@@ -1,4 +1,6 @@
-﻿namespace ReadOpXML
+﻿using System.Collections.Generic;
+
+namespace ReadOpXML
 {
     class PzgZgloszenie
     {
@@ -18,9 +20,9 @@
         public string PzgPodmiotZglaszajacyNazwa { get; set; }
         public string PzgPodmiotZglaszajacyRegon { get; set; }
         public string PzgPodmiotZglaszajacyPesel { get; set; }
-        public string OsobaUprawniona { get; set; }
-        public string PzgCel { get; set; }
-        public string CelArchiwalny { get; set; }
+        public List<string> OsobaUprawnionaList { get; set; }
+        public List<string> PzgCelList { get; set; }
+        public List<string> CelArchiwalnyList { get; set; }
         public string PzgRodzaj { get; set; }
 
     }

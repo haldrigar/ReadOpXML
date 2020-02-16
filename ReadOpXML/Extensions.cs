@@ -178,14 +178,40 @@ namespace ReadOpXML
         {
             string xPath = nodes.Aggregate("/xmls:schema", (current, t) => current + "/xmls:" + t);
 
-            XmlNodeList nodeList = doc.DocumentElement?.SelectNodes(xPath, nsmgr);
+            XmlNode node = doc.DocumentElement?.SelectSingleNode(xPath, nsmgr);
 
-            if (nodeList == null || nodeList.Count == 0)
+            if (node == null)
             {
                 return "--brak znacznika--";
             }
 
-            List<string> valuesList = new List<string>();
+            if (string.IsNullOrEmpty(node.InnerText))
+            {
+                return "--brak wartosci--";
+            }
+
+            if (node.InnerText.Contains("|"))
+            {
+                throw new Exception("Błąd separatora!");
+            }
+
+            return node.InnerText;
+
+        }
+
+        public static List<string> GetXmlValueList(this XmlDocument doc, XmlNamespaceManager nsmgr, params string[] nodes)
+        {
+            List<string> valueList = new List<string>();
+
+            string xPath = nodes.Aggregate("/xmls:schema", (current, t) => current + "/xmls:" + t);
+
+            XmlNodeList nodeList = doc.DocumentElement?.SelectNodes(xPath, nsmgr);
+
+            if (nodeList == null || nodeList.Count == 0)
+            {
+                valueList.Add("--brak znacznika--");
+                return valueList;
+            }
 
             if (nodes.Contains("osobaUprawniona"))
             {
@@ -205,7 +231,7 @@ namespace ReadOpXML
 
                     if (imie.Contains('|') || nazwisko.Contains('|') ||  numerUprawnien.Contains('|')) throw new Exception("Błąd separatora!");
 
-                    valuesList.Add(imie + "_" + nazwisko + "_" + numerUprawnien);
+                    valueList.Add(imie + "_" + nazwisko + "_" + numerUprawnien);
                 }
             }
             else
@@ -218,13 +244,13 @@ namespace ReadOpXML
 
                     if (node.InnerText.Contains("|")) throw new Exception("Błąd separatora!");
 
-                    valuesList.Add(wartosc);
+                    valueList.Add(wartosc);
                 }
             }
 
-            valuesList.Sort();
+            valueList.Sort();
 
-            return valuesList.Aggregate(string.Empty, (current, value) => current + '|' + value).TrimStart('|');
+            return valueList;
         }
     }
 }

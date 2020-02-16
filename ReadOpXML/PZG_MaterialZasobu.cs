@@ -1,4 +1,6 @@
-﻿namespace ReadOpXML
+﻿using System.Collections.Generic;
+
+namespace ReadOpXML
 {
     class PzgMaterialZasobu
     {
@@ -37,10 +39,10 @@
         public string PzgDokumentWyl { get; set; }
         public string PzgDataWyl { get; set; }
         public string PzgDataArchLubBrak { get; set; }
-        public string PzgCel { get; set; }
-        public string CelArchiwalny { get; set; }
-        public string DzialkaPrzed { get; set; }
-        public string DzialkaPo { get; set; }
+        public List<string> PzgCelList { get; set; }
+        public List<string> CelArchiwalnyList { get; set; }
+        public List<string> DzialkaPrzedList { get; set; }
+        public List<string> DzialkaPoList { get; set; }
         public string Opis2 { get; set; }
     }
 }

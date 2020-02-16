@@ -15,13 +15,13 @@ namespace ReadOpXML
 
         public static void Main(string[] args)
         {
-            List<PzgMaterialZasobu> pzgMaterialZasobuList = new List<PzgMaterialZasobu>();
+            Dictionary<int, PzgMaterialZasobu> pzgMaterialZasobuDict = new Dictionary<int, PzgMaterialZasobu>();
             List<PzgCel> pzgMaterialZasobuCelList = new List<PzgCel>();
             List<CelArchiwalny> pzgMaterialZasobuCelArchList = new List<CelArchiwalny>();
             List<DzialkaPrzed> pzgMaterialZasobuDzialkaPrzedList = new List<DzialkaPrzed>();
             List<DzialkaPo> pzgMaterialZasobuDzialkaPoList = new List<DzialkaPo>();
 
-            List<PzgZgloszenie> pzgZgloszenieList = new List<PzgZgloszenie>();
+            Dictionary<int, PzgZgloszenie> pzgZgloszenieDict = new Dictionary<int, PzgZgloszenie>();
             List<PzgCel> pzgZgloszenieCelList = new List<PzgCel>();
             List<CelArchiwalny> pzgZgloszenieCelArchList = new List<CelArchiwalny>();
             List<OsobaUprawniona> pzgZgloszenieOsobaUprawnionaList = new List<OsobaUprawniona>();
@@ -134,7 +134,7 @@ namespace ReadOpXML
                 pzgMaterialZasobu.PzgDataPrzyjecia = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_dataPrzyjecia");
                 pzgMaterialZasobu.DataWplywu = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "dataWplywu");
                 pzgMaterialZasobu.PzgNazwa = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_nazwa");
-                pzgMaterialZasobu.PzgPolozenieObszaru = string.Concat(doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_polozenieObszaru").Take(32767));
+                pzgMaterialZasobu.PzgPolozenieObszaru = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_polozenieObszaru");
                 pzgMaterialZasobu.Obreb = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "obreb");
                 pzgMaterialZasobu.PzgTworcaNazwa = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_tworca", "nazwa");
                 pzgMaterialZasobu.PzgTworcaRegon = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_tworca", "REGON");
@@ -159,13 +159,13 @@ namespace ReadOpXML
                 pzgMaterialZasobu.PzgDokumentWyl = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_dokumentWyl");
                 pzgMaterialZasobu.PzgDataWyl = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_dataWyl");
                 pzgMaterialZasobu.PzgDataArchLubBrak = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_dataArchLubBrak");
-                pzgMaterialZasobu.PzgCel = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_cel");
-                pzgMaterialZasobu.CelArchiwalny = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "celArchiwalny");
-                pzgMaterialZasobu.DzialkaPrzed = string.Concat(doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "dzialkaPrzed").Take(32767));
-                pzgMaterialZasobu.DzialkaPo = string.Concat(doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "dzialkaPo").Take(32767));
+                pzgMaterialZasobu.PzgCelList = doc.GetXmlValueList(nsmgr, "PZG_MaterialZasobu", "pzg_cel");
+                pzgMaterialZasobu.CelArchiwalnyList = doc.GetXmlValueList(nsmgr, "PZG_MaterialZasobu", "celArchiwalny");
+                pzgMaterialZasobu.DzialkaPrzedList = doc.GetXmlValueList(nsmgr, "PZG_MaterialZasobu", "dzialkaPrzed");
+                pzgMaterialZasobu.DzialkaPoList = doc.GetXmlValueList(nsmgr, "PZG_MaterialZasobu", "dzialkaPo");
                 pzgMaterialZasobu.Opis2 = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "opis2");
 
-                pzgMaterialZasobuList.Add(pzgMaterialZasobu);
+                pzgMaterialZasobuDict.Add(pzgMaterialZasobu.IdFile, pzgMaterialZasobu);
 
                 XmlNodeList nodeList = doc.DocumentElement?.SelectNodes("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:pzg_cel", nsmgr);
 
@@ -176,7 +176,7 @@ namespace ReadOpXML
                             IdFile = idFile,
                             XmlPath = xmlFile, 
                             IdMaterialu = Path.GetFileNameWithoutExtension(xmlFile),
-                            Value = node.InnerText
+                            Value = string.IsNullOrEmpty(node.InnerText) ? "--brak wartosci--" : node.InnerText
                         });
 
                 nodeList = doc.DocumentElement?.SelectNodes("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:celArchiwalny", nsmgr);
@@ -188,7 +188,7 @@ namespace ReadOpXML
                             IdFile = idFile,
                             XmlPath = xmlFile, 
                             IdMaterialu = Path.GetFileNameWithoutExtension(xmlFile),
-                            Value = node.InnerText
+                            Value = string.IsNullOrEmpty(node.InnerText) ? "--brak wartosci--" : node.InnerText
                         });
 
                 nodeList = doc.DocumentElement?.SelectNodes("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:dzialkaPrzed", nsmgr);
@@ -200,7 +200,7 @@ namespace ReadOpXML
                             IdFile = idFile,
                             XmlPath = xmlFile, 
                             IdMaterialu = Path.GetFileNameWithoutExtension(xmlFile),
-                            Value = node.InnerText
+                            Value = string.IsNullOrEmpty(node.InnerText) ? "--brak wartosci--" : node.InnerText
                         });
 
                 nodeList = doc.DocumentElement?.SelectNodes("/xmls:schema/xmls:PZG_MaterialZasobu/xmls:dzialkaPo", nsmgr);
@@ -212,7 +212,7 @@ namespace ReadOpXML
                             IdFile = idFile,
                             XmlPath = xmlFile, 
                             IdMaterialu = Path.GetFileNameWithoutExtension(xmlFile),
-                            Value = node.InnerText
+                            Value = string.IsNullOrEmpty(node.InnerText) ? "--brak wartosci--" : node.InnerText
                         });
 
                 PzgZgloszenie pzgZgloszenie = new PzgZgloszenie
@@ -230,17 +230,17 @@ namespace ReadOpXML
                 pzgZgloszenie.IdZgloszeniaSepJednNr = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "idZgloszeniaSepJednNr");
                 pzgZgloszenie.IdZgloszeniaSepNrRok = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "idZgloszeniaSepNrRok");
                 pzgZgloszenie.PzgDataZgloszenia = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "pzg_dataZgloszenia");
-                pzgZgloszenie.PzgPolozenieObszaru = string.Concat(doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_polozenieObszaru").Take(32767));
+                pzgZgloszenie.PzgPolozenieObszaru = doc.GetXmlValue(nsmgr, "PZG_MaterialZasobu", "pzg_polozenieObszaru");
                 pzgZgloszenie.Obreb = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "obreb");
                 pzgZgloszenie.PzgPodmiotZglaszajacyNazwa = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "pzg_podmiotZglaszajacy", "nazwa");
                 pzgZgloszenie.PzgPodmiotZglaszajacyRegon = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "pzg_podmiotZglaszajacy", "REGON");
                 pzgZgloszenie.PzgPodmiotZglaszajacyPesel = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "pzg_podmiotZglaszajacy", "PESEL");
-                pzgZgloszenie.OsobaUprawniona = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "osobaUprawniona");
-                pzgZgloszenie.PzgCel = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "pzg_cel");
-                pzgZgloszenie.CelArchiwalny = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "celArchiwalny");
+                pzgZgloszenie.OsobaUprawnionaList = doc.GetXmlValueList(nsmgr, "PZG_Zgloszenie", "osobaUprawniona");
+                pzgZgloszenie.PzgCelList = doc.GetXmlValueList(nsmgr, "PZG_Zgloszenie", "pzg_cel");
+                pzgZgloszenie.CelArchiwalnyList = doc.GetXmlValueList(nsmgr, "PZG_Zgloszenie", "celArchiwalny");
                 pzgZgloszenie.PzgRodzaj = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "pzg_rodzaj");
 
-                pzgZgloszenieList.Add(pzgZgloszenie);
+                pzgZgloszenieDict.Add(pzgZgloszenie.IdFile, pzgZgloszenie);
 
                 nodeList = doc.DocumentElement?.SelectNodes("/xmls:schema/xmls:PZG_Zgloszenie/xmls:pzg_cel", nsmgr);
 
@@ -251,7 +251,7 @@ namespace ReadOpXML
                             IdFile = idFile,
                             XmlPath = xmlFile, 
                             IdMaterialu = Path.GetFileNameWithoutExtension(xmlFile),
-                            Value = node.InnerText
+                            Value = string.IsNullOrEmpty(node.InnerText) ? "--brak wartosci--" : node.InnerText
                         });
 
                 nodeList = doc.DocumentElement?.SelectNodes("/xmls:schema/xmls:PZG_Zgloszenie/xmls:celArchiwalny", nsmgr);
@@ -263,7 +263,7 @@ namespace ReadOpXML
                             IdFile = idFile,
                             XmlPath = xmlFile, 
                             IdMaterialu = Path.GetFileNameWithoutExtension(xmlFile),
-                            Value = node.InnerText
+                            Value = string.IsNullOrEmpty(node.InnerText) ? "--brak wartosci--" : node.InnerText
                         });
 
                 nodeList = doc.DocumentElement?.SelectNodes("/xmls:schema/xmls:PZG_Zgloszenie/xmls:osobaUprawniona", nsmgr);
@@ -304,7 +304,7 @@ namespace ReadOpXML
                     switch (arkusz)
                     {
                         case "operaty" :
-                            sheet.Cells[1, 1].LoadFromCollection(pzgMaterialZasobuList, true);
+                            sheet.Cells[1, 1].LoadFromCollection(pzgMaterialZasobuDict.Values, true);
                             break;
 
                         case "operaty_cel":
@@ -324,7 +324,7 @@ namespace ReadOpXML
                             break;
 
                         case "zgłoszenia":
-                            sheet.Cells[1, 1].LoadFromCollection(pzgZgloszenieList, true);
+                            sheet.Cells[1, 1].LoadFromCollection(pzgZgloszenieDict.Values, true);
                             break;
 
                         case "zgłoszenia_cel":
