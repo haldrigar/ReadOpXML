@@ -24,7 +24,7 @@
 			<enumeration value="geodezyjna inwentaryzacja powykonawcza obiektów budowlanych"/>
 			<enumeration value="tyczenie obiektów budowlanych"/>
 			<enumeration value="inny cel"/>
-						
+			
 			<enumeration value="zalozenieEGiB"/>
 			<enumeration value="modernizacjaEGiB"/>
 			<enumeration value="aktualizacjaEGiB"/>

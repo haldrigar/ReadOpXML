@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema elementFormDefault="qualified" targetNamespace="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema">
+
+	<simpleType name="SLO_CelPracyArchiwalny">
+		<restriction base="string">
+			<enumeration value="inwentaryzacja obiektów budowlanych"/>
+			<enumeration value="pomiar punktów węzłowych"/>
+			<enumeration value="sporządzenie mapy numerycznej"/>
+			<enumeration value="aktualizacja mapy"/>
+			<enumeration value="podział"/>
+			<enumeration value="inwentaryzacja sieci kanalizacyjnej"/>
+			<enumeration value="utworzenie bazy danych państwowego rejestru podstawowych osnów geodezyjnych, grawimetrycznych i magnetycznych (PRPOG)"/>
+			<enumeration value="inwentaryzacja sieci wodociągowej"/>
+			<enumeration value="aktualizacja bazy danych państwowego rejestru podstawowych osnów geodezyjnych, grawimetrycznych i magnetycznych (PRPOG) Dziennik Ustaw – 35 – Poz. 1183"/>
+			<enumeration value="inwentaryzacja sieci gazowej"/>
+			<enumeration value="utworzenie bazy danych obiektów topograficznych o szczegółowości zapewniającej tworzenie standardowych opracowań kartograficznych w skalach 1:10 000–1:100 000, w tym kartograficznych opracowań numerycznego modelu rzeźby terenu (BDOT10k)"/>
+			<enumeration value="aktualizacja bazy danych obiektów topograficznych o szczegółowości zapewniającej tworzenie standardowych opracowań kartograficznych w skalach 1:10 000–1:100 000, w tym kartograficznych opracowań numerycznego modelu rzeźby terenu (BDOT10k)"/>
+			<enumeration value="dokumenty przewłaszczeniowe"/>
+			<enumeration value="utworzenie bazy danych obiektów ogólnogeograficznych o szczegółowości zapewniającej tworzenie standardowych opracowań kartograficznych w skalach 1:250 000 i mniejszych, w tym kartograficznych opracowań numerycznego modelu rzeźby terenu (BDOO)"/>
+			<enumeration value="aktualizacja bazy danych obiektów ogólnogeograficznych o szczegółowości zapewniającej tworzenie standardowych opracowań kartograficznych w skalach 1:250 000 i mniejszych, w tym kartograficznych opracowań numerycznego modelu rzeźby terenu (BDOO)"/>
+			<enumeration value="inwentaryzacja sieci energetycznej"/>
+			<enumeration value="utworzenie krajowej bazy danych geodezyjnej ewidencji sieci uzbrojenia terenu (K-GESUT)"/>
+			<enumeration value="aktualizacja krajowej bazy danych geodezyjnej ewidencji sieci uzbrojenia terenu (K-GESUT)"/>
+			<enumeration value="utworzenie bazy danych zintegrowanych kopii baz danych BDOT10k"/>
+			<enumeration value="aktualizacja bazy danych zintegrowanych kopii baz danych BDOT10k"/>
+			<enumeration value="inwentaryzacja budynku"/>
+			<enumeration value="utworzenie bazy danych państwowego rejestru granic i powierzchni jednostek podziałów terytorialnych kraju (PRG) Dziennik Ustaw – 36 – Poz. 1183"/>
+			<enumeration value="klasyfikacja użytkow"/>
+			<enumeration value="aktualizacja bazy danych państwowego rejestru granic i powierzchni jednostek podziałów terytorialnych kraju (PRG)"/>
+			<enumeration value="utworzenie bazy danych państwowego rejestru nazw geograficznych (PRNG)"/>
+			<enumeration value="wymiana gruntów"/>
+			<enumeration value="aktualizacja bazy danych państwowego rejestru nazw geograficznych (PRNG)"/>
+			<enumeration value="POMIAR SYT-WYS"/>
+			<enumeration value="utworzenie bazy danych ortofotomapy"/>
+			<enumeration value="WERYFIKACJA DANYCH EWIDENCYJNYCH (KONTROLA TERENOWA)"/>
+			<enumeration value="utworzenie bazy danych numerycznego modelu terenu (NMT)"/>
+			<enumeration value="urządzenia lasu"/>
+			<enumeration value="INWENTARYZACJA POWYKONAWCZA"/>
+			<enumeration value="inwentaryzacja słupów"/>
+			<enumeration value="USTALENIE GRANIC"/>
+			<enumeration value="inwentaryzacja sieci telekomunikacyjnej"/>
+			<enumeration value="nowy pomiar"/>
+			<enumeration value="SCALENIE I WYMIANA GRUNTÓW"/>
+			<enumeration value="inwentaryzacja sieci ciepłowniczej"/>
+			<enumeration value="OSNOWA"/>
+		</restriction>
+	</simpleType>
+	
+</schema>

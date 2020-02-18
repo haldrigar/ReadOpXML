@@ -86,6 +86,14 @@
                 <complexType>
                   <sequence>
                     
+                    <element name="osoba_id" maxOccurs="1" minOccurs="0">
+                      <simpleType>
+                        <restriction base="integer">
+                          <minExclusive value="0"/>
+                        </restriction>
+                      </simpleType>
+                    </element>
+                    
                     <element name="nazwa" maxOccurs="1" minOccurs="1">
                       <simpleType>
                         <restriction base="string">
@@ -150,7 +158,43 @@
               <element name="pzg_jezyk" type="PZG_Jezyk" maxOccurs="1" minOccurs="1"/>
               <element name="pzg_opis" type="string" maxOccurs="1" minOccurs="0"/>
 
-              <element name="pzg_oznMaterialuZasobu" type="string" maxOccurs="1" minOccurs="1"/>
+              <element name="pzg_oznMaterialuZasobu" maxOccurs="1" minOccurs="1">
+                <simpleType>
+                  <union>
+                    <simpleType>
+                      <restriction base="string">
+                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+-[0-9]+\/[0-9]{4} t\.[0-9]+$"></pattern> <!-- M-26/1956 t.4 -->
+                      </restriction>
+                    </simpleType>
+                    <simpleType>
+                      <restriction base="string">
+                        <pattern value="^[0-9]+\/[0-9]{4} t\.[0-9]+$"></pattern> <!-- 26/1956 t.4 -->
+                      </restriction>
+                    </simpleType>
+                    <simpleType>
+                      <restriction base="string">
+                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+-[0-9]+\/[0-9]{4}$"></pattern> <!-- M-26/1956 -->
+                      </restriction>
+                    </simpleType>
+                    <simpleType>
+                      <restriction base="string">
+                        <pattern value="^[0-9]+\/[0-9]{4}$"></pattern> <!-- 26/1956 -->
+                      </restriction>
+                    </simpleType>
+                    <simpleType>
+                      <restriction base="string">
+                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+\.[0-9]+\.[0-9]{4} t\.[0-9]+$"></pattern> <!-- 6640.125.2018 t.3 -->
+                      </restriction>
+                    </simpleType>
+                    <simpleType>
+                      <restriction base="string">
+                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+\.[0-9]+\.[0-9]{4}$"></pattern> <!-- 6640.124.2018 -->
+                      </restriction>
+                    </simpleType>
+                  </union>
+                </simpleType>
+              </element>
+              
               <element name="oznMaterialuZasobuTyp" type="string" maxOccurs="1" minOccurs="0"/>
               <element name="oznMaterialuZasobuJedn" type="string" maxOccurs="1" minOccurs="0"/>
               <element name="oznMaterialuZasobuNr" maxOccurs="1" minOccurs="1">
@@ -403,7 +447,44 @@
         <element name="PZG_Zgloszenie" maxOccurs="1" minOccurs="1">
           <complexType>
             <sequence>
-              <element name="pzg_idZgloszenia" type="string" maxOccurs="1" minOccurs="1"/>
+              <element name="pzg_idZgloszenia" maxOccurs="1" minOccurs="1">
+                <simpleType>
+                  <union>
+                    <simpleType>
+                      <restriction base="string">
+                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+-[0-9]+\/[0-9]{4} e\.[0-9]+$"></pattern> <!-- M-26/1956 t.4 -->
+                      </restriction>
+                    </simpleType>
+                    <simpleType>
+                      <restriction base="string">
+                        <pattern value="^[0-9]+\/[0-9]{4} e\.[0-9]+$"></pattern> <!-- 26/1956 t.4 -->
+                      </restriction>
+                    </simpleType>
+                    <simpleType>
+                      <restriction base="string">
+                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+-[0-9]+\/[0-9]{4}$"></pattern> <!-- M-26/1956 -->
+                      </restriction>
+                    </simpleType>
+                    <simpleType>
+                      <restriction base="string">
+                        <pattern value="^[0-9]+\/[0-9]{4}$"></pattern> <!-- 26/1956 -->
+                      </restriction>
+                    </simpleType>
+                    <simpleType>
+                      <restriction base="string">
+                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+\.[0-9]+\.[0-9]{4} e\.[0-9]+$"></pattern> <!-- 6640.125.2018 t.3 -->
+                      </restriction>
+                    </simpleType>
+                    <simpleType>
+                      <restriction base="string">
+                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+\.[0-9]+\.[0-9]{4}$"></pattern> <!-- 6640.124.2018 -->
+                      </restriction>
+                    </simpleType>
+                  </union>
+                </simpleType>
+                
+              </element>
+              
               <element name="idZgloszeniaJedn" type="string" minOccurs="0" maxOccurs="1"/>
 			  
               <element name="idZgloszeniaNr"  maxOccurs="1" minOccurs="1">
@@ -476,6 +557,14 @@
                 <complexType>
                   <sequence>
                     
+                    <element name="osoba_id" maxOccurs="1" minOccurs="0">
+                      <simpleType>
+                        <restriction base="integer">
+                          <minExclusive value="0"/>
+                        </restriction>
+                      </simpleType>
+                    </element>
+                    
                     <element name="nazwa" maxOccurs="1" minOccurs="1">
                       <simpleType>
                         <restriction base="string">
@@ -533,9 +622,9 @@
               <element name="osobaUprawniona" minOccurs="0" maxOccurs="1">
                 <complexType>
                   <sequence>
-                    <element name="imie" type="string" maxOccurs="1" minOccurs="1"/>
+                    <element name="imie" type="string" maxOccurs="1" minOccurs="0"/>
                     <element name="nazwisko" type="string" maxOccurs="1" minOccurs="1"/>
-                    <element name="numer_uprawnien" type="string" maxOccurs="1" minOccurs="1"/>
+                    <element name="numer_uprawnien" type="string" maxOccurs="1" minOccurs="0"/>
                   </sequence>
                 </complexType>
               </element>

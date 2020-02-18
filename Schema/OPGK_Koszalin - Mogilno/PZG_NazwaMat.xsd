@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema elementFormDefault="qualified" targetNamespace="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema">
+
+	<simpleType name="PZG_NazwaMat">
+		<restriction base="string">
+			<enumeration value="operatTechniczny"/>
+			<enumeration value="mapaTopograficzna"/>
+			<enumeration value="mapaOgolnogeograficzna"/>
+			<enumeration value="mapaEwidencyjna"/>
+			<enumeration value="mapaZasadnicza"/>
+			<enumeration value="kartOprTematyczne"/>
+			<enumeration value="kartOprSpecjalne"/>
+			<enumeration value="zobrazLotnLubSat"/>
+			<enumeration value="ortofotomapa"/>
+			<enumeration value="NMT"/>
+			<enumeration value="kopiaBDZInnejCzZasobu"/>
+			<enumeration value="kopiaMatZInnejCzZasobu"/>
+			<enumeration value="innyMatZasobu"/>
+		</restriction>
+	</simpleType>
+	
+</schema>

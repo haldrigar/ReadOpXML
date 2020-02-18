@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema elementFormDefault="qualified" targetNamespace="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema">
+
+	<simpleType name="PZG_RodzajPracy">
+		<restriction base="string">
+			<enumeration value="pomiarySyt"/>
+			<enumeration value="pomiaryWys"/>
+			<enumeration value="pomiarySytWys"/>
+			<enumeration value="pomiaryOsnowGeod"/>
+			<enumeration value="pomiaryOsnowGraw"/>
+			<enumeration value="pomiaryOsnowMagn"/>
+			<enumeration value="zobrazowaniaLotnicze"/>
+			<enumeration value="skaningLaserowy"/>
+			<enumeration value="inny"/>
+			
+			<enumeration value="pomiary sytuacyjne i przetwarzanie rezultatów tych pomiarów"/>
+			<enumeration value="pomiary wysokościowe i przetwarzanie rezultatów tych pomiarów"/>
+			<enumeration value="pomiary sytuacyjno-wysokościowe i przetwarzanie rezultatów tych pomiarów"/>
+			<enumeration value="pomiary osnów geodezyjnych i przetwarzanie rezultatów tych pomiarów"/>
+			<enumeration value="pomiary osnów grawimetrycznych i przetwarzanie rezultatów tych pomiarów"/>
+			<enumeration value="pomiary osnów magnetycznych i przetwarzanie rezultatów tych pomiarów"/>
+			<enumeration value="wykonywanie zobrazowań lotniczych"/>
+			<enumeration value="skaning laserowy"/>
+			<enumeration value="inny"/>
+		</restriction>
+	</simpleType>
+	
+</schema>

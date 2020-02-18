@@ -4,6 +4,7 @@
 	<simpleType name="PZG_Jezyk">
 		<restriction base="string">
 			<enumeration value="pol"/>
+			<enumeration value="deu"/>
 		</restriction>
 	</simpleType>
 	
