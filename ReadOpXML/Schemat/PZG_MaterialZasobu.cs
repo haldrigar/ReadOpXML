@@ -40,10 +40,10 @@ namespace ReadOpXML.Schemat
         public string PzgDokumentWyl { get; set; }
         public string PzgDataWyl { get; set; }
         public string PzgDataArchLubBrak { get; set; }
-        public List<string> PzgCelList { get; set; }
-        public List<string> CelArchiwalnyList { get; set; }
-        public List<string> DzialkaPrzedList { get; set; }
-        public List<string> DzialkaPoList { get; set; }
+        public string PzgCelList { get; set; }
+        public string CelArchiwalnyList { get; set; }
+        public string DzialkaPrzedList { get; set; }
+        public string DzialkaPoList { get; set; }
         public string Opis2 { get; set; }
     }
 }

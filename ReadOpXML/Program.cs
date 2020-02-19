@@ -227,6 +227,7 @@ namespace ReadOpXML
                     IdMaterialu = Path.GetFileNameWithoutExtension(xmlFile)
                 };
 
+                pzgZgloszenie.PzgOznMaterialuZasobu = pzgMaterialZasobu.PzgOznMaterialuZasobu;
                 pzgZgloszenie.PzgIdZgloszenia = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "pzg_idZgloszenia");
                 pzgZgloszenie.IdZgloszeniaJedn = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "idZgloszeniaJedn");
                 pzgZgloszenie.IdZgloszeniaNr = doc.GetXmlValue(nsmgr, "PZG_Zgloszenie", "idZgloszeniaNr");
@@ -282,14 +283,22 @@ namespace ReadOpXML
 
                         docosoba.LoadXml(node.OuterXml);
 
+                        string imie = docosoba.SelectSingleNode("/xmls:osobaUprawniona/xmls:imie", nsmgr)?.InnerText;
+                        string nazwisko = docosoba.SelectSingleNode("/xmls:osobaUprawniona/xmls:nazwisko", nsmgr)?.InnerText;
+                        string numerUprawnien = docosoba.SelectSingleNode("/xmls:osobaUprawniona/xmls:numer_uprawnien", nsmgr)?.InnerText;
+
+                        if (string.IsNullOrEmpty(imie)) imie = "--brak wartosci--";
+                        if (string.IsNullOrEmpty(nazwisko)) nazwisko = "--brak wartosci--";
+                        if (string.IsNullOrEmpty(numerUprawnien)) numerUprawnien = "--brak wartosci--";
+
                         OsobaUprawniona osobaUprawniona = new OsobaUprawniona
                         {
                             IdFile = idFile,
                             XmlPath = xmlFile,
                             IdMaterialu = Path.GetFileNameWithoutExtension(xmlFile),
-                            Imie = docosoba.SelectSingleNode("/xmls:osobaUprawniona/xmls:imie", nsmgr)?.InnerText,
-                            Nazwisko = docosoba.SelectSingleNode("/xmls:osobaUprawniona/xmls:nazwisko", nsmgr)?.InnerText,
-                            NumerUprawnien = docosoba.SelectSingleNode("/xmls:osobaUprawniona/xmls:numer_uprawnien", nsmgr)?.InnerText
+                            Imie = imie,
+                            Nazwisko = nazwisko,
+                            NumerUprawnien = numerUprawnien
                         };
 
                         pzgZgloszenieOsobaUprawnionaList.Add(osobaUprawniona);
@@ -337,7 +346,7 @@ namespace ReadOpXML
 
                     if (zgloszenie.PzgIdZgloszenia != pzgIdZgloszenia)
                     {
-                        Console.WriteLine($"Błąd: {zgloszenie.XmlPath} - Nazwa zgłoszenia nie pasuje do jego składowych lub zły separator.");
+                        Console.WriteLine($"Błąd: {zgloszenie.XmlPath}: Nazwa zgłoszenia nie pasuje do jego składowych lub zły separator.");
                         ModelErrorLogList.Add(new ModelErrorLog(zgloszenie.IdFile, zgloszenie.XmlPath, "Błąd", "PzgIdZgloszenia", zgloszenie.PzgIdZgloszenia,"Nazwa zgłoszenia nie pasuje do jego składowych lub zły separator."));
                     }
 
@@ -348,17 +357,25 @@ namespace ReadOpXML
                         int zgloszenieMultiAttributesCount = pzgZgloszenieDict.Values.Count(z =>
                             z.PzgIdZgloszenia == zgloszenie.PzgIdZgloszenia &&
                             z.PzgDataZgloszenia == zgloszenie.PzgDataZgloszenia &&
-                            z.Obreb == zgloszenie.Obreb);
+                            z.Obreb == zgloszenie.Obreb &&  
+                            z.PzgPodmiotZglaszajacyOsobaId == zgloszenie.PzgPodmiotZglaszajacyOsobaId &&
+                            z.PzgPodmiotZglaszajacyNazwa == zgloszenie.PzgPodmiotZglaszajacyNazwa &&
+                            z.PzgPodmiotZglaszajacyRegon == zgloszenie.PzgPodmiotZglaszajacyRegon &&
+                            z.PzgPodmiotZglaszajacyPesel == zgloszenie.PzgPodmiotZglaszajacyPesel &&
+                            z.OsobaUprawnionaList == zgloszenie.OsobaUprawnionaList &&
+                            z.PzgCelList == zgloszenie.PzgCelList &&
+                            z.CelArchiwalnyList == zgloszenie.CelArchiwalnyList &&
+                            z.PzgRodzaj == zgloszenie.PzgRodzaj);
 
                         if (zgloszenieMultiAttributesCount == zgloszenieCount)
                         {
-                            Console.WriteLine($"Ostrzeżenie: {zgloszenie.XmlPath} - Prawdopodobny duplikat nazwy zgłoszenia.");
-                            ModelErrorLogList.Add(new ModelErrorLog(zgloszenie.IdFile, zgloszenie.XmlPath, "Ostrzeżenie", "PzgIdZgloszenia", zgloszenie.PzgIdZgloszenia,"Prawdopodobny duplikat nazwu zgłoszenia."));
+                            Console.WriteLine($"Ostrzeżenie: {zgloszenie.XmlPath}: Powielony numer zgłoszenia dla operatu.");
+                            ModelErrorLogList.Add(new ModelErrorLog(zgloszenie.IdFile, zgloszenie.XmlPath, "Ostrzeżenie", "PzgIdZgloszenia", zgloszenie.PzgIdZgloszenia,"Powielony numer zgłoszenia dla operatu."));
                         }
                         else
                         {
-                            Console.WriteLine($"Błąd: {zgloszenie.XmlPath} - Duplikat nazwy zgłoszenia.");
-                            ModelErrorLogList.Add(new ModelErrorLog(zgloszenie.IdFile, zgloszenie.XmlPath, "Błąd", "PzgIdZgloszenia", zgloszenie.PzgIdZgloszenia,"Duplikat nazwu zgłoszenia."));
+                            Console.WriteLine($"Błąd: {zgloszenie.XmlPath}: Duplikat nazwy zgłoszenia.");
+                            ModelErrorLogList.Add(new ModelErrorLog(zgloszenie.IdFile, zgloszenie.XmlPath, "Błąd", "PzgIdZgloszenia", zgloszenie.PzgIdZgloszenia,"Duplikat nazwy zgłoszenia."));
                         }
                     }
                 }
@@ -384,29 +401,6 @@ namespace ReadOpXML
 
                             sheet.Cells[1, 1].LoadFromCollection(pzgMaterialZasobuDict.Values, true);
 
-                            Console.WriteLine("\nUzupełnianie pzg_cel, celArchiwalny, dzialkaPrzed, dzialkaPo...");
-
-                            for (int i = 2; i < sheet.Dimension.End.Row; i++)
-                            {
-                                int idFIle = (int)sheet.Cells[$"A{i}"].Value;
-
-                                sheet.Cells[$"AK{i}"].Value = pzgMaterialZasobuDict[idFIle].PzgCelList
-                                    .Aggregate(string.Empty, (current, wartosc) => current + "|" + wartosc)
-                                    .TrimStart('|');
-
-                                sheet.Cells[$"AL{i}"].Value = pzgMaterialZasobuDict[idFIle].CelArchiwalnyList
-                                    .Aggregate(string.Empty, (current, wartosc) => current + "|" + wartosc)
-                                    .TrimStart('|');
-
-                                sheet.Cells[$"AM{i}"].Value = pzgMaterialZasobuDict[idFIle].DzialkaPrzedList
-                                    .Aggregate(string.Empty, (current, wartosc) => current + "|" + wartosc)
-                                    .TrimStart('|');
-
-                                sheet.Cells[$"AN{i}"].Value = pzgMaterialZasobuDict[idFIle].DzialkaPoList
-                                    .Aggregate(string.Empty, (current, wartosc) => current + "|" + wartosc)
-                                    .TrimStart('|');
-                            }
-
                             Console.WriteLine("\nWeryfikacja pzg_polozenieObszaru...");
 
                             for (int i = 2; i < sheet.Dimension.End.Row; i++)
@@ -415,7 +409,7 @@ namespace ReadOpXML
                                 {
                                     sheet.Cells[$"K{i}"].Value = sheet.Cells[$"K{i}"].Text.Substring(0, 32766);
 
-                                    Console.WriteLine(sheet.Cells[$"B{i}"].Text + "\tpzg_polozenieObszaru jest zbyt duży!");
+                                    Console.WriteLine(sheet.Cells[$"B{i}"].Text + ": pzg_polozenieObszaru przekracza rozmiar komórki Excel!");
                                 }
                             }
 
@@ -427,7 +421,7 @@ namespace ReadOpXML
                                 {
                                     sheet.Cells[$"AM{i}"].Value = sheet.Cells[$"AM{i}"].Text.Substring(0, 32766);
 
-                                    Console.WriteLine(sheet.Cells[$"B{i}"].Text + "\tdzialkaPrzed jest zbyt duży!");
+                                    Console.WriteLine(sheet.Cells[$"B{i}"].Text + ": dzialkaPrzed przekracza rozmiar komórki Excel!");
                                 }
                             }
 
@@ -439,7 +433,7 @@ namespace ReadOpXML
                                 {
                                     sheet.Cells[$"AN{i}"].Value = sheet.Cells[$"AN{i}"].Text.Substring(0, 32766);
 
-                                    Console.WriteLine(sheet.Cells[$"B{i}"].Text + "\tdzialkaPo jest zbyt duży!");
+                                    Console.WriteLine(sheet.Cells[$"B{i}"].Text + ": dzialkaPo przekracza rozmiar komórki Excel!");
                                 }
                             }
 
@@ -466,36 +460,17 @@ namespace ReadOpXML
                         case "zgłoszenia":
                             sheet.Cells[1, 1].LoadFromCollection(pzgZgloszenieDict.Values, true);
 
-                            Console.WriteLine("\nUzupełnianie osobaUprawniona, pzg_cel, celArchiwalny...");
-
-                            for (int i = 2; i < sheet.Dimension.End.Row; i++)
-                            {
-                                int idFIle = (int)sheet.Cells[$"A{i}"].Value;
-
-                                sheet.Cells[$"R{i}"].Value = pzgZgloszenieDict[idFIle].OsobaUprawnionaList
-                                    .Aggregate(string.Empty, (current, wartosc) => current + "|" + wartosc)
-                                    .TrimStart('|');
-
-                                sheet.Cells[$"S{i}"].Value = pzgZgloszenieDict[idFIle].PzgCelList
-                                    .Aggregate(string.Empty, (current, wartosc) => current + "|" + wartosc)
-                                    .TrimStart('|');
-
-                                sheet.Cells[$"T{i}"].Value = pzgZgloszenieDict[idFIle].CelArchiwalnyList
-                                    .Aggregate(string.Empty, (current, wartosc) => current + "|" + wartosc)
-                                    .TrimStart('|');
-                            }
-
                             Console.WriteLine("\nWeryfikacja pzg_polozenieObszaru...");
 
                             for (int i = 2; i < sheet.Dimension.End.Row; i++)
                             {
-                                if (sheet.Cells[$"E{i}"].Text.Length > 32767)
+                                if (sheet.Cells[$"F{i}"].Text.Length > 32767)
                                 {
-                                    sheet.Cells[$"E{i}"].Value = sheet.Cells[$"E{i}"].Text.Substring(0, 32766);
+                                    sheet.Cells[$"F{i}"].Value = sheet.Cells[$"F{i}"].Text.Substring(0, 32766);
 
                                     string xmlPath = sheet.Cells[$"B{i}"].Text;
 
-                                    Console.WriteLine(xmlPath + "\tpzg_polozenieObszaru jest zbyt duży!");
+                                    Console.WriteLine(xmlPath + ": pzg_polozenieObszaru przekracza rozmiar komórki Excel!");
                                 }
                             }
 
@@ -566,7 +541,7 @@ namespace ReadOpXML
 
             WalidationLogList.Add(err);
 
-            Console.WriteLine($"Błąd walidacji: {localSender.BaseURI} - {localSender.LocalName}");
+            Console.WriteLine($"Błąd walidacji: {localSender.BaseURI}: {localSender.LocalName}");
         }
     }
 }

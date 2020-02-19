@@ -194,7 +194,7 @@ namespace ReadOpXML.Tools
 
         }
 
-        public static List<string> GetXmlValueList(this XmlDocument doc, XmlNamespaceManager nsmgr, params string[] nodes)
+        public static string GetXmlValueList(this XmlDocument doc, XmlNamespaceManager nsmgr, params string[] nodes)
         {
             List<string> valueList = new List<string>();
 
@@ -204,7 +204,7 @@ namespace ReadOpXML.Tools
 
             if (nodeList == null)
             {
-                return new List<string>{"--pusta lista---"};
+                return "--pusta lista---";
             }
 
             if (!nodes.Contains("osobaUprawniona"))
@@ -243,14 +243,14 @@ namespace ReadOpXML.Tools
 
             if (valueList.Count > 0)
             {
-                valueList.Sort();    
+                valueList.Sort();
             }
             else
             {
                 valueList = new List<string>{"--pusta lista---"};    
             }
 
-            return valueList;
+            return valueList.Aggregate(string.Empty, (current, value) => current + "|" + value).TrimStart('|');
         }
     }
 }

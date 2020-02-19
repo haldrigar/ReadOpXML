@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("GISNET")]
 [assembly: AssemblyProduct("ReadOpXML")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyCopyright("Copyright ©  2019 GISNET")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

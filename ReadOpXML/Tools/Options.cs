@@ -4,7 +4,7 @@ namespace ReadOpXML.Tools
 {
     public class Options
     {
-        [Option('s', "startupPath", Required = true, HelpText = "Katalog z danymi.")]
+        [Option('s', "startupPath", Required = true, HelpText = "Katalog z danymi, np. -s c:\\temp")]
         public string StarupPath { get; set; }
 
         [Option('p', "poprawa", Required = false, HelpText = "Wykonaj automatyczną poprawę plików.")]

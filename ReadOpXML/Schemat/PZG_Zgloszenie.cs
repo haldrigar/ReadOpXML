@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-
-namespace ReadOpXML.Schemat
+﻿namespace ReadOpXML.Schemat
 {
     internal class PzgZgloszenie
     {
         public int IdFile { get; set; }
         public string XmlPath { get; set; }
         public string IdMaterialu { get; set; }
+        public string PzgOznMaterialuZasobu { get; set; }
         public string PzgIdZgloszenia { get; set; }
         public string PzgPolozenieObszaru { get; set; }
         public string IdZgloszeniaJedn { get; set; }
@@ -21,9 +20,9 @@ namespace ReadOpXML.Schemat
         public string PzgPodmiotZglaszajacyNazwa { get; set; }
         public string PzgPodmiotZglaszajacyRegon { get; set; }
         public string PzgPodmiotZglaszajacyPesel { get; set; }
-        public List<string> OsobaUprawnionaList { get; set; }
-        public List<string> PzgCelList { get; set; }
-        public List<string> CelArchiwalnyList { get; set; }
+        public string OsobaUprawnionaList { get; set; }
+        public string PzgCelList { get; set; }
+        public string CelArchiwalnyList { get; set; }
         public string PzgRodzaj { get; set; }
 
     }
