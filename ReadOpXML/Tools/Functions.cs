@@ -1,53 +1,32 @@
-﻿namespace ReadOpXML.Tools
+﻿using ReadOpXML.Schemat;
+
+namespace ReadOpXML.Tools
 {
     public static class Functions
     {
-        public static string GetOperatZgloszenieName(string jedn, string nr, string rok, string tomEtap, bool isOperat)
+        public static string GetPzgOznMaterialuZasobu(PzgMaterialZasobu pzgMaterial)
         {
-            if (jedn == "--brak wartosci--") jedn = string.Empty;
-            if (nr == "--brak wartosci--") nr = string.Empty;
-            if (rok == "--brak wartosci--") rok = string.Empty;
-            if (tomEtap == "--brak wartosci--") tomEtap = string.Empty;
+            string wynik = string.Empty;
 
-            char sepJednNr;
-            char sepNrRok;
+            wynik = pzgMaterial.OznMaterialuZasobuTyp == "--brak wartosci--" ? string.Empty : wynik + pzgMaterial.OznMaterialuZasobuTyp + ".";
+            wynik = pzgMaterial.OznMaterialuZasobuJedn == "--brak wartosci--" ? wynik : wynik + pzgMaterial.OznMaterialuZasobuJedn + pzgMaterial.OznMaterialuZasobuSepJednNr;
+            wynik = wynik + pzgMaterial.OznMaterialuZasobuNr + pzgMaterial.OznMaterialuZasobuSepNrRok + pzgMaterial.OznMaterialuZasobuRok;
 
-            bool status = int.TryParse(rok, out int rokInt);
+            if (pzgMaterial.OznMaterialuZasobuTom != "--brak wartosci--") wynik = wynik + " t." + pzgMaterial.OznMaterialuZasobuTom;
 
-            if (!status) return "--błąd w roku--";
+            return wynik;
+        }
 
-            if (rokInt <=2013)
-            {
-                sepJednNr = '-';
-                sepNrRok = '/';
-            }
-            else
-            {
-                sepJednNr = '.';
-                sepNrRok = '.';
-            }
+        public static string GetPzgIdZgloszenia(PzgZgloszenie pzgZgloszenie)
+        {
+            string wynik = string.Empty;
 
-            if (!string.IsNullOrEmpty(jedn) && !string.IsNullOrEmpty(nr) && !string.IsNullOrEmpty(rok) && !string.IsNullOrEmpty(tomEtap))
-            {
-                return jedn + sepJednNr + nr + sepNrRok + rok + (isOperat ? " t." : " e.") + tomEtap;
-            }
+            wynik = pzgZgloszenie.IdZgloszeniaJedn == "--brak wartosci--" ? wynik : wynik + pzgZgloszenie.IdZgloszeniaJedn + pzgZgloszenie.IdZgloszeniaSepJednNr;
+            wynik = wynik + pzgZgloszenie.IdZgloszeniaNr + pzgZgloszenie.IdZgloszeniaSepNrRok + pzgZgloszenie.IdZgloszeniaRok;
 
-            if (!string.IsNullOrEmpty(jedn) && !string.IsNullOrEmpty(nr) && !string.IsNullOrEmpty(rok) && string.IsNullOrEmpty(tomEtap))
-            {
-                return jedn + sepJednNr + nr + sepNrRok + rok;
-            }
+            if (pzgZgloszenie.IdZgloszeniaEtap != "--brak wartosci--") wynik = wynik + " et." + pzgZgloszenie.IdZgloszeniaEtap;
 
-            if (string.IsNullOrEmpty(jedn) && !string.IsNullOrEmpty(nr) && !string.IsNullOrEmpty(rok) && !string.IsNullOrEmpty(tomEtap))
-            {
-                return nr + sepNrRok + rok + (isOperat ? " t." : " e.") + tomEtap;
-            }
-
-            if (string.IsNullOrEmpty(jedn) && !string.IsNullOrEmpty(nr) && !string.IsNullOrEmpty(rok) && string.IsNullOrEmpty(tomEtap))
-            {
-                return nr + sepNrRok + rok;
-            }
-
-            return string.Empty;
+            return wynik;
         }
     }
 }

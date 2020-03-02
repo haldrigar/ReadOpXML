@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Xml;
 using System.Xml.Schema;
 using CommandLine;
+using License;
 using OfficeOpenXml;
 using ReadOpXML.Schemat;
 using ReadOpXML.Tools;
@@ -19,6 +21,71 @@ namespace ReadOpXML
 
         public static void Main(string[] args)
         {
+            ConsoleColor defaultColor = Console.ForegroundColor;
+
+            Console.WriteLine(Assembly.GetExecutingAssembly().GetName().Name + " " + Assembly.GetExecutingAssembly().GetName().Version);
+            Console.WriteLine("Copyright (c) 2020 GISNET\n");
+
+            MyLicense license = LicenseHandler.ReadLicense(out LicenseStatus licStatus, out string validationMsg);
+
+            switch (licStatus)
+            {
+                case LicenseStatus.Undefined:
+                    Console.ForegroundColor = ConsoleColor.Red; 
+                    Console.WriteLine("Brak pliku z licencją!!!\n");
+                    Console.ForegroundColor = defaultColor;
+
+                    Console.WriteLine("Identyfikator komputera: " + LicenseHandler.GenerateUid("ReadOpXML") + '\n');
+
+                    LogFile.SaveMessage("Brak pliku z licencją: " + LicenseHandler.GenerateUid("ReadOpXML"));
+
+                    Console.ReadKey(false);
+                    Environment.Exit(0);
+                    break;
+
+                case LicenseStatus.Valid:
+                    Console.WriteLine("Właściciel licencji:");
+                    Console.WriteLine(license.LicenseOwner + "\n");
+
+                    Console.WriteLine("Licencja dla powiatu: " + license.Atr1 + '\n');
+                    
+                    Console.ForegroundColor = ConsoleColor.Blue; 
+                    Console.WriteLine($"Licencja typu: '{license.Type}', ważna do: {license.LicenseEnd}\n");
+                    Console.ForegroundColor = defaultColor;
+
+                    System.Threading.Thread.Sleep(1000);
+                    break;
+
+                case LicenseStatus.Invalid:
+                case LicenseStatus.Cracked:
+
+                    Console.ForegroundColor = ConsoleColor.Red; 
+                    Console.WriteLine(validationMsg);
+                    Console.ForegroundColor = defaultColor;
+
+                    Console.ReadKey(false);
+                    Environment.Exit(0);
+
+                    break;
+
+                case LicenseStatus.Expired:
+                   
+                    Console.WriteLine("Właściciel licencji:");
+                    Console.WriteLine(license.LicenseOwner + "\n");
+
+                    Console.ForegroundColor = ConsoleColor.Red; 
+                    Console.WriteLine(validationMsg);
+                    Console.ForegroundColor = defaultColor;
+
+                    Console.ReadKey(false);
+                    Environment.Exit(0);
+
+                    break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
             string startupPath = string.Empty;
             bool poprawa = false;
             bool walidacja = false;
@@ -46,6 +113,30 @@ namespace ReadOpXML
 
             bool isError = false;
 
+            foreach (string xmlFile in xmlFiles)
+            {
+                if (license.Atr1 != "0000")
+                {
+                    // ReSharper disable once PossibleNullReferenceException
+                    if (!Path.GetFileNameWithoutExtension(xmlFile).StartsWith($"P.{license.Atr1}"))
+                    {
+                        Console.WriteLine(xmlFile + " => " + "błędne oznaczenie powiatu.");
+                        ErrorLogFile.SaveMessage(Path.Combine(startupPath, "syntaktyka.log"), xmlFile + " => " + "błędne oznaczenie powiatu.");
+                        isError = true;
+                    }
+                }
+            }
+
+            if (isError)
+            {
+                Console.ForegroundColor = ConsoleColor.Red; 
+                Console.WriteLine("\nWe wskazanym katalogu znajdują się pliki XML, które nie pasują do schematu XSD (zły powiat)!");
+                Console.ForegroundColor = defaultColor; 
+
+                Console.ReadKey(true);
+                Environment.Exit(0);
+            }
+
             Console.WriteLine("Walidacja syntaktyczna plików XML...\n");
 
             foreach (string xmlFile in xmlFiles)
@@ -58,7 +149,7 @@ namespace ReadOpXML
                 catch (XmlException e)
                 {
                     Console.WriteLine($@"{xmlFile}: {e.Message}");
-                    LogFile.SaveMessage(Path.Combine(startupPath, "ReadOpXML.log"), xmlFile + " => " + e.Message);
+                    ErrorLogFile.SaveMessage(Path.Combine(startupPath, "syntaktyka.log"), xmlFile + " => " + e.Message);
 
                     isError = true;
                 }
@@ -66,7 +157,10 @@ namespace ReadOpXML
 
             if (isError)
             {
-                Console.WriteLine("Musisz ręcznie poprawić wskazane błedy by zaczytać pliki XML!!!");
+                Console.ForegroundColor = ConsoleColor.Red; 
+                Console.WriteLine("\nMusisz ręcznie poprawić wskazane błedy by zaczytać pliki XML!");
+                Console.ForegroundColor = defaultColor; 
+
                 Console.ReadKey(true);
                 Environment.Exit(0);
             }
@@ -102,7 +196,7 @@ namespace ReadOpXML
 
             if (walidacja)
             {
-                settings.Schemas.Add("http://www.w3.org/2001/XMLSchema", startupPath + "\\xsd\\schemat.xsd");
+                settings.Schemas.Add("http://www.w3.org/2001/XMLSchema", ".\\xsd\\schemat.xsd");
                 settings.ValidationType = ValidationType.Schema;
                 settings.ValidationFlags = XmlSchemaValidationFlags.AllowXmlAttributes | XmlSchemaValidationFlags.ProcessIdentityConstraints | XmlSchemaValidationFlags.ProcessInlineSchema | XmlSchemaValidationFlags.ReportValidationWarnings;
                 settings.ValidationEventHandler += ValidationEventHandler;
@@ -317,20 +411,36 @@ namespace ReadOpXML
 
                 foreach (PzgMaterialZasobu operat in pzgMaterialZasobuDict.Values)
                 {
-                    string oznMaterialuZasobu = GetOperatZgloszenieName(operat.OznMaterialuZasobuJedn, operat.OznMaterialuZasobuNr, operat.OznMaterialuZasobuRok, operat.OznMaterialuZasobuTom, true);
+                    string oznMaterialuZasobu = GetPzgOznMaterialuZasobu(operat);
 
                     if (operat.PzgOznMaterialuZasobu != oznMaterialuZasobu)
                     {
-                        Console.WriteLine($"Błąd: {operat.XmlPath} - Nazwa operatu nie pasuje do jego składowych lub zły separator.");
-                        ModelErrorLogList.Add(new ModelErrorLog(operat.IdFile, operat.XmlPath, "Błąd", "OznMaterialuZasobu", operat.PzgOznMaterialuZasobu,"Nazwa operatu nie pasuje do jego składowych lub zły separator."));
+                        Console.WriteLine($"Błąd: {operat.XmlPath} - Nazwa operatu nie pasuje do jego składowych.");
+                        ModelErrorLogList.Add(new ModelErrorLog(operat.IdFile, operat.XmlPath, "Błąd", "pzg_oznMaterialuZasobu", operat.PzgOznMaterialuZasobu,"Nazwa operatu nie pasuje do jego składowych."));
                     }
 
                     int operatCount = pzgMaterialZasobuDict.Values.Count(o => o.PzgOznMaterialuZasobu == operat.PzgOznMaterialuZasobu && o.Obreb == operat.Obreb);
 
                     if (operatCount > 1)
                     {
-                        Console.WriteLine($"Błąd: {operat.XmlPath} - Duplikat nazwy operatu.");
-                        ModelErrorLogList.Add(new ModelErrorLog(operat.IdFile, operat.XmlPath, "Błąd", "OznMaterialuZasobu", operat.PzgOznMaterialuZasobu,"Duplikat nazwy operatu."));
+                        Console.WriteLine($"Błąd: {operat.XmlPath} - Duplikat pzg_oznMaterialuZasobu.");
+                        ModelErrorLogList.Add(new ModelErrorLog(operat.IdFile, operat.XmlPath, "Błąd", "pzg_oznMaterialuZasobu", operat.PzgOznMaterialuZasobu,"Duplikat pzg_oznMaterialuZasobu."));
+                    }
+
+                    string idMaterialu = $"{operat.IdMaterialuPierwszyCzlon}.{operat.IdMaterialuDrugiCzlon}.{operat.IdMaterialuTrzeciCzlon}.{operat.IdMaterialuCzwartyCzlon}";
+
+                    if (operat.IdMaterialu != idMaterialu)
+                    {
+                        Console.WriteLine($"Błąd: {operat.XmlPath} - ID operatu nie pasuje do jego składowych.");
+                        ModelErrorLogList.Add(new ModelErrorLog(operat.IdFile, operat.XmlPath, "Błąd", "pzg_IdMaterialu", operat.IdMaterialu,"ID operatu nie pasuje do jego składowych."));
+                    }
+
+                    operatCount = pzgMaterialZasobuDict.Values.Count(o => o.IdMaterialu == operat.IdMaterialu);
+
+                    if (operatCount > 1)
+                    {
+                        Console.WriteLine($"Błąd: {operat.XmlPath} - Duplikat pzg_IdMaterialu.");
+                        ModelErrorLogList.Add(new ModelErrorLog(operat.IdFile, operat.XmlPath, "Błąd", "pzg_IdMaterialu", operat.IdMaterialu,"Duplikat pzg_IdMaterialu."));
                     }
                 }
 
@@ -342,12 +452,12 @@ namespace ReadOpXML
 
                 foreach (PzgZgloszenie zgloszenie in pzgZgloszenieDict.Values)
                 {
-                    string pzgIdZgloszenia = GetOperatZgloszenieName(zgloszenie.IdZgloszeniaJedn, zgloszenie.IdZgloszeniaNr, zgloszenie.IdZgloszeniaRok, zgloszenie.IdZgloszeniaEtap, false);                    
+                    string pzgIdZgloszenia = GetPzgIdZgloszenia(zgloszenie);                   
 
                     if (zgloszenie.PzgIdZgloszenia != pzgIdZgloszenia)
                     {
-                        Console.WriteLine($"Błąd: {zgloszenie.XmlPath}: Nazwa zgłoszenia nie pasuje do jego składowych lub zły separator.");
-                        ModelErrorLogList.Add(new ModelErrorLog(zgloszenie.IdFile, zgloszenie.XmlPath, "Błąd", "PzgIdZgloszenia", zgloszenie.PzgIdZgloszenia,"Nazwa zgłoszenia nie pasuje do jego składowych lub zły separator."));
+                        Console.WriteLine($"Błąd: {zgloszenie.XmlPath}: Nazwa zgłoszenia nie pasuje do jego składowych.");
+                        ModelErrorLogList.Add(new ModelErrorLog(zgloszenie.IdFile, zgloszenie.XmlPath, "Błąd", "pzg_IdZgloszenia", zgloszenie.PzgIdZgloszenia,"Nazwa zgłoszenia nie pasuje do jego składowych."));
                     }
 
                     int zgloszenieCount = pzgZgloszenieDict.Values.Count(o => o.PzgIdZgloszenia == zgloszenie.PzgIdZgloszenia);
@@ -370,21 +480,29 @@ namespace ReadOpXML
                         if (zgloszenieMultiAttributesCount == zgloszenieCount)
                         {
                             Console.WriteLine($"Ostrzeżenie: {zgloszenie.XmlPath}: Powielony numer zgłoszenia dla operatu.");
-                            ModelErrorLogList.Add(new ModelErrorLog(zgloszenie.IdFile, zgloszenie.XmlPath, "Ostrzeżenie", "PzgIdZgloszenia", zgloszenie.PzgIdZgloszenia,"Powielony numer zgłoszenia dla operatu."));
+                            ModelErrorLogList.Add(new ModelErrorLog(zgloszenie.IdFile, zgloszenie.XmlPath, "Ostrzeżenie", "pzg_IdZgloszenia", zgloszenie.PzgIdZgloszenia,"Powielony numer zgłoszenia dla operatu."));
                         }
                         else
                         {
                             Console.WriteLine($"Błąd: {zgloszenie.XmlPath}: Duplikat nazwy zgłoszenia.");
-                            ModelErrorLogList.Add(new ModelErrorLog(zgloszenie.IdFile, zgloszenie.XmlPath, "Błąd", "PzgIdZgloszenia", zgloszenie.PzgIdZgloszenia,"Duplikat nazwy zgłoszenia."));
+                            ModelErrorLogList.Add(new ModelErrorLog(zgloszenie.IdFile, zgloszenie.XmlPath, "Błąd", "pzg_IdZgloszenia", zgloszenie.PzgIdZgloszenia,"Duplikat nazwy zgłoszenia."));
                         }
                     }
                 }
+
+                Console.WriteLine("");
             }
 
             // -------------------------------------------------------------------------------------------
 
             using (ExcelPackage excelPackage = new ExcelPackage())
             {
+                excelPackage.Workbook.Properties.Author = "GISNET Grzegorz Gogolewski i Wspólnicy Spółka Jawna";
+                excelPackage.Workbook.Properties.Company = "GISNET Grzegorz Gogolewski i Wspólnicy Spółka Jawna";
+                excelPackage.Workbook.Properties.Manager = "Grzegorz Gogolewski";
+                excelPackage.Workbook.Properties.Title = "Raport z danymi wczytanymi z plików XML dla operatów i zgłoszeń";
+                excelPackage.Workbook.Properties.Keywords = "xml, xsd, operat, zgłoszenie";
+
                 string[] arkusze = {"operaty", "operaty_cel", "operaty_cel_arch", "operaty_dzialka_przed", "operaty_dzialka_po", "zgłoszenia", "zgłoszenia_cel", "zgłoszenia_cel_arch", "zgłoszenia_osoba_uprawniona", "walidacja", "model"};
 
                 if (ModelErrorLogList.Count > 0 || WalidationLogList.Count > 0) Console.WriteLine("");
@@ -514,16 +632,25 @@ namespace ReadOpXML
 
                 //  -------------------------------------------------------------------------------
 
-                using (FileStream fileStream = new FileStream(Path.Combine(startupPath, "xml.xlsx"), FileMode.Create))
+                try
                 {
+                    FileStream fileStream = new FileStream(Path.Combine(startupPath, "xml.xlsx"), FileMode.Create);
                     Console.WriteLine("\nZapis pliku XLS...");
 
                     excelPackage.SaveAs(fileStream);
+
+                    Console.ForegroundColor = ConsoleColor.Green; 
+                    Console.WriteLine("\nPlik zapisano pomyślnie.");
+                    Console.ForegroundColor = defaultColor;
+                }
+                catch (Exception e)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red; 
+                    Console.WriteLine('\n' + e.Message);
+                    Console.ForegroundColor = defaultColor;
                 }
             }
             
-            Console.WriteLine("\nKoniec");
-
             Console.ReadKey(true);
         }
 

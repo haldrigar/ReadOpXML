@@ -2,7 +2,7 @@
 
 namespace ReadOpXML.Schemat
 {
-    internal class PzgMaterialZasobu
+    public class PzgMaterialZasobu
     {
         public int IdFile { get; set; }
         public string XmlPath { get; set; }

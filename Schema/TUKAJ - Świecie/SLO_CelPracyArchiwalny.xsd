@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema elementFormDefault="qualified" targetNamespace="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema">
+
+	<simpleType name="SLO_CelPracyArchiwalny">
+		<restriction base="string">
+			<enumeration value="Opracowania dla urządzania lasu"/>
+			<enumeration value="Scalenie"/>
+			<enumeration value="Wymiana gruntów"/>
+			<enumeration value="Baza danych BDOT500 i inicjalna baza danych GESUT"/>
+			<enumeration value="Osnowa realizacyjna III klasy"/>
+			<enumeration value="Aktualizacja ewidencji gruntów i budynków"/>
+			<enumeration value="POLIGONIZACJA TECHNICZNA"/>
+			<enumeration value="Inwentaryzacja powykonawcza wodociągu"/>
+			<enumeration value="Podział"/>
+			<enumeration value="Rozgraniczenie nieruchomości"/>
+			<enumeration value="Inne - do celów prawnych"/>
+			<enumeration value="Inwentaryzacja budynku lub budowli"/>
+			<enumeration value="Wznowienie znaków granicznych"/>
+			<enumeration value="Inwentaryzacja przyłącza"/>
+			<enumeration value="Inwentaryzacja sieci uzbrojenia terenu"/>
+			<enumeration value="Aktualizacja mapy"/>
+			<enumeration value="Modernizacja ewidencji gruntów i budynków"/>
+			<enumeration value="Zakładanie ewidencji gruntów i budynków"/>
+			<enumeration value="Okresowa weryfikacja danych ewidencyjnych"/>
+			<enumeration value="Osnowa XYH I lub II klasy"/>
+			<enumeration value="Osnowa XY I, H III i IV klasy,inne"/>
+			<enumeration value="Inwentaryzacja kabla eNN"/>
+			<enumeration value="Inwentaryzacja powykonawcza"/>
+			<enumeration value="Pomiar syt-wys"/>
+			<enumeration value="Mapa numeryczna"/>
+			<enumeration value="Mapa do celów projektowych"/>
+			<enumeration value="Inwentaryzacja powykonawcza gazu"/>
+			<enumeration value="Inwentaryzacja powykonawcza kanalizacji"/>
+			<enumeration value="Inwentaryzacja powykonawcza kabla telefonicznego"/>
+			<enumeration value="Kontrola terenowa"/>
+			<enumeration value="Mapa do celów opiniodawczych"/>
+			<enumeration value="Inwentaryzacja powykonawcza budynku"/>
+			<enumeration value="Reprodukcje"/>
+			<enumeration value="Wytyczenie"/>
+			<enumeration value="Regulowanie stanu prawnego"/>
+			<enumeration value="klasyfikacja gleboznawcza gruntów"/>
+			<enumeration value="Pomiar uzytku"/>
+			<enumeration value="utworzenie bazy danych państwowego rejestru podstawowych osnów geodezyjnych, grawimetrycznych i magnetycznych (PRPOG)"/>
+			<enumeration value="aktualizacja bazy danych państwowego rejestru podstawowych osnów geodezyjnych, grawimetrycznych i magnetycznych (PRPOG) Dziennik Ustaw – 35 – Poz. 1183"/>
+			<enumeration value="utworzenie bazy danych obiektów topograficznych o szczegółowości zapewniającej tworzenie standardowych opracowań kartograficznych w skalach 1:10 000–1:100 000, w tym kartograficznych opracowań numerycznego modelu rzeźby terenu (BDOT10k)"/>
+			<enumeration value="aktualizacja bazy danych obiektów topograficznych o szczegółowości zapewniającej tworzenie standardowych opracowań kartograficznych w skalach 1:10 000–1:100 000, w tym kartograficznych opracowań numerycznego modelu rzeźby terenu (BDOT10k)"/>
+			<enumeration value="utworzenie bazy danych obiektów ogólnogeograficznych o szczegółowości zapewniającej tworzenie standardowych opracowań kartograficznych w skalach 1:250 000 i mniejszych, w tym kartograficznych opracowań numerycznego modelu rzeźby terenu (BDOO)"/>
+			<enumeration value="aktualizacja bazy danych obiektów ogólnogeograficznych o szczegółowości zapewniającej tworzenie standardowych opracowań kartograficznych w skalach 1:250 000 i mniejszych, w tym kartograficznych opracowań numerycznego modelu rzeźby terenu (BDOO)"/>
+			<enumeration value="utworzenie krajowej bazy danych geodezyjnej ewidencji sieci uzbrojenia terenu (K-GESUT)"/>
+			<enumeration value="aktualizacja krajowej bazy danych geodezyjnej ewidencji sieci uzbrojenia terenu (K-GESUT)"/>
+			<enumeration value="utworzenie bazy danych zintegrowanych kopii baz danych BDOT10k"/>
+			<enumeration value="aktualizacja bazy danych zintegrowanych kopii baz danych BDOT10k"/>
+			<enumeration value="utworzenie bazy danych państwowego rejestru granic i powierzchni jednostek podziałów terytorialnych kraju (PRG) Dziennik Ustaw – 36 – Poz. 1183"/>
+			<enumeration value="aktualizacja bazy danych państwowego rejestru granic i powierzchni jednostek podziałów terytorialnych kraju (PRG)"/>
+			<enumeration value="utworzenie bazy danych państwowego rejestru nazw geograficznych (PRNG)"/>
+			<enumeration value="aktualizacja bazy danych państwowego rejestru nazw geograficznych (PRNG)"/>
+			<enumeration value="utworzenie bazy danych ortofotomapy"/>
+			<enumeration value="utworzenie bazy danych numerycznego modelu terenu (NMT)"/>
+		</restriction>
+	</simpleType>
+	
+</schema>

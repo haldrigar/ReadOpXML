@@ -1,0 +1,842 @@
+<EGB_ObrebEwidencyjny>
+        <entry>
+            <key>1</key>
+            <value>
+                <id>1</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Dąbrowa</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Kamień Krajeński - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041301_5.0001</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>2</key>
+            <value>
+                <id>2</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Dąbrówka</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Kamień Krajeński - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041301_5.0002</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>3</key>
+            <value>
+                <id>3</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Duża Cerkwica</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Kamień Krajeński - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041301_5.0003</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>4</key>
+            <value>
+                <id>4</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Jerzmionki</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Kamień Krajeński - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041301_5.0004</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>5</key>
+            <value>
+                <id>5</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Mała Cerkwica</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Kamień Krajeński - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041301_5.0005</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>6</key>
+            <value>
+                <id>6</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Niwy</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Kamień Krajeński - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041301_5.0006</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>7</key>
+            <value>
+                <id>7</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Nowa Wieś</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Kamień Krajeński - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041301_5.0007</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>8</key>
+            <value>
+                <id>8</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Obkas</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Kamień Krajeński - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041301_5.0008</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>9</key>
+            <value>
+                <id>9</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Orzełek</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Kamień Krajeński - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041301_5.0009</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>10</key>
+            <value>
+                <id>10</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Płocicz</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Kamień Krajeński - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041301_5.0010</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>11</key>
+            <value>
+                <id>11</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Radzim</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Kamień Krajeński - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041301_5.0011</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>12</key>
+            <value>
+                <id>12</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Witkowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Kamień Krajeński - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041301_5.0012</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>13</key>
+            <value>
+                <id>13</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Zamarte</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Kamień Krajeński - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041301_5.0013</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>14</key>
+            <value>
+                <id>14</id>
+                <id_jednostki_ewidencyjnej>2</id_jednostki_ewidencyjnej>
+                <nazwa>Kamień Krajeński</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Kamień Krajeński - M</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041301_4.0001</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>15</key>
+            <value>
+                <id>15</id>
+                <id_jednostki_ewidencyjnej>3</id_jednostki_ewidencyjnej>
+                <nazwa>Sępólno Kraj. 1</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - M</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_4.0001</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>16</key>
+            <value>
+                <id>16</id>
+                <id_jednostki_ewidencyjnej>3</id_jednostki_ewidencyjnej>
+                <nazwa>Sępólno Kraj. 2</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - M</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_4.0002</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>17</key>
+            <value>
+                <id>17</id>
+                <id_jednostki_ewidencyjnej>3</id_jednostki_ewidencyjnej>
+                <nazwa>Sępólno Kraj. 3</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - M</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_4.0003</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>18</key>
+            <value>
+                <id>18</id>
+                <id_jednostki_ewidencyjnej>3</id_jednostki_ewidencyjnej>
+                <nazwa>Sępólno Kraj. 4</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - M</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_4.0004</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>19</key>
+            <value>
+                <id>19</id>
+                <id_jednostki_ewidencyjnej>3</id_jednostki_ewidencyjnej>
+                <nazwa>Sępólno Kraj. 5</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - M</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_4.0005</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>21</key>
+            <value>
+                <id>21</id>
+                <id_jednostki_ewidencyjnej>6</id_jednostki_ewidencyjnej>
+                <nazwa>Dziechowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_5.0001</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>22</key>
+            <value>
+                <id>22</id>
+                <id_jednostki_ewidencyjnej>6</id_jednostki_ewidencyjnej>
+                <nazwa>Iłowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_5.0002</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>23</key>
+            <value>
+                <id>23</id>
+                <id_jednostki_ewidencyjnej>6</id_jednostki_ewidencyjnej>
+                <nazwa>Jazdrowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_5.0003</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>24</key>
+            <value>
+                <id>24</id>
+                <id_jednostki_ewidencyjnej>6</id_jednostki_ewidencyjnej>
+                <nazwa>Kawle</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_5.0004</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>25</key>
+            <value>
+                <id>25</id>
+                <id_jednostki_ewidencyjnej>6</id_jednostki_ewidencyjnej>
+                <nazwa>Komierowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_5.0005</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>26</key>
+            <value>
+                <id>26</id>
+                <id_jednostki_ewidencyjnej>6</id_jednostki_ewidencyjnej>
+                <nazwa>Lutowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_5.0006</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>27</key>
+            <value>
+                <id>27</id>
+                <id_jednostki_ewidencyjnej>6</id_jednostki_ewidencyjnej>
+                <nazwa>Lutówko</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_5.0007</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>28</key>
+            <value>
+                <id>28</id>
+                <id_jednostki_ewidencyjnej>6</id_jednostki_ewidencyjnej>
+                <nazwa>Niechorz</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_5.0008</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>29</key>
+            <value>
+                <id>29</id>
+                <id_jednostki_ewidencyjnej>6</id_jednostki_ewidencyjnej>
+                <nazwa>Piaseczno</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_5.0009</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>30</key>
+            <value>
+                <id>30</id>
+                <id_jednostki_ewidencyjnej>6</id_jednostki_ewidencyjnej>
+                <nazwa>Radońsk</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_5.0010</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>31</key>
+            <value>
+                <id>31</id>
+                <id_jednostki_ewidencyjnej>6</id_jednostki_ewidencyjnej>
+                <nazwa>Sikorz</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_5.0011</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>32</key>
+            <value>
+                <id>32</id>
+                <id_jednostki_ewidencyjnej>6</id_jednostki_ewidencyjnej>
+                <nazwa>Świdwie</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_5.0012</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>33</key>
+            <value>
+                <id>33</id>
+                <id_jednostki_ewidencyjnej>6</id_jednostki_ewidencyjnej>
+                <nazwa>Trzciany</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_5.0013</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>34</key>
+            <value>
+                <id>34</id>
+                <id_jednostki_ewidencyjnej>6</id_jednostki_ewidencyjnej>
+                <nazwa>Wałdowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_5.0014</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>35</key>
+            <value>
+                <id>35</id>
+                <id_jednostki_ewidencyjnej>6</id_jednostki_ewidencyjnej>
+                <nazwa>Wałdówko</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_5.0015</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>36</key>
+            <value>
+                <id>36</id>
+                <id_jednostki_ewidencyjnej>6</id_jednostki_ewidencyjnej>
+                <nazwa>Wilkowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_5.0016</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>37</key>
+            <value>
+                <id>37</id>
+                <id_jednostki_ewidencyjnej>6</id_jednostki_ewidencyjnej>
+                <nazwa>Wiśniewa</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_5.0017</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>38</key>
+            <value>
+                <id>38</id>
+                <id_jednostki_ewidencyjnej>6</id_jednostki_ewidencyjnej>
+                <nazwa>Wiśniewka</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_5.0018</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>39</key>
+            <value>
+                <id>39</id>
+                <id_jednostki_ewidencyjnej>6</id_jednostki_ewidencyjnej>
+                <nazwa>Włościbórz</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_5.0019</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>40</key>
+            <value>
+                <id>40</id>
+                <id_jednostki_ewidencyjnej>6</id_jednostki_ewidencyjnej>
+                <nazwa>Wysoka Krajeńska</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_5.0020</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>41</key>
+            <value>
+                <id>41</id>
+                <id_jednostki_ewidencyjnej>6</id_jednostki_ewidencyjnej>
+                <nazwa>Zalesie</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_5.0021</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>42</key>
+            <value>
+                <id>42</id>
+                <id_jednostki_ewidencyjnej>6</id_jednostki_ewidencyjnej>
+                <nazwa>Zboże</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sępólno Krajeńskie - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041302_5.0022</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>43</key>
+            <value>
+                <id>43</id>
+                <id_jednostki_ewidencyjnej>7</id_jednostki_ewidencyjnej>
+                <nazwa>Więcbork 1</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - M</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_4.0001</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>44</key>
+            <value>
+                <id>44</id>
+                <id_jednostki_ewidencyjnej>7</id_jednostki_ewidencyjnej>
+                <nazwa>Więcbork 2</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - M</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_4.0002</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>45</key>
+            <value>
+                <id>45</id>
+                <id_jednostki_ewidencyjnej>7</id_jednostki_ewidencyjnej>
+                <nazwa>Więcbork 3</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - M</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_4.0003</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>46</key>
+            <value>
+                <id>46</id>
+                <id_jednostki_ewidencyjnej>7</id_jednostki_ewidencyjnej>
+                <nazwa>Więcbork 4</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - M</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_4.0004</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>47</key>
+            <value>
+                <id>47</id>
+                <id_jednostki_ewidencyjnej>8</id_jednostki_ewidencyjnej>
+                <nazwa>Borzyszkowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_5.0001</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>48</key>
+            <value>
+                <id>48</id>
+                <id_jednostki_ewidencyjnej>8</id_jednostki_ewidencyjnej>
+                <nazwa>Czarmuń</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_5.0002</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>49</key>
+            <value>
+                <id>49</id>
+                <id_jednostki_ewidencyjnej>8</id_jednostki_ewidencyjnej>
+                <nazwa>Dalkowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_5.0003</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>50</key>
+            <value>
+                <id>50</id>
+                <id_jednostki_ewidencyjnej>8</id_jednostki_ewidencyjnej>
+                <nazwa>Górowatki</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_5.0004</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>51</key>
+            <value>
+                <id>51</id>
+                <id_jednostki_ewidencyjnej>8</id_jednostki_ewidencyjnej>
+                <nazwa>Jastrzębiec</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_5.0005</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>52</key>
+            <value>
+                <id>52</id>
+                <id_jednostki_ewidencyjnej>8</id_jednostki_ewidencyjnej>
+                <nazwa>Jeleń</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_5.0006</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>53</key>
+            <value>
+                <id>53</id>
+                <id_jednostki_ewidencyjnej>8</id_jednostki_ewidencyjnej>
+                <nazwa>Klarynowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_5.0007</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>54</key>
+            <value>
+                <id>54</id>
+                <id_jednostki_ewidencyjnej>8</id_jednostki_ewidencyjnej>
+                <nazwa>Lubcza</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_5.0008</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>55</key>
+            <value>
+                <id>55</id>
+                <id_jednostki_ewidencyjnej>8</id_jednostki_ewidencyjnej>
+                <nazwa>Nowy Dwór</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_5.0009</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>56</key>
+            <value>
+                <id>56</id>
+                <id_jednostki_ewidencyjnej>8</id_jednostki_ewidencyjnej>
+                <nazwa>Pęperzyn</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_5.0010</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>57</key>
+            <value>
+                <id>57</id>
+                <id_jednostki_ewidencyjnej>8</id_jednostki_ewidencyjnej>
+                <nazwa>Puszcza</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_5.0011</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>58</key>
+            <value>
+                <id>58</id>
+                <id_jednostki_ewidencyjnej>8</id_jednostki_ewidencyjnej>
+                <nazwa>Runowo Krajeńskie</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_5.0012</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>59</key>
+            <value>
+                <id>59</id>
+                <id_jednostki_ewidencyjnej>8</id_jednostki_ewidencyjnej>
+                <nazwa>Suchorączek</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_5.0013</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>60</key>
+            <value>
+                <id>60</id>
+                <id_jednostki_ewidencyjnej>8</id_jednostki_ewidencyjnej>
+                <nazwa>Sypniewo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_5.0014</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>61</key>
+            <value>
+                <id>61</id>
+                <id_jednostki_ewidencyjnej>8</id_jednostki_ewidencyjnej>
+                <nazwa>Śmiłowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_5.0015</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>62</key>
+            <value>
+                <id>62</id>
+                <id_jednostki_ewidencyjnej>8</id_jednostki_ewidencyjnej>
+                <nazwa>Witunia</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_5.0016</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>63</key>
+            <value>
+                <id>63</id>
+                <id_jednostki_ewidencyjnej>8</id_jednostki_ewidencyjnej>
+                <nazwa>Zabartowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_5.0017</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>64</key>
+            <value>
+                <id>64</id>
+                <id_jednostki_ewidencyjnej>8</id_jednostki_ewidencyjnej>
+                <nazwa>Zakrzewek</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_5.0018</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>65</key>
+            <value>
+                <id>65</id>
+                <id_jednostki_ewidencyjnej>8</id_jednostki_ewidencyjnej>
+                <nazwa>Zakrzewska Osada</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_5.0019</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>66</key>
+            <value>
+                <id>66</id>
+                <id_jednostki_ewidencyjnej>8</id_jednostki_ewidencyjnej>
+                <nazwa>Zgniłka</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Więcbork - G</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041304_5.0020</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>67</key>
+            <value>
+                <id>67</id>
+                <id_jednostki_ewidencyjnej>9</id_jednostki_ewidencyjnej>
+                <nazwa>Dębiny</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sośno</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041303_2.0001</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>68</key>
+            <value>
+                <id>68</id>
+                <id_jednostki_ewidencyjnej>9</id_jednostki_ewidencyjnej>
+                <nazwa>Dziedno</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sośno</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041303_2.0002</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>69</key>
+            <value>
+                <id>69</id>
+                <id_jednostki_ewidencyjnej>9</id_jednostki_ewidencyjnej>
+                <nazwa>Jaszkowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sośno</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041303_2.0003</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>70</key>
+            <value>
+                <id>70</id>
+                <id_jednostki_ewidencyjnej>9</id_jednostki_ewidencyjnej>
+                <nazwa>Mierucin</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sośno</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041303_2.0004</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>71</key>
+            <value>
+                <id>71</id>
+                <id_jednostki_ewidencyjnej>9</id_jednostki_ewidencyjnej>
+                <nazwa>Obodowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sośno</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041303_2.0005</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>72</key>
+            <value>
+                <id>72</id>
+                <id_jednostki_ewidencyjnej>9</id_jednostki_ewidencyjnej>
+                <nazwa>Olszewka</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sośno</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041303_2.0006</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>73</key>
+            <value>
+                <id>73</id>
+                <id_jednostki_ewidencyjnej>9</id_jednostki_ewidencyjnej>
+                <nazwa>Płosków</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sośno</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041303_2.0007</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>74</key>
+            <value>
+                <id>74</id>
+                <id_jednostki_ewidencyjnej>9</id_jednostki_ewidencyjnej>
+                <nazwa>Przepałkowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sośno</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041303_2.0008</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>75</key>
+            <value>
+                <id>75</id>
+                <id_jednostki_ewidencyjnej>9</id_jednostki_ewidencyjnej>
+                <nazwa>Rogalin</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sośno</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041303_2.0009</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>76</key>
+            <value>
+                <id>76</id>
+                <id_jednostki_ewidencyjnej>9</id_jednostki_ewidencyjnej>
+                <nazwa>Sitno</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sośno</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041303_2.0010</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>77</key>
+            <value>
+                <id>77</id>
+                <id_jednostki_ewidencyjnej>9</id_jednostki_ewidencyjnej>
+                <nazwa>Skoraczewo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sośno</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041303_2.0011</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>78</key>
+            <value>
+                <id>78</id>
+                <id_jednostki_ewidencyjnej>9</id_jednostki_ewidencyjnej>
+                <nazwa>Sośno</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sośno</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041303_2.0012</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>79</key>
+            <value>
+                <id>79</id>
+                <id_jednostki_ewidencyjnej>9</id_jednostki_ewidencyjnej>
+                <nazwa>Szynwałd</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sośno</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041303_2.0013</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>80</key>
+            <value>
+                <id>80</id>
+                <id_jednostki_ewidencyjnej>9</id_jednostki_ewidencyjnej>
+                <nazwa>Tonin</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sośno</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041303_2.0014</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>81</key>
+            <value>
+                <id>81</id>
+                <id_jednostki_ewidencyjnej>9</id_jednostki_ewidencyjnej>
+                <nazwa>Toninek</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sośno</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041303_2.0015</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>82</key>
+            <value>
+                <id>82</id>
+                <id_jednostki_ewidencyjnej>9</id_jednostki_ewidencyjnej>
+                <nazwa>Tuszkowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sośno</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041303_2.0016</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>83</key>
+            <value>
+                <id>83</id>
+                <id_jednostki_ewidencyjnej>9</id_jednostki_ewidencyjnej>
+                <nazwa>Wąwelno</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sośno</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041303_2.0017</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>84</key>
+            <value>
+                <id>84</id>
+                <id_jednostki_ewidencyjnej>9</id_jednostki_ewidencyjnej>
+                <nazwa>Wielowicz</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sośno</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041303_2.0018</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>85</key>
+            <value>
+                <id>85</id>
+                <id_jednostki_ewidencyjnej>9</id_jednostki_ewidencyjnej>
+                <nazwa>Wielowiczek</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Sośno</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>041303_2.0019</numer_gus>
+            </value>
+        </entry>
+    </EGB_ObrebEwidencyjny>

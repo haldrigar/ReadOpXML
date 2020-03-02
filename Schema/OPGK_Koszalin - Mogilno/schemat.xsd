@@ -1,28 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema elementFormDefault="qualified" targetNamespace="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema">
-  
+
   <include schemaLocation="PZG_CelPracy.xsd"/>
   <include schemaLocation="SLO_CelPracyArchiwalny.xsd"/>
   <include schemaLocation="PZG_RodzajPracy.xsd"/>
-  <include schemaLocation="PZG_NazwaMat.xsd"/>
   <include schemaLocation="EGB_ObrebEwidencyjny.xsd"/>
-  <include schemaLocation="PZG_SposobPozyskania.xsd"/>
-  <include schemaLocation="PZG_Postac.xsd"/>
-  <include schemaLocation="PZG_NosnikNieelektroniczny.xsd"/>
-  <include schemaLocation="PZG_RodzajDostepu.xsd"/>
-  <include schemaLocation="PZG_TypMaterialu.xsd"/>
-  <include schemaLocation="PZG_KatArchiw.xsd"/>
-  <include schemaLocation="PZG_Jezyk.xsd"/>
+  
+  <simpleType name="PZG_Jezyk">
+    <restriction base="string">
+      <enumeration value="pol"/>
+      <enumeration value="deu"/>
+    </restriction>
+  </simpleType>
+  
+  <simpleType name="PZG_KatArchiw">
+    <restriction base="string">
+      <enumeration value="A"/>
+      <enumeration value="BC"/>
+      <enumeration value="BE"/>
+    </restriction>
+  </simpleType>
+  
+  <simpleType name="PZG_TypMaterialu">
+    <restriction base="string">
+      <enumeration value="obraz"/>
+      <enumeration value="tekst"/>
+    </restriction>
+  </simpleType>
+  
+  <simpleType name="PZG_RodzajDostepu">
+    <restriction base="string">
+      <enumeration value="bezOgraniczen"/>
+      <enumeration value="zOgraniczeniami"/>
+    </restriction>
+  </simpleType>
+  
+  <simpleType name="PZG_NosnikNieelektroniczny">
+    <restriction base="string">
+      <enumeration value="papier"/>
+      <enumeration value="folia"/>
+      <enumeration value="planszaAluminiowa"/>
+      <enumeration value="kalkaTechniczna"/>
+      <enumeration value="inny"/>
+    </restriction>
+  </simpleType>
+  
+  <simpleType name="PZG_Postac">
+    <restriction base="string">
+      <enumeration value="elektroniczna"/>
+      <enumeration value="nieelektroniczna"/>
+      <enumeration value="mieszana"/>
+    </restriction>
+  </simpleType>
+  
+  <simpleType name="PZG_SposobPozyskania">
+    <restriction base="string">
+      <enumeration value="dzialaniaWlasne"/>
+      <enumeration value="wspoldzialaniePodmiotow"/>
+      <enumeration value="przyjecieDarowizny"/>
+      <enumeration value="przekazanieWycZOpSzac"/>
+      <enumeration value="przekazanieRezultPracGeod"/>
+    </restriction>
+  </simpleType>
+  
+  <simpleType name="PZG_NazwaMat">
+    <restriction base="string">
+      <enumeration value="operatTechniczny"/>
+      <enumeration value="mapaTopograficzna"/>
+      <enumeration value="mapaOgolnogeograficzna"/>
+      <enumeration value="mapaEwidencyjna"/>
+      <enumeration value="mapaZasadnicza"/>
+      <enumeration value="kartOprTematyczne"/>
+      <enumeration value="kartOprSpecjalne"/>
+      <enumeration value="zobrazLotnLubSat"/>
+      <enumeration value="ortofotomapa"/>
+      <enumeration value="NMT"/>
+      <enumeration value="kopiaBDZInnejCzZasobu"/>
+      <enumeration value="kopiaMatZInnejCzZasobu"/>
+      <enumeration value="innyMatZasobu"/>
+    </restriction>
+  </simpleType>
   
   <element name="schema">
     <complexType>
       <sequence>
-        
+
         <!-- OPERAT -->
         <element name="PZG_MaterialZasobu" minOccurs="1" maxOccurs="1">
           <complexType>
             <sequence>
-              
+
               <element name="pzg_IdMaterialu" maxOccurs="1" minOccurs="1">
                 <complexType>
                   <sequence>
@@ -59,7 +126,7 @@
                   </sequence>
                 </complexType>
               </element>
-              
+
               <element name="pzg_dataPrzyjecia" maxOccurs="1" minOccurs="1">
                 <simpleType>
                   <restriction base="string">
@@ -68,7 +135,7 @@
                   </restriction>
                 </simpleType>
               </element>
-              
+
               <element name="dataWplywu" maxOccurs="1" minOccurs="1">
                 <simpleType>
                   <restriction base="string">
@@ -77,15 +144,15 @@
                   </restriction>
                 </simpleType>
               </element>
-              
-              <element name="pzg_nazwa" type = "PZG_NazwaMat" maxOccurs="1" minOccurs="1"/>
+
+              <element name="pzg_nazwa" type="PZG_NazwaMat" maxOccurs="1" minOccurs="1"/>
               <element name="pzg_polozenieObszaru" type="string" minOccurs="0" maxOccurs="1"/>
               <element name="obreb" type="EGB_ObrebEwidencyjny" maxOccurs="1" minOccurs="1"/>
-              
+
               <element name="pzg_tworca" maxOccurs="1" minOccurs="1">
                 <complexType>
                   <sequence>
-                    
+
                     <element name="osoba_id" maxOccurs="1" minOccurs="0">
                       <simpleType>
                         <restriction base="integer">
@@ -93,7 +160,7 @@
                         </restriction>
                       </simpleType>
                     </element>
-                    
+
                     <element name="nazwa" maxOccurs="1" minOccurs="1">
                       <simpleType>
                         <restriction base="string">
@@ -101,7 +168,7 @@
                         </restriction>
                       </simpleType>
                     </element>
-                    
+
                     <element name="REGON" maxOccurs="1" minOccurs="0">
                       <simpleType>
                         <union>
@@ -125,7 +192,7 @@
                         </union>
                       </simpleType>
                     </element>
-                    
+
                     <element name="PESEL" minOccurs="0" maxOccurs="1">
                       <simpleType>
                         <union>
@@ -143,14 +210,16 @@
                         </union>
                       </simpleType>
                     </element>
-                    
+
                   </sequence>
                 </complexType>
               </element>
-              
-              <element name="pzg_sposobPozyskania" type="PZG_SposobPozyskania" maxOccurs="1" minOccurs="1"/>
+
+              <element name="pzg_sposobPozyskania" type="PZG_SposobPozyskania" maxOccurs="1"
+                minOccurs="1"/>
               <element name="pzg_postacMaterialu" type="PZG_Postac" maxOccurs="1" minOccurs="1"/>
-              <element name="pzg_rodzNosnika" type="PZG_NosnikNieelektroniczny" maxOccurs="1" minOccurs="1"/>
+              <element name="pzg_rodzNosnika" type="PZG_NosnikNieelektroniczny" maxOccurs="1"
+                minOccurs="1"/>
               <element name="pzg_dostep" type="PZG_RodzajDostepu" maxOccurs="1" minOccurs="1"/>
               <element name="pzg_przyczynyOgraniczen" type="string" maxOccurs="1" minOccurs="1"/>
               <element name="pzg_typMaterialu" type="PZG_TypMaterialu" maxOccurs="1" minOccurs="1"/>
@@ -163,38 +232,46 @@
                   <union>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+-[0-9]+\/[0-9]{4} t\.[0-9]+$"></pattern> <!-- M-26/1956 t.4 -->
+                        <pattern
+                          value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+-[0-9]+\/[0-9]{4} t\.[0-9]+$"/>
+                        <!-- M-26/1956 t.4 -->
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9]+\/[0-9]{4} t\.[0-9]+$"></pattern> <!-- 26/1956 t.4 -->
+                        <pattern value="^[0-9]+\/[0-9]{4} t\.[0-9]+$"/>
+                        <!-- 26/1956 t.4 -->
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+-[0-9]+\/[0-9]{4}$"></pattern> <!-- M-26/1956 -->
+                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+-[0-9]+\/[0-9]{4}$"/>
+                        <!-- M-26/1956 -->
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9]+\/[0-9]{4}$"></pattern> <!-- 26/1956 -->
+                        <pattern value="^[0-9]+\/[0-9]{4}$"/>
+                        <!-- 26/1956 -->
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+\.[0-9]+\.[0-9]{4} t\.[0-9]+$"></pattern> <!-- 6640.125.2018 t.3 -->
+                        <pattern
+                          value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+\.[0-9]+\.[0-9]{4} t\.[0-9]+$"/>
+                        <!-- 6640.125.2018 t.3 -->
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+\.[0-9]+\.[0-9]{4}$"></pattern> <!-- 6640.124.2018 -->
+                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+\.[0-9]+\.[0-9]{4}$"/>
+                        <!-- 6640.124.2018 -->
                       </restriction>
                     </simpleType>
                   </union>
                 </simpleType>
               </element>
-              
+
               <element name="oznMaterialuZasobuTyp" type="string" maxOccurs="1" minOccurs="0"/>
               <element name="oznMaterialuZasobuJedn" type="string" maxOccurs="1" minOccurs="0"/>
               <element name="oznMaterialuZasobuNr" maxOccurs="1" minOccurs="1">
@@ -204,7 +281,7 @@
                   </restriction>
                 </simpleType>
               </element>
-              
+
               <element name="oznMaterialuZasobuRok" maxOccurs="1" minOccurs="1">
                 <simpleType>
                   <restriction base="integer">
@@ -214,7 +291,7 @@
                   </restriction>
                 </simpleType>
               </element>
-              
+
               <element name="oznMaterialuZasobuTom" minOccurs="0" maxOccurs="1">
                 <simpleType>
                   <union>
@@ -225,13 +302,13 @@
                     </simpleType>
                     <simpleType>
                       <restriction base="integer">
-                        <minExclusive value="0"></minExclusive>
+                        <minExclusive value="0"/>
                       </restriction>
                     </simpleType>
                   </union>
                 </simpleType>
               </element>
-              
+
               <element name="oznMaterialuZasobuSepJednNr" maxOccurs="1" minOccurs="1">
                 <simpleType>
                   <restriction base="string">
@@ -240,7 +317,7 @@
                   </restriction>
                 </simpleType>
               </element>
-              
+
               <element name="oznMaterialuZasobuSepNrRok" maxOccurs="1" minOccurs="1">
                 <simpleType>
                   <restriction base="string">
@@ -249,9 +326,9 @@
                   </restriction>
                 </simpleType>
               </element>
-              
+
               <element name="pzg_dokumentWyl" type="string" minOccurs="0" maxOccurs="1"/>
-              
+
               <element name="pzg_dataWyl" minOccurs="0" maxOccurs="1">
                 <simpleType>
                   <union>
@@ -269,7 +346,7 @@
                   </union>
                 </simpleType>
               </element>
-              
+
               <element name="pzg_dataArchLubBrak" minOccurs="0" maxOccurs="1">
                 <simpleType>
                   <union>
@@ -287,7 +364,7 @@
                   </union>
                 </simpleType>
               </element>
-              
+
               <element name="pzg_cel" maxOccurs="unbounded" minOccurs="0">
                 <simpleType>
                   <union>
@@ -302,7 +379,7 @@
                   </union>
                 </simpleType>
               </element>
-              
+
               <element name="celArchiwalny" maxOccurs="unbounded" minOccurs="0">
                 <simpleType>
                   <union>
@@ -317,7 +394,7 @@
                   </union>
                 </simpleType>
               </element>
-              
+
               <element name="dzialkaPrzed" maxOccurs="unbounded" minOccurs="0">
                 <simpleType>
                   <union>
@@ -328,56 +405,67 @@
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+\/[0-9]+$"/>   <!-- 040903_5.0049.AR_1.158/3 -->
+                        <pattern
+                          value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+\/[0-9]+$"/>
+                        <!-- 040903_5.0049.AR_1.158/3 -->
                         <minLength value="15"/>
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+\/[0-9]+-[a-zA-Z]+$"/>   <!-- 040903_5.0049.AR_1.158/3-L -->
+                        <pattern
+                          value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+\/[0-9]+-[a-zA-Z]+$"/>
+                        <!-- 040903_5.0049.AR_1.158/3-L -->
                         <minLength value="15"/>
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+$"/>    <!-- 040903_5.0049.AR_1.158 -->
+                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+$"/>
+                        <!-- 040903_5.0049.AR_1.158 -->
                         <minLength value="15"/>
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+-[a-zA-Z]+$"/>    <!-- 040903_5.0049.AR_1.158-L -->
+                        <pattern
+                          value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+-[a-zA-Z]+$"/>
+                        <!-- 040903_5.0049.AR_1.158-L -->
                         <minLength value="15"/>
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+\/[0-9]+$"/>   <!-- 040903_5.0049.158/3 -->
+                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+\/[0-9]+$"/>
+                        <!-- 040903_5.0049.158/3 -->
                         <minLength value="15"/>
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+\/[0-9]+-[a-zA-Z]+$"/>   <!-- 040903_5.0049.158/3-L -->
+                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+\/[0-9]+-[a-zA-Z]+$"/>
+                        <!-- 040903_5.0049.158/3-L -->
                         <minLength value="15"/>
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+$"/>    <!-- 040903_5.0049.158 -->
+                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+$"/>
+                        <!-- 040903_5.0049.158 -->
                         <minLength value="15"/>
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+-[a-zA-Z]+$"/>    <!-- 040903_5.0049.158-L -->
+                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+-[a-zA-Z]+$"/>
+                        <!-- 040903_5.0049.158-L -->
                         <minLength value="15"/>
                       </restriction>
                     </simpleType>
                   </union>
                 </simpleType>
               </element>
-              
+
               <element name="dzialkaPo" maxOccurs="unbounded" minOccurs="0">
                 <simpleType>
                   <union>
@@ -388,56 +476,67 @@
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+\/[0-9]+$"/>   <!-- 040903_5.0049.AR_1.158/3 -->
+                        <pattern
+                          value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+\/[0-9]+$"/>
+                        <!-- 040903_5.0049.AR_1.158/3 -->
                         <minLength value="15"/>
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+\/[0-9]+-[a-zA-Z]+$"/>   <!-- 040903_5.0049.AR_1.158/3-L -->
+                        <pattern
+                          value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+\/[0-9]+-[a-zA-Z]+$"/>
+                        <!-- 040903_5.0049.AR_1.158/3-L -->
                         <minLength value="15"/>
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+$"/>    <!-- 040903_5.0049.AR_1.158 -->
+                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+$"/>
+                        <!-- 040903_5.0049.AR_1.158 -->
                         <minLength value="15"/>
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+-[a-zA-Z]+$"/>    <!-- 040903_5.0049.AR_1.158-L -->
+                        <pattern
+                          value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+-[a-zA-Z]+$"/>
+                        <!-- 040903_5.0049.AR_1.158-L -->
                         <minLength value="15"/>
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+\/[0-9]+$"/>   <!-- 040903_5.0049.158/3 -->
+                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+\/[0-9]+$"/>
+                        <!-- 040903_5.0049.158/3 -->
                         <minLength value="15"/>
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+\/[0-9]+-[a-zA-Z]+$"/>   <!-- 040903_5.0049.158/3-L -->
+                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+\/[0-9]+-[a-zA-Z]+$"/>
+                        <!-- 040903_5.0049.158/3-L -->
                         <minLength value="15"/>
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+$"/>    <!-- 040903_5.0049.158 -->
+                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+$"/>
+                        <!-- 040903_5.0049.158 -->
                         <minLength value="15"/>
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+-[a-zA-Z]+$"/>    <!-- 040903_5.0049.158-L -->
+                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+-[a-zA-Z]+$"/>
+                        <!-- 040903_5.0049.158-L -->
                         <minLength value="15"/>
                       </restriction>
                     </simpleType>
                   </union>
                 </simpleType>
               </element>
-              
+
               <element name="opis2" type="string" minOccurs="0" maxOccurs="1"/>
             </sequence>
           </complexType>
@@ -452,49 +551,57 @@
                   <union>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+-[0-9]+\/[0-9]{4} e\.[0-9]+$"></pattern> <!-- M-26/1956 t.4 -->
+                        <pattern
+                          value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+-[0-9]+\/[0-9]{4} et\.[0-9]+$"/>
+                        <!-- M-26/1956 et.4 -->
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9]+\/[0-9]{4} e\.[0-9]+$"></pattern> <!-- 26/1956 t.4 -->
+                        <pattern value="^[0-9]+\/[0-9]{4} et\.[0-9]+$"/>
+                        <!-- 26/1956 et.4 -->
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+-[0-9]+\/[0-9]{4}$"></pattern> <!-- M-26/1956 -->
+                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+-[0-9]+\/[0-9]{4}$"/>
+                        <!-- M-26/1956 -->
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9]+\/[0-9]{4}$"></pattern> <!-- 26/1956 -->
+                        <pattern value="^[0-9]+\/[0-9]{4}$"/>
+                        <!-- 26/1956 -->
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+\.[0-9]+\.[0-9]{4} e\.[0-9]+$"></pattern> <!-- 6640.125.2018 t.3 -->
+                        <pattern
+                          value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+\.[0-9]+\.[0-9]{4} et\.[0-9]+$"/>
+                        <!-- 6640.125.2018 et.3 -->
                       </restriction>
                     </simpleType>
                     <simpleType>
                       <restriction base="string">
-                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+\.[0-9]+\.[0-9]{4}$"></pattern> <!-- 6640.124.2018 -->
+                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+\.[0-9]+\.[0-9]{4}$"/>
+                        <!-- 6640.124.2018 -->
                       </restriction>
                     </simpleType>
                   </union>
                 </simpleType>
-                
+
               </element>
-              
+
               <element name="idZgloszeniaJedn" type="string" minOccurs="0" maxOccurs="1"/>
-			  
-              <element name="idZgloszeniaNr"  maxOccurs="1" minOccurs="1">
+
+              <element name="idZgloszeniaNr" maxOccurs="1" minOccurs="1">
                 <simpleType>
                   <restriction base="integer">
                     <minExclusive value="0"/>
                   </restriction>
                 </simpleType>
               </element>
-			  
+
               <element name="idZgloszeniaRok" maxOccurs="1" minOccurs="1">
                 <simpleType>
                   <restriction base="integer">
@@ -504,7 +611,7 @@
                   </restriction>
                 </simpleType>
               </element>
-              
+
               <element name="idZgloszeniaEtap">
                 <simpleType>
                   <union>
@@ -515,13 +622,13 @@
                     </simpleType>
                     <simpleType>
                       <restriction base="integer">
-                        <minExclusive value="0"></minExclusive>
+                        <minExclusive value="0"/>
                       </restriction>
                     </simpleType>
                   </union>
                 </simpleType>
               </element>
-              
+
               <element name="idZgloszeniaSepJednNr">
                 <simpleType>
                   <restriction base="string">
@@ -530,7 +637,7 @@
                   </restriction>
                 </simpleType>
               </element>
-              
+
               <element name="idZgloszeniaSepNrRok">
                 <simpleType>
                   <restriction base="string">
@@ -539,7 +646,7 @@
                   </restriction>
                 </simpleType>
               </element>
-              
+
               <element name="pzg_dataZgloszenia" maxOccurs="1" minOccurs="1">
                 <simpleType>
                   <restriction base="string">
@@ -548,15 +655,15 @@
                   </restriction>
                 </simpleType>
               </element>
-              
+
               <element name="pzg_polozenieObszaru" type="string" minOccurs="0" maxOccurs="1"/>
-              
+
               <element name="obreb" type="EGB_ObrebEwidencyjny" maxOccurs="1" minOccurs="1"/>
-              
+
               <element name="pzg_podmiotZglaszajacy" maxOccurs="1" minOccurs="1">
                 <complexType>
                   <sequence>
-                    
+
                     <element name="osoba_id" maxOccurs="1" minOccurs="0">
                       <simpleType>
                         <restriction base="integer">
@@ -564,7 +671,7 @@
                         </restriction>
                       </simpleType>
                     </element>
-                    
+
                     <element name="nazwa" maxOccurs="1" minOccurs="1">
                       <simpleType>
                         <restriction base="string">
@@ -572,7 +679,7 @@
                         </restriction>
                       </simpleType>
                     </element>
-                    
+
                     <element name="REGON" maxOccurs="1" minOccurs="0">
                       <simpleType>
                         <union>
@@ -596,7 +703,7 @@
                         </union>
                       </simpleType>
                     </element>
-                    
+
                     <element name="PESEL" minOccurs="0" maxOccurs="1">
                       <simpleType>
                         <union>
@@ -614,11 +721,11 @@
                         </union>
                       </simpleType>
                     </element>
-                    
+
                   </sequence>
                 </complexType>
               </element>
-              
+
               <element name="osobaUprawniona" minOccurs="0" maxOccurs="1">
                 <complexType>
                   <sequence>
@@ -628,7 +735,7 @@
                   </sequence>
                 </complexType>
               </element>
-              
+
               <element name="pzg_cel" maxOccurs="unbounded" minOccurs="0">
                 <simpleType>
                   <union>
@@ -643,7 +750,7 @@
                   </union>
                 </simpleType>
               </element>
-              
+
               <element name="celArchiwalny" maxOccurs="unbounded" minOccurs="0">
                 <simpleType>
                   <union>
@@ -658,7 +765,7 @@
                   </union>
                 </simpleType>
               </element>
-              
+
               <element name="pzg_rodzaj" minOccurs="0">
                 <simpleType>
                   <union>
@@ -673,20 +780,20 @@
                   </union>
                 </simpleType>
               </element>
-              
+
             </sequence>
           </complexType>
         </element>
-        
+
       </sequence>
-	  
+
       <attribute name="attributeFormDefault" use="optional" type="string"/>
       <attribute name="elementFormDefault" use="optional" type="string"/>
       <attribute name="targetNamespace" use="optional" type="string"/>
       <attribute name="version" use="optional" type="string"/>
-	  
-    </complexType>
-    
-  </element>
 
+    </complexType>
+
+  </element>
+  
 </schema>

@@ -7,6 +7,10 @@
 			<enumeration value="pomiar punktów węzłowych"/>
 			<enumeration value="sporządzenie mapy numerycznej"/>
 			<enumeration value="aktualizacja mapy"/>
+			<enumeration value="wznowienie granic"/>
+			<enumeration value="rozgraniczenie"/>
+			<enumeration value="aktualizacja EGiB"/>
+			<enumeration value="modernizacja EGiB"/>
 			<enumeration value="podział"/>
 			<enumeration value="inwentaryzacja sieci kanalizacyjnej"/>
 			<enumeration value="utworzenie bazy danych państwowego rejestru podstawowych osnów geodezyjnych, grawimetrycznych i magnetycznych (PRPOG)"/>

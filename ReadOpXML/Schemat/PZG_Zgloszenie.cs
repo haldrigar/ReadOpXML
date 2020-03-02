@@ -1,6 +1,6 @@
 ﻿namespace ReadOpXML.Schemat
 {
-    internal class PzgZgloszenie
+    public class PzgZgloszenie
     {
         public int IdFile { get; set; }
         public string XmlPath { get; set; }
