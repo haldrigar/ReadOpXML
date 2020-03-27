@@ -1,799 +1,834 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema elementFormDefault="qualified" targetNamespace="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema">
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-  <include schemaLocation="PZG_CelPracy.xsd"/>
-  <include schemaLocation="SLO_CelPracyArchiwalny.xsd"/>
-  <include schemaLocation="PZG_RodzajPracy.xsd"/>
-  <include schemaLocation="EGB_ObrebEwidencyjny.xsd"/>
-  
-  <simpleType name="PZG_Jezyk">
-    <restriction base="string">
-      <enumeration value="pol"/>
-      <enumeration value="deu"/>
-    </restriction>
-  </simpleType>
-  
-  <simpleType name="PZG_KatArchiw">
-    <restriction base="string">
-      <enumeration value="A"/>
-      <enumeration value="BC"/>
-      <enumeration value="BE"/>
-    </restriction>
-  </simpleType>
-  
-  <simpleType name="PZG_TypMaterialu">
-    <restriction base="string">
-      <enumeration value="obraz"/>
-      <enumeration value="tekst"/>
-    </restriction>
-  </simpleType>
-  
-  <simpleType name="PZG_RodzajDostepu">
-    <restriction base="string">
-      <enumeration value="bezOgraniczen"/>
-      <enumeration value="zOgraniczeniami"/>
-    </restriction>
-  </simpleType>
-  
-  <simpleType name="PZG_NosnikNieelektroniczny">
-    <restriction base="string">
-      <enumeration value="papier"/>
-      <enumeration value="folia"/>
-      <enumeration value="planszaAluminiowa"/>
-      <enumeration value="kalkaTechniczna"/>
-      <enumeration value="inny"/>
-    </restriction>
-  </simpleType>
-  
-  <simpleType name="PZG_Postac">
-    <restriction base="string">
-      <enumeration value="elektroniczna"/>
-      <enumeration value="nieelektroniczna"/>
-      <enumeration value="mieszana"/>
-    </restriction>
-  </simpleType>
-  
-  <simpleType name="PZG_SposobPozyskania">
-    <restriction base="string">
-      <enumeration value="dzialaniaWlasne"/>
-      <enumeration value="wspoldzialaniePodmiotow"/>
-      <enumeration value="przyjecieDarowizny"/>
-      <enumeration value="przekazanieWycZOpSzac"/>
-      <enumeration value="przekazanieRezultPracGeod"/>
-    </restriction>
-  </simpleType>
-  
-  <simpleType name="PZG_NazwaMat">
-    <restriction base="string">
-      <enumeration value="operatTechniczny"/>
-      <enumeration value="mapaTopograficzna"/>
-      <enumeration value="mapaOgolnogeograficzna"/>
-      <enumeration value="mapaEwidencyjna"/>
-      <enumeration value="mapaZasadnicza"/>
-      <enumeration value="kartOprTematyczne"/>
-      <enumeration value="kartOprSpecjalne"/>
-      <enumeration value="zobrazLotnLubSat"/>
-      <enumeration value="ortofotomapa"/>
-      <enumeration value="NMT"/>
-      <enumeration value="kopiaBDZInnejCzZasobu"/>
-      <enumeration value="kopiaMatZInnejCzZasobu"/>
-      <enumeration value="innyMatZasobu"/>
-    </restriction>
-  </simpleType>
-  
-  <element name="schema">
-    <complexType>
-      <sequence>
+  <xs:include schemaLocation="PZG_CelPracy.xsd"/>
+  <xs:include schemaLocation="SLO_CelPracyArchiwalny.xsd"/>
+  <xs:include schemaLocation="PZG_RodzajPracy.xsd"/>
+  <xs:include schemaLocation="EGB_ObrebEwidencyjny.xsd"/>
+
+  <xs:simpleType name="PZG_Jezyk">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="pol"/>
+      <xs:enumeration value="deu"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PZG_KatArchiw">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="A"/>
+      <xs:enumeration value="BC"/>
+      <xs:enumeration value="BE"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PZG_TypMaterialu">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="obraz"/>
+      <xs:enumeration value="tekst"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PZG_RodzajDostepu">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="bezOgraniczen"/>
+      <xs:enumeration value="zOgraniczeniami"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PZG_NosnikNieelektroniczny">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="papier"/>
+      <xs:enumeration value="folia"/>
+      <xs:enumeration value="planszaAluminiowa"/>
+      <xs:enumeration value="kalkaTechniczna"/>
+      <xs:enumeration value="inny"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PZG_Postac">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="elektroniczna"/>
+      <xs:enumeration value="nieelektroniczna"/>
+      <xs:enumeration value="mieszana"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PZG_SposobPozyskania">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="dzialaniaWlasne"/>
+      <xs:enumeration value="wspoldzialaniePodmiotow"/>
+      <xs:enumeration value="przyjecieDarowizny"/>
+      <xs:enumeration value="przekazanieWycZOpSzac"/>
+      <xs:enumeration value="przekazanieRezultPracGeod"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="PZG_NazwaMat">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="operatTechniczny"/>
+      <xs:enumeration value="mapaTopograficzna"/>
+      <xs:enumeration value="mapaOgolnogeograficzna"/>
+      <xs:enumeration value="mapaEwidencyjna"/>
+      <xs:enumeration value="mapaZasadnicza"/>
+      <xs:enumeration value="kartOprTematyczne"/>
+      <xs:enumeration value="kartOprSpecjalne"/>
+      <xs:enumeration value="zobrazLotnLubSat"/>
+      <xs:enumeration value="ortofotomapa"/>
+      <xs:enumeration value="NMT"/>
+      <xs:enumeration value="kopiaBDZInnejCzZasobu"/>
+      <xs:enumeration value="kopiaMatZInnejCzZasobu"/>
+      <xs:enumeration value="innyMatZasobu"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="schema">
+    <xs:complexType>
+      <xs:sequence>
 
         <!-- OPERAT -->
-        <element name="PZG_MaterialZasobu" minOccurs="1" maxOccurs="1">
-          <complexType>
-            <sequence>
+        <xs:element name="PZG_MaterialZasobu" minOccurs="1" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
 
-              <element name="pzg_IdMaterialu" maxOccurs="1" minOccurs="1">
-                <complexType>
-                  <sequence>
-                    <element name="pierwszyCzlon" maxOccurs="1" minOccurs="1">
-                      <simpleType>
-                        <restriction base="string">
-                          <enumeration value="P"/>
-                        </restriction>
-                      </simpleType>
-                    </element>
-                    <element name="drugiCzlon" maxOccurs="1" minOccurs="1">
-                      <simpleType>
-                        <restriction base="string">
-                          <pattern value="[0-9]{4}"/>
-                          <length value="4"/>
-                        </restriction>
-                      </simpleType>
-                    </element>
-                    <element name="trzeciCzlon" maxOccurs="1" minOccurs="1">
-                      <simpleType>
-                        <restriction base="integer">
-                          <totalDigits value="4"/>
-                          <maxInclusive value="2020"/>
-                        </restriction>
-                      </simpleType>
-                    </element>
-                    <element name="czwartyCzlon" maxOccurs="1" minOccurs="1">
-                      <simpleType>
-                        <restriction base="integer">
-                          <minExclusive value="0"/>
-                        </restriction>
-                      </simpleType>
-                    </element>
-                  </sequence>
-                </complexType>
-              </element>
+              <xs:element name="pzg_IdMaterialu" maxOccurs="1" minOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="pierwszyCzlon" maxOccurs="1" minOccurs="1">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:enumeration value="P"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    
+                    <xs:element name="drugiCzlon" maxOccurs="1" minOccurs="1">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:pattern value="[0-9]{4}"/>
+                          <xs:length value="4"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    
+                    <xs:element name="trzeciCzlon" maxOccurs="1" minOccurs="1">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:integer">
+                          <xs:totalDigits value="4"/>
+                          <xs:maxInclusive value="2020"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    
+                    <xs:element name="czwartyCzlon" maxOccurs="1" minOccurs="1">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:integer">
+                          <xs:minExclusive value="0"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
 
-              <element name="pzg_dataPrzyjecia" maxOccurs="1" minOccurs="1">
-                <simpleType>
-                  <restriction base="string">
-                    <pattern value="[0-9]{4}[-][0-9]{2}[-][0-9]{2}"/>
-                    <length value="10"/>
-                  </restriction>
-                </simpleType>
-              </element>
+              <xs:element name="pzg_dataPrzyjecia" maxOccurs="1" minOccurs="1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:pattern value="[0-9]{4}[-][0-9]{2}[-][0-9]{2}"/>
+                    <xs:length value="10"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
 
-              <element name="dataWplywu" maxOccurs="1" minOccurs="1">
-                <simpleType>
-                  <restriction base="string">
-                    <pattern value="[0-9]{4}[-][0-9]{2}[-][0-9]{2}"/>
-                    <length value="10"/>
-                  </restriction>
-                </simpleType>
-              </element>
+              <xs:element name="dataWplywu" maxOccurs="1" minOccurs="1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:pattern value="[0-9]{4}[-][0-9]{2}[-][0-9]{2}"/>
+                    <xs:length value="10"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
 
-              <element name="pzg_nazwa" type="PZG_NazwaMat" maxOccurs="1" minOccurs="1"/>
-              <element name="pzg_polozenieObszaru" type="string" minOccurs="0" maxOccurs="1"/>
-              <element name="obreb" type="EGB_ObrebEwidencyjny" maxOccurs="1" minOccurs="1"/>
+              <xs:element name="pzg_nazwa" type="xs:PZG_NazwaMat" maxOccurs="1" minOccurs="1"/>
+              <xs:element name="pzg_polozenieObszaru" type="xs:string" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="obreb" type="xs:EGB_ObrebEwidencyjny" maxOccurs="1" minOccurs="1"/>
 
-              <element name="pzg_tworca" maxOccurs="1" minOccurs="1">
-                <complexType>
-                  <sequence>
+              <xs:element name="pzg_tworca" maxOccurs="1" minOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
 
-                    <element name="osoba_id" maxOccurs="1" minOccurs="0">
-                      <simpleType>
-                        <restriction base="integer">
-                          <minExclusive value="0"/>
-                        </restriction>
-                      </simpleType>
-                    </element>
+                    <xs:element name="osoba_id" maxOccurs="1" minOccurs="0">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:integer">
+                          <xs:minExclusive value="0"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
 
-                    <element name="nazwa" maxOccurs="1" minOccurs="1">
-                      <simpleType>
-                        <restriction base="string">
-                          <minLength value="1"/>
-                        </restriction>
-                      </simpleType>
-                    </element>
+                    <xs:element name="nazwa" maxOccurs="1" minOccurs="1">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="1"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
 
-                    <element name="REGON" maxOccurs="1" minOccurs="0">
-                      <simpleType>
-                        <union>
-                          <simpleType>
-                            <restriction base="string">
-                              <length value="0"/>
-                            </restriction>
-                          </simpleType>
-                          <simpleType>
-                            <restriction base="string">
-                              <pattern value="[0-9]{9}"/>
-                              <length value="9"/>
-                            </restriction>
-                          </simpleType>
-                          <simpleType>
-                            <restriction base="string">
-                              <pattern value="[0-9]{14}"/>
-                              <length value="14"/>
-                            </restriction>
-                          </simpleType>
-                        </union>
-                      </simpleType>
-                    </element>
+                    <xs:element name="REGON" maxOccurs="1" minOccurs="0">
+                      <xs:simpleType>
+                        <xs:union>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:length value="0"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:pattern value="[0-9]{9}"/>
+                              <xs:length value="9"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:pattern value="[0-9]{14}"/>
+                              <xs:length value="14"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:union>
+                      </xs:simpleType>
+                    </xs:element>
 
-                    <element name="PESEL" minOccurs="0" maxOccurs="1">
-                      <simpleType>
-                        <union>
-                          <simpleType>
-                            <restriction base="string">
-                              <length value="0"/>
-                            </restriction>
-                          </simpleType>
-                          <simpleType>
-                            <restriction base="string">
-                              <pattern value="[0-9]{11}"/>
-                              <length value="11"/>
-                            </restriction>
-                          </simpleType>
-                        </union>
-                      </simpleType>
-                    </element>
+                    <xs:element name="PESEL" minOccurs="0" maxOccurs="1">
+                      <xs:simpleType>
+                        <xs:union>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:length value="0"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:pattern value="[0-9]{11}"/>
+                              <xs:length value="11"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:union>
+                      </xs:simpleType>
+                    </xs:element>
 
-                  </sequence>
-                </complexType>
-              </element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
 
-              <element name="pzg_sposobPozyskania" type="PZG_SposobPozyskania" maxOccurs="1"
-                minOccurs="1"/>
-              <element name="pzg_postacMaterialu" type="PZG_Postac" maxOccurs="1" minOccurs="1"/>
-              <element name="pzg_rodzNosnika" type="PZG_NosnikNieelektroniczny" maxOccurs="1"
-                minOccurs="1"/>
-              <element name="pzg_dostep" type="PZG_RodzajDostepu" maxOccurs="1" minOccurs="1"/>
-              <element name="pzg_przyczynyOgraniczen" type="string" maxOccurs="1" minOccurs="1"/>
-              <element name="pzg_typMaterialu" type="PZG_TypMaterialu" maxOccurs="1" minOccurs="1"/>
-              <element name="pzg_katArchiwalna" type="PZG_KatArchiw" maxOccurs="1" minOccurs="1"/>
-              <element name="pzg_jezyk" type="PZG_Jezyk" maxOccurs="1" minOccurs="1"/>
-              <!--<element name="pzg_opis" type="string" maxOccurs="1" minOccurs="0"/>-->
+              <xs:element name="pzg_sposobPozyskania" type="xs:PZG_SposobPozyskania" maxOccurs="1" minOccurs="1"/>
+              <xs:element name="pzg_postacMaterialu" type="xs:PZG_Postac" maxOccurs="1" minOccurs="1"/>
+              <xs:element name="pzg_rodzNosnika" type="xs:PZG_NosnikNieelektroniczny" maxOccurs="1" minOccurs="1"/>
+              <xs:element name="pzg_dostep" type="xs:PZG_RodzajDostepu" maxOccurs="1" minOccurs="1"/>
+              <xs:element name="pzg_przyczynyOgraniczen" type="xs:string" maxOccurs="1"  minOccurs="1"/>
+              <xs:element name="pzg_typMaterialu" type="xs:PZG_TypMaterialu" maxOccurs="1" minOccurs="1"/>
+              <xs:element name="pzg_katArchiwalna" type="xs:PZG_KatArchiw" maxOccurs="1" minOccurs="1"/>
+              <xs:element name="pzg_jezyk" type="xs:PZG_Jezyk" maxOccurs="1" minOccurs="1"/>
+              <xs:element name="pzg_opis" type="xs:string" maxOccurs="1" minOccurs="0"/>
 
-              <element name="pzg_oznMaterialuZasobu" maxOccurs="1" minOccurs="1">
-                <simpleType>
-                  <union>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern
+              <xs:element name="pzg_oznMaterialuZasobu" maxOccurs="1" minOccurs="1">
+                <xs:simpleType>
+                  <xs:union>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern
                           value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+-[0-9]+\/[0-9]{4} t\.[0-9]+$"/>
                         <!-- M-26/1956 t.4 -->
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern value="^[0-9]+\/[0-9]{4} t\.[0-9]+$"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="^[0-9]+\/[0-9]{4} t\.[0-9]+$"/>
                         <!-- 26/1956 t.4 -->
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+-[0-9]+\/[0-9]{4}$"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+-[0-9]+\/[0-9]{4}$"/>
                         <!-- M-26/1956 -->
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern value="^[0-9]+\/[0-9]{4}$"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="^[0-9]+\/[0-9]{4}$"/>
                         <!-- 26/1956 -->
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern
                           value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+\.[0-9]+\.[0-9]{4} t\.[0-9]+$"/>
                         <!-- 6640.125.2018 t.3 -->
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+\.[0-9]+\.[0-9]{4}$"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+\.[0-9]+\.[0-9]{4}$"/>
                         <!-- 6640.124.2018 -->
-                      </restriction>
-                    </simpleType>
-                  </union>
-                </simpleType>
-              </element>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:union>
+                </xs:simpleType>
+              </xs:element>
 
-              <element name="oznMaterialuZasobuTyp" type="string" maxOccurs="1" minOccurs="0"/>
-              <element name="oznMaterialuZasobuJedn" type="string" maxOccurs="1" minOccurs="0"/>
-              <element name="oznMaterialuZasobuNr" maxOccurs="1" minOccurs="1">
-                <simpleType>
-                  <restriction base="integer">
-                    <minExclusive value="0"/>
-                  </restriction>
-                </simpleType>
-              </element>
+              <xs:element name="oznMaterialuZasobuTyp" type="xs:string" maxOccurs="1" minOccurs="0"/>
+              <xs:element name="oznMaterialuZasobuJedn" type="xs:string" maxOccurs="1" minOccurs="0"/>
+              
+              <xs:element name="oznMaterialuZasobuNr" maxOccurs="1" minOccurs="1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:integer">
+                    <xs:minExclusive value="0"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
 
-              <element name="oznMaterialuZasobuRok" maxOccurs="1" minOccurs="1">
-                <simpleType>
-                  <restriction base="integer">
-                    <totalDigits value="4"/>
-                    <minInclusive value="1000"/>
-                    <maxInclusive value="2020"/>
-                  </restriction>
-                </simpleType>
-              </element>
+              <xs:element name="oznMaterialuZasobuRok" maxOccurs="1" minOccurs="1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:integer">
+                    <xs:totalDigits value="4"/>
+                    <xs:minInclusive value="1000"/>
+                    <xs:maxInclusive value="2020"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
 
-              <element name="oznMaterialuZasobuTom" minOccurs="0" maxOccurs="1">
-                <simpleType>
-                  <union>
-                    <simpleType>
-                      <restriction base="string">
-                        <length value="0"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="integer">
-                        <minExclusive value="0"/>
-                      </restriction>
-                    </simpleType>
-                  </union>
-                </simpleType>
-              </element>
+              <xs:element name="oznMaterialuZasobuTom" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                  <xs:union>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:length value="0"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:integer">
+                        <xs:minExclusive value="0"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:union>
+                </xs:simpleType>
+              </xs:element>
 
-              <element name="oznMaterialuZasobuSepJednNr" maxOccurs="1" minOccurs="1">
-                <simpleType>
-                  <restriction base="string">
-                    <enumeration value="-"/>
-                    <enumeration value="."/>
-                  </restriction>
-                </simpleType>
-              </element>
+              <xs:element name="oznMaterialuZasobuSepJednNr" maxOccurs="1" minOccurs="1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="-"/>
+                    <xs:enumeration value="."/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
 
-              <element name="oznMaterialuZasobuSepNrRok" maxOccurs="1" minOccurs="1">
-                <simpleType>
-                  <restriction base="string">
-                    <enumeration value="/"/>
-                    <enumeration value="."/>
-                  </restriction>
-                </simpleType>
-              </element>
+              <xs:element name="oznMaterialuZasobuSepNrRok" maxOccurs="1" minOccurs="1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="/"/>
+                    <xs:enumeration value="."/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
 
-              <element name="pzg_dokumentWyl" type="string" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="pzg_dokumentWyl" type="xs:string" minOccurs="0" maxOccurs="1"/>
 
-              <element name="pzg_dataWyl" minOccurs="0" maxOccurs="1">
-                <simpleType>
-                  <union>
-                    <simpleType>
-                      <restriction base="string">
-                        <length value="0"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern value="[0-9]{4}[-][0-9]{2}[-][0-9]{2}"/>
-                        <length value="10"/>
-                      </restriction>
-                    </simpleType>
-                  </union>
-                </simpleType>
-              </element>
+              <xs:element name="pzg_dataWyl" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                  <xs:union>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:length value="0"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9]{4}[-][0-9]{2}[-][0-9]{2}"/>
+                        <xs:length value="10"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:union>
+                </xs:simpleType>
+              </xs:element>
 
-              <element name="pzg_dataArchLubBrak" minOccurs="0" maxOccurs="1">
-                <simpleType>
-                  <union>
-                    <simpleType>
-                      <restriction base="string">
-                        <length value="0"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern value="[0-9]{4}[-][0-9]{2}[-][0-9]{2}"/>
-                        <length value="10"/>
-                      </restriction>
-                    </simpleType>
-                  </union>
-                </simpleType>
-              </element>
+              <xs:element name="pzg_dataArchLubBrak" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                  <xs:union>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:length value="0"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9]{4}[-][0-9]{2}[-][0-9]{2}"/>
+                        <xs:length value="10"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:union>
+                </xs:simpleType>
+              </xs:element>
 
-              <element name="pzg_cel" maxOccurs="unbounded" minOccurs="0">
-                <simpleType>
-                  <union>
-                    <simpleType>
-                      <restriction base="string">
-                        <length value="0"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="PZG_CelPracy"/>
-                    </simpleType>
-                  </union>
-                </simpleType>
-              </element>
+              <xs:element name="pzg_cel" maxOccurs="unbounded" minOccurs="0">
+                <xs:simpleType>
+                  <xs:union>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:length value="0"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:PZG_CelPracy"/>
+                    </xs:simpleType>
+                  </xs:union>
+                </xs:simpleType>
+              </xs:element>
 
-              <element name="celArchiwalny" maxOccurs="unbounded" minOccurs="0">
-                <simpleType>
-                  <union>
-                    <simpleType>
-                      <restriction base="string">
-                        <length value="0"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="SLO_CelPracyArchiwalny"/>
-                    </simpleType>
-                  </union>
-                </simpleType>
-              </element>
+              <xs:element name="celArchiwalny" maxOccurs="unbounded" minOccurs="0">
+                <xs:simpleType>
+                  <xs:union>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:length value="0"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:SLO_CelPracyArchiwalny"/>
+                    </xs:simpleType>
+                  </xs:union>
+                </xs:simpleType>
+              </xs:element>
 
-              <element name="dzialkaPrzed" maxOccurs="unbounded" minOccurs="0">
-                <simpleType>
-                  <union>
-                    <simpleType>
-                      <restriction base="string">
-                        <length value="0"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern
+              <xs:element name="dzialkaPrzed" maxOccurs="unbounded" minOccurs="0">
+                <xs:simpleType>
+                  <xs:union>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:length value="0"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern
                           value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+\/[0-9]+$"/>
                         <!-- 040903_5.0049.AR_1.158/3 -->
-                        <minLength value="15"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern
+                        <xs:minLength value="15"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern
                           value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+\/[0-9]+-[a-zA-Z]+$"/>
                         <!-- 040903_5.0049.AR_1.158/3-L -->
-                        <minLength value="15"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+$"/>
+                        <xs:minLength value="15"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+$"/>
                         <!-- 040903_5.0049.AR_1.158 -->
-                        <minLength value="15"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern
+                        <xs:minLength value="15"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern
                           value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+-[a-zA-Z]+$"/>
                         <!-- 040903_5.0049.AR_1.158-L -->
-                        <minLength value="15"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+\/[0-9]+$"/>
+                        <xs:minLength value="15"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+\/[0-9]+$"/>
                         <!-- 040903_5.0049.158/3 -->
-                        <minLength value="15"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+\/[0-9]+-[a-zA-Z]+$"/>
+                        <xs:minLength value="15"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+\/[0-9]+-[a-zA-Z]+$"/>
                         <!-- 040903_5.0049.158/3-L -->
-                        <minLength value="15"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+$"/>
+                        <xs:minLength value="15"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+$"/>
                         <!-- 040903_5.0049.158 -->
-                        <minLength value="15"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+-[a-zA-Z]+$"/>
+                        <xs:minLength value="15"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+-[a-zA-Z]+$"/>
                         <!-- 040903_5.0049.158-L -->
-                        <minLength value="15"/>
-                      </restriction>
-                    </simpleType>
-                  </union>
-                </simpleType>
-              </element>
+                        <xs:minLength value="15"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:union>
+                </xs:simpleType>
+              </xs:element>
 
-              <element name="dzialkaPo" maxOccurs="unbounded" minOccurs="0">
-                <simpleType>
-                  <union>
-                    <simpleType>
-                      <restriction base="string">
-                        <length value="0"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern
+              <xs:element name="dzialkaPo" maxOccurs="unbounded" minOccurs="0">
+                <xs:simpleType>
+                  <xs:union>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:length value="0"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern
                           value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+\/[0-9]+$"/>
                         <!-- 040903_5.0049.AR_1.158/3 -->
-                        <minLength value="15"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern
+                        <xs:minLength value="15"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern
                           value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+\/[0-9]+-[a-zA-Z]+$"/>
                         <!-- 040903_5.0049.AR_1.158/3-L -->
-                        <minLength value="15"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+$"/>
+                        <xs:minLength value="15"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+$"/>
                         <!-- 040903_5.0049.AR_1.158 -->
-                        <minLength value="15"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern
+                        <xs:minLength value="15"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern
                           value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.AR_[0-9a-zA-Z]+\.[0-9]+-[a-zA-Z]+$"/>
                         <!-- 040903_5.0049.AR_1.158-L -->
-                        <minLength value="15"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+\/[0-9]+$"/>
+                        <xs:minLength value="15"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+\/[0-9]+$"/>
                         <!-- 040903_5.0049.158/3 -->
-                        <minLength value="15"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+\/[0-9]+-[a-zA-Z]+$"/>
+                        <xs:minLength value="15"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+\/[0-9]+-[a-zA-Z]+$"/>
                         <!-- 040903_5.0049.158/3-L -->
-                        <minLength value="15"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+$"/>
+                        <xs:minLength value="15"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+$"/>
                         <!-- 040903_5.0049.158 -->
-                        <minLength value="15"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+-[a-zA-Z]+$"/>
+                        <xs:minLength value="15"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="^[0-9]{6}_[0-9]{1}\.[0-9]{4}\.[0-9]+-[a-zA-Z]+$"/>
                         <!-- 040903_5.0049.158-L -->
-                        <minLength value="15"/>
-                      </restriction>
-                    </simpleType>
-                  </union>
-                </simpleType>
-              </element>
+                        <xs:minLength value="15"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:union>
+                </xs:simpleType>
+              </xs:element>
 
-              <!--<element name="opis2" type="string" minOccurs="0" maxOccurs="1"/>-->
-            </sequence>
-          </complexType>
-        </element>
+              <xs:element name="opis2" type="xs:string" minOccurs="0" maxOccurs="1"/>
+              
+            </xs:sequence>
+          </xs:complexType>
+
+          <xs:unique name="pzg_celOpUnique">
+            <xs:selector xpath="xs:pzg_cel"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+          
+          <xs:unique name="celArchiwalnyOpUnique">
+            <xs:selector xpath="xs:celArchiwalny"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+          
+          <xs:unique name="dzialkaPrzedOpUnique">
+            <xs:selector xpath="xs:dzialkaPrzed"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+          
+          <xs:unique name="dzialkaPoOpUnique">
+            <xs:selector xpath="xs:dzialkaPo"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+
+        </xs:element>
 
         <!-- ZGŁOSZENIE -->
-        <element name="PZG_Zgloszenie" maxOccurs="1" minOccurs="1">
-          <complexType>
-            <sequence>
-              <element name="pzg_idZgloszenia" maxOccurs="1" minOccurs="1">
-                <simpleType>
-                  <union>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern
+        <xs:element name="PZG_Zgloszenie" maxOccurs="1" minOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              
+              <xs:element name="pzg_idZgloszenia" maxOccurs="1" minOccurs="1">
+                <xs:simpleType>
+                  <xs:union>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern
                           value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+-[0-9]+\/[0-9]{4} et\.[0-9]+$"/>
                         <!-- M-26/1956 et.4 -->
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern value="^[0-9]+\/[0-9]{4} et\.[0-9]+$"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="^[0-9]+\/[0-9]{4} et\.[0-9]+$"/>
                         <!-- 26/1956 et.4 -->
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+-[0-9]+\/[0-9]{4}$"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+-[0-9]+\/[0-9]{4}$"/>
                         <!-- M-26/1956 -->
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern value="^[0-9]+\/[0-9]{4}$"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="^[0-9]+\/[0-9]{4}$"/>
                         <!-- 26/1956 -->
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern
                           value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+\.[0-9]+\.[0-9]{4} et\.[0-9]+$"/>
                         <!-- 6640.125.2018 et.3 -->
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="string">
-                        <pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+\.[0-9]+\.[0-9]{4}$"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:pattern value="^[0-9a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\.]+\.[0-9]+\.[0-9]{4}$"/>
                         <!-- 6640.124.2018 -->
-                      </restriction>
-                    </simpleType>
-                  </union>
-                </simpleType>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:union>
+                </xs:simpleType>
+              </xs:element>
 
-              </element>
+              <xs:element name="idZgloszeniaJedn" type="xs:string" minOccurs="0" maxOccurs="1"/>
 
-              <element name="idZgloszeniaJedn" type="string" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="idZgloszeniaNr" maxOccurs="1" minOccurs="1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:integer">
+                    <xs:minExclusive value="0"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
 
-              <element name="idZgloszeniaNr" maxOccurs="1" minOccurs="1">
-                <simpleType>
-                  <restriction base="integer">
-                    <minExclusive value="0"/>
-                  </restriction>
-                </simpleType>
-              </element>
+              <xs:element name="idZgloszeniaRok" maxOccurs="1" minOccurs="1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:integer">
+                    <xs:totalDigits value="4"/>
+                    <xs:minInclusive value="1000"/>
+                    <xs:maxInclusive value="2020"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
 
-              <element name="idZgloszeniaRok" maxOccurs="1" minOccurs="1">
-                <simpleType>
-                  <restriction base="integer">
-                    <totalDigits value="4"/>
-                    <minInclusive value="1000"/>
-                    <maxInclusive value="2020"/>
-                  </restriction>
-                </simpleType>
-              </element>
+              <xs:element name="idZgloszeniaEtap">
+                <xs:simpleType>
+                  <xs:union>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:length value="0"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:integer">
+                        <xs:minExclusive value="0"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:union>
+                </xs:simpleType>
+              </xs:element>
 
-              <element name="idZgloszeniaEtap">
-                <simpleType>
-                  <union>
-                    <simpleType>
-                      <restriction base="string">
-                        <length value="0"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="integer">
-                        <minExclusive value="0"/>
-                      </restriction>
-                    </simpleType>
-                  </union>
-                </simpleType>
-              </element>
+              <xs:element name="idZgloszeniaSepJednNr">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="-"/>
+                    <xs:enumeration value="."/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
 
-              <element name="idZgloszeniaSepJednNr">
-                <simpleType>
-                  <restriction base="string">
-                    <enumeration value="-"/>
-                    <enumeration value="."/>
-                  </restriction>
-                </simpleType>
-              </element>
+              <xs:element name="idZgloszeniaSepNrRok">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="/"/>
+                    <xs:enumeration value="."/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
 
-              <element name="idZgloszeniaSepNrRok">
-                <simpleType>
-                  <restriction base="string">
-                    <enumeration value="/"/>
-                    <enumeration value="."/>
-                  </restriction>
-                </simpleType>
-              </element>
+              <xs:element name="pzg_dataZgloszenia" maxOccurs="1" minOccurs="1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:pattern value="[0-9]{4}[-][0-9]{2}[-][0-9]{2}"/>
+                    <xs:length value="10"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
 
-              <element name="pzg_dataZgloszenia" maxOccurs="1" minOccurs="1">
-                <simpleType>
-                  <restriction base="string">
-                    <pattern value="[0-9]{4}[-][0-9]{2}[-][0-9]{2}"/>
-                    <length value="10"/>
-                  </restriction>
-                </simpleType>
-              </element>
+              <xs:element name="pzg_polozenieObszaru" type="xs:string" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="obreb" type="xs:EGB_ObrebEwidencyjny" maxOccurs="1" minOccurs="1"/>
 
-              <element name="pzg_polozenieObszaru" type="string" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="pzg_podmiotZglaszajacy" maxOccurs="1" minOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
 
-              <element name="obreb" type="EGB_ObrebEwidencyjny" maxOccurs="1" minOccurs="1"/>
+                    <xs:element name="osoba_id" maxOccurs="1" minOccurs="0">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:integer">
+                          <xs:minExclusive value="0"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
 
-              <element name="pzg_podmiotZglaszajacy" maxOccurs="1" minOccurs="1">
-                <complexType>
-                  <sequence>
+                    <xs:element name="nazwa" maxOccurs="1" minOccurs="1">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:minLength value="1"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
 
-                    <element name="osoba_id" maxOccurs="1" minOccurs="0">
-                      <simpleType>
-                        <restriction base="integer">
-                          <minExclusive value="0"/>
-                        </restriction>
-                      </simpleType>
-                    </element>
+                    <xs:element name="REGON" maxOccurs="1" minOccurs="0">
+                      <xs:simpleType>
+                        <xs:union>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:length value="0"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:pattern value="[0-9]{9}"/>
+                              <xs:length value="9"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:pattern value="[0-9]{14}"/>
+                              <xs:length value="14"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:union>
+                      </xs:simpleType>
+                    </xs:element>
 
-                    <element name="nazwa" maxOccurs="1" minOccurs="1">
-                      <simpleType>
-                        <restriction base="string">
-                          <minLength value="1"/>
-                        </restriction>
-                      </simpleType>
-                    </element>
+                    <xs:element name="PESEL" minOccurs="0" maxOccurs="1">
+                      <xs:simpleType>
+                        <xs:union>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:length value="0"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:pattern value="[0-9]{11}"/>
+                              <xs:length value="11"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:union>
+                      </xs:simpleType>
+                    </xs:element>
 
-                    <element name="REGON" maxOccurs="1" minOccurs="0">
-                      <simpleType>
-                        <union>
-                          <simpleType>
-                            <restriction base="string">
-                              <length value="0"/>
-                            </restriction>
-                          </simpleType>
-                          <simpleType>
-                            <restriction base="string">
-                              <pattern value="[0-9]{9}"/>
-                              <length value="9"/>
-                            </restriction>
-                          </simpleType>
-                          <simpleType>
-                            <restriction base="string">
-                              <pattern value="[0-9]{14}"/>
-                              <length value="14"/>
-                            </restriction>
-                          </simpleType>
-                        </union>
-                      </simpleType>
-                    </element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
 
-                    <element name="PESEL" minOccurs="0" maxOccurs="1">
-                      <simpleType>
-                        <union>
-                          <simpleType>
-                            <restriction base="string">
-                              <length value="0"/>
-                            </restriction>
-                          </simpleType>
-                          <simpleType>
-                            <restriction base="string">
-                              <pattern value="[0-9]{11}"/>
-                              <length value="11"/>
-                            </restriction>
-                          </simpleType>
-                        </union>
-                      </simpleType>
-                    </element>
+              <xs:element name="osobaUprawniona" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="imie" type="xs:string" maxOccurs="1" minOccurs="0"/>
+                    <xs:element name="nazwisko" type="xs:string" maxOccurs="1" minOccurs="1"/>
+                    <xs:element name="numer_uprawnien" type="xs:string" maxOccurs="1" minOccurs="0"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
 
-                  </sequence>
-                </complexType>
-              </element>
+              <xs:element name="pzg_cel" maxOccurs="unbounded" minOccurs="0">
+                <xs:simpleType>
+                  <xs:union>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:length value="0"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:PZG_CelPracy"/>
+                    </xs:simpleType>
+                  </xs:union>
+                </xs:simpleType>
+              </xs:element>
 
-              <element name="osobaUprawniona" minOccurs="0" maxOccurs="1">
-                <complexType>
-                  <sequence>
-                    <element name="imie" type="string" maxOccurs="1" minOccurs="0"/>
-                    <element name="nazwisko" type="string" maxOccurs="1" minOccurs="1"/>
-                    <element name="numer_uprawnien" type="string" maxOccurs="1" minOccurs="0"/>
-                  </sequence>
-                </complexType>
-              </element>
+              <xs:element name="pzg_rodzaj" minOccurs="0">
+                <xs:simpleType>
+                  <xs:union>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:length value="0"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:PZG_RodzajPracy"/>
+                    </xs:simpleType>
+                  </xs:union>
+                </xs:simpleType>
+              </xs:element>
 
-              <element name="pzg_cel" maxOccurs="unbounded" minOccurs="0">
-                <simpleType>
-                  <union>
-                    <simpleType>
-                      <restriction base="string">
-                        <length value="0"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="PZG_CelPracy"/>
-                    </simpleType>
-                  </union>
-                </simpleType>
-              </element>
+              <xs:element name="celArchiwalny" maxOccurs="unbounded" minOccurs="0">
+                <xs:simpleType>
+                  <xs:union>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:length value="0"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:SLO_CelPracyArchiwalny"/>
+                    </xs:simpleType>
+                  </xs:union>
+                </xs:simpleType>
+              </xs:element>
 
-              <element name="pzg_rodzaj" minOccurs="0">
-                <simpleType>
-                  <union>
-                    <simpleType>
-                      <restriction base="string">
-                        <length value="0"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="PZG_RodzajPracy"/>
-                    </simpleType>
-                  </union>
-                </simpleType>
-              </element>
-              
-              <element name="celArchiwalny" maxOccurs="unbounded" minOccurs="0">
-                <simpleType>
-                  <union>
-                    <simpleType>
-                      <restriction base="string">
-                        <length value="0"/>
-                      </restriction>
-                    </simpleType>
-                    <simpleType>
-                      <restriction base="SLO_CelPracyArchiwalny"/>
-                    </simpleType>
-                  </union>
-                </simpleType>
-              </element>
+            </xs:sequence>
+          </xs:complexType>
+          
+          <xs:unique name="pzg_celZglUnique">
+            <xs:selector xpath="xs:pzg_cel"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+          
+          <xs:unique name="celArchiwalnyZglUnique">
+            <xs:selector xpath="xs:celArchiwalny"/>
+            <xs:field xpath="."/>
+          </xs:unique>
+          
+        </xs:element>
 
-            </sequence>
-          </complexType>
-        </element>
+      </xs:sequence>
 
-      </sequence>
+      <xs:attribute name="attributeFormDefault" use="optional" type="xs:string"/>
+      <xs:attribute name="elementFormDefault" use="optional" type="xs:string"/>
+      <xs:attribute name="targetNamespace" use="optional" type="xs:string"/>
+      <xs:attribute name="version" use="optional" type="xs:string"/>
 
-      <attribute name="attributeFormDefault" use="optional" type="string"/>
-      <attribute name="elementFormDefault" use="optional" type="string"/>
-      <attribute name="targetNamespace" use="optional" type="string"/>
-      <attribute name="version" use="optional" type="string"/>
+    </xs:complexType>
 
-    </complexType>
+  </xs:element>
 
-  </element>
-  
-</schema>
+</xs:schema>

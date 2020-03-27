@@ -202,9 +202,9 @@ namespace ReadOpXML.Tools
 
             XmlNodeList nodeList = doc.DocumentElement?.SelectNodes(xPath, nsmgr);
 
-            if (nodeList == null)
+            if (nodeList == null || nodeList.Count == 0)
             {
-                return "--pusta lista---";
+                return "--brak znacznika---";
             }
 
             if (!nodes.Contains("osobaUprawniona"))
@@ -213,7 +213,7 @@ namespace ReadOpXML.Tools
                 {
                     if (node.InnerText.Contains("|")) throw new Exception("Błąd separatora!");
 
-                    if (!string.IsNullOrEmpty(node.InnerText)) valueList.Add(node.InnerText);
+                    valueList.Add(!string.IsNullOrEmpty(node.InnerText) ? node.InnerText : "--brak wartosci--");
                 }
             }
             else
@@ -241,14 +241,7 @@ namespace ReadOpXML.Tools
                 }
             }
 
-            if (valueList.Count > 0)
-            {
-                valueList.Sort();
-            }
-            else
-            {
-                valueList = new List<string>{"--pusta lista---"};    
-            }
+            valueList.Sort();
 
             return valueList.Aggregate(string.Empty, (current, value) => current + "|" + value).TrimStart('|');
         }
