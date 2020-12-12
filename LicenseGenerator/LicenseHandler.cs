@@ -8,6 +8,7 @@ using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 using License;
+using Exception = System.Exception;
 
 namespace LicenseGenerator
 {
@@ -85,10 +86,10 @@ namespace LicenseGenerator
                     validationMsg = "Nieprawidłowy plik licencji";
                 }
             }
-            catch
+            catch (Exception e)
             {
                 licStatus = LicenseStatus.Cracked;
-                validationMsg = "Licencja uszkodzona";
+                validationMsg = "Licencja uszkodzona\n" + e.Message;
             }
 
             return license;

@@ -1,0 +1,1182 @@
+<EGB_ObrebEwidencyjny>
+        <entry>
+            <key>1</key>
+            <value>
+                <id>1</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Gębice</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0011</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>6</key>
+            <value>
+                <id>6</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Białotul</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0002</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>7</key>
+            <value>
+                <id>7</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Bystrzyca</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0003</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>8</key>
+            <value>
+                <id>8</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Chałupska</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0004</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>9</key>
+            <value>
+                <id>9</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Chabsko</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0005</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>10</key>
+            <value>
+                <id>10</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Czarnotul</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0006</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>11</key>
+            <value>
+                <id>11</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Czerniak</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0007</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>12</key>
+            <value>
+                <id>12</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Dąbrówka</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0008</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>16</key>
+            <value>
+                <id>16</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Dębno</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0009</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>17</key>
+            <value>
+                <id>17</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Dzierzążno</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0010</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>19</key>
+            <value>
+                <id>19</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Gozdawa</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0012</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>20</key>
+            <value>
+                <id>20</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Gozdanin</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0013</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>21</key>
+            <value>
+                <id>21</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Goryszewo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0014</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>22</key>
+            <value>
+                <id>22</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Huta Padniewska</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0015</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>23</key>
+            <value>
+                <id>23</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Huta Palędzka</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0016</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>24</key>
+            <value>
+                <id>24</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Izdby</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0017</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>25</key>
+            <value>
+                <id>25</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Józefowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0018</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>26</key>
+            <value>
+                <id>26</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Kamionek</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0019</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>27</key>
+            <value>
+                <id>27</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Kątno</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0020</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>28</key>
+            <value>
+                <id>28</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Kunowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0021</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>29</key>
+            <value>
+                <id>29</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Kwieciszewo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0022</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>31</key>
+            <value>
+                <id>31</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Krzyżownica</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0024</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>32</key>
+            <value>
+                <id>32</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Łosośniki</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0025</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>33</key>
+            <value>
+                <id>33</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Marcinkowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0026</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>34</key>
+            <value>
+                <id>34</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Mielenko</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0027</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>35</key>
+            <value>
+                <id>35</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Niestronno</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0028</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>36</key>
+            <value>
+                <id>36</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Olsza</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0030</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>37</key>
+            <value>
+                <id>37</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Padniewo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0031</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>38</key>
+            <value>
+                <id>38</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Padniewko</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0032</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>39</key>
+            <value>
+                <id>39</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Palędzie Dolne</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0033</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>40</key>
+            <value>
+                <id>40</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Palędzie Kościelne</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0034</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>41</key>
+            <value>
+                <id>41</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Płaczkówko</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0035</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>42</key>
+            <value>
+                <id>42</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Procyń</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0036</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>46</key>
+            <value>
+                <id>46</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Przyjma</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0037</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>47</key>
+            <value>
+                <id>47</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Wiecanowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0038</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>48</key>
+            <value>
+                <id>48</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Skrzeszewo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0039</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>49</key>
+            <value>
+                <id>49</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Stawiska</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0040</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>50</key>
+            <value>
+                <id>50</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Strzelce</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0041</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>51</key>
+            <value>
+                <id>51</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Szerzawy</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0042</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>52</key>
+            <value>
+                <id>52</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Szydłówko</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0043</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>53</key>
+            <value>
+                <id>53</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Szczeglin</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0044</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>54</key>
+            <value>
+                <id>54</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Świerkówiec</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0045</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>55</key>
+            <value>
+                <id>55</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Targownica</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0046</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>56</key>
+            <value>
+                <id>56</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Twierdziń</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0047</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>57</key>
+            <value>
+                <id>57</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Wasielewko</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0048</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>58</key>
+            <value>
+                <id>58</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Wylatowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0049</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>59</key>
+            <value>
+                <id>59</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Wieniec</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0050</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>61</key>
+            <value>
+                <id>61</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Wyrobki</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0051</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>62</key>
+            <value>
+                <id>62</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Wszedzień</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0052</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>63</key>
+            <value>
+                <id>63</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Zbytowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0053</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>64</key>
+            <value>
+                <id>64</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Żabienko</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0054</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>65</key>
+            <value>
+                <id>65</id>
+                <id_jednostki_ewidencyjnej>1</id_jednostki_ewidencyjnej>
+                <nazwa>Żabno</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_5.0055</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>66</key>
+            <value>
+                <id>66</id>
+                <id_jednostki_ewidencyjnej>16</id_jednostki_ewidencyjnej>
+                <nazwa>Strzelno</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - miasto</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_4.0001</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>71</key>
+            <value>
+                <id>71</id>
+                <id_jednostki_ewidencyjnej>21</id_jednostki_ewidencyjnej>
+                <nazwa>Białe Błota</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Dąbrowa</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040901_2.0001</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>72</key>
+            <value>
+                <id>72</id>
+                <id_jednostki_ewidencyjnej>21</id_jednostki_ewidencyjnej>
+                <nazwa>Dąbrowa</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Dąbrowa</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040901_2.0002</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>73</key>
+            <value>
+                <id>73</id>
+                <id_jednostki_ewidencyjnej>21</id_jednostki_ewidencyjnej>
+                <nazwa>Krzekotowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Dąbrowa</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040901_2.0003</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>74</key>
+            <value>
+                <id>74</id>
+                <id_jednostki_ewidencyjnej>21</id_jednostki_ewidencyjnej>
+                <nazwa>Mierucin</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Dąbrowa</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040901_2.0004</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>75</key>
+            <value>
+                <id>75</id>
+                <id_jednostki_ewidencyjnej>21</id_jednostki_ewidencyjnej>
+                <nazwa>Mierucinek</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Dąbrowa</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040901_2.0005</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>76</key>
+            <value>
+                <id>76</id>
+                <id_jednostki_ewidencyjnej>21</id_jednostki_ewidencyjnej>
+                <nazwa>Mokre</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Dąbrowa</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040901_2.0006</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>77</key>
+            <value>
+                <id>77</id>
+                <id_jednostki_ewidencyjnej>21</id_jednostki_ewidencyjnej>
+                <nazwa>Parlin</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Dąbrowa</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040901_2.0007</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>78</key>
+            <value>
+                <id>78</id>
+                <id_jednostki_ewidencyjnej>21</id_jednostki_ewidencyjnej>
+                <nazwa>Parlinek</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Dąbrowa</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040901_2.0008</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>79</key>
+            <value>
+                <id>79</id>
+                <id_jednostki_ewidencyjnej>21</id_jednostki_ewidencyjnej>
+                <nazwa>Sędowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Dąbrowa</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040901_2.0010</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>81</key>
+            <value>
+                <id>81</id>
+                <id_jednostki_ewidencyjnej>21</id_jednostki_ewidencyjnej>
+                <nazwa>Słaboszewo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Dąbrowa</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040901_2.0011</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>82</key>
+            <value>
+                <id>82</id>
+                <id_jednostki_ewidencyjnej>21</id_jednostki_ewidencyjnej>
+                <nazwa>Sucharzewo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Dąbrowa</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040901_2.0012</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>83</key>
+            <value>
+                <id>83</id>
+                <id_jednostki_ewidencyjnej>21</id_jednostki_ewidencyjnej>
+                <nazwa>Szczepanowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Dąbrowa</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040901_2.0013</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>84</key>
+            <value>
+                <id>84</id>
+                <id_jednostki_ewidencyjnej>21</id_jednostki_ewidencyjnej>
+                <nazwa>Szczepankowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Dąbrowa</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040901_2.0014</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>86</key>
+            <value>
+                <id>86</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Bławatki</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0001</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>87</key>
+            <value>
+                <id>87</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Bławaty</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0002</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>88</key>
+            <value>
+                <id>88</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Bożejewice</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0003</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>89</key>
+            <value>
+                <id>89</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Bronisław</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0004</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>90</key>
+            <value>
+                <id>90</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Ciechrz</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0005</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>91</key>
+            <value>
+                <id>91</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Ciencisko</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0006</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>92</key>
+            <value>
+                <id>92</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Górki</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0007</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>93</key>
+            <value>
+                <id>93</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Jeziorki</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0008</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>94</key>
+            <value>
+                <id>94</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Kijewice</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0009</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>95</key>
+            <value>
+                <id>95</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Książ</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0010</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>96</key>
+            <value>
+                <id>96</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Łąkie</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0011</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>97</key>
+            <value>
+                <id>97</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Markowice</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0012</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>98</key>
+            <value>
+                <id>98</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Miradz</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0013</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>99</key>
+            <value>
+                <id>99</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Mirosławice</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0014</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>100</key>
+            <value>
+                <id>100</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Młynice</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0015</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>101</key>
+            <value>
+                <id>101</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Młyny</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0016</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>102</key>
+            <value>
+                <id>102</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Niemojewko</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0017</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>103</key>
+            <value>
+                <id>103</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Ostrowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0018</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>104</key>
+            <value>
+                <id>104</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Rzadkwin</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0019</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>105</key>
+            <value>
+                <id>105</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Sławsko Dolne</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0020</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>106</key>
+            <value>
+                <id>106</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Stodólno</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0021</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>107</key>
+            <value>
+                <id>107</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Stodoły</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0022</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>108</key>
+            <value>
+                <id>108</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Strzelno Klasztorne</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0023</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>109</key>
+            <value>
+                <id>109</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Witkowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0024</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>110</key>
+            <value>
+                <id>110</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Wronowy</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0025</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>111</key>
+            <value>
+                <id>111</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Wymysłowice</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0026</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>112</key>
+            <value>
+                <id>112</id>
+                <id_jednostki_ewidencyjnej>26</id_jednostki_ewidencyjnej>
+                <nazwa>Żegotki</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Strzelno - obszar wiejski</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040904_5.0027</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>116</key>
+            <value>
+                <id>116</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Berlinek</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0001</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>117</key>
+            <value>
+                <id>117</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Budy Radunek</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0002</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>118</key>
+            <value>
+                <id>118</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Dobsko</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0003</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>119</key>
+            <value>
+                <id>119</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Gaj</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0004</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>120</key>
+            <value>
+                <id>120</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Jeziora Wielkie</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0005</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>121</key>
+            <value>
+                <id>121</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Kościeszki</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0006</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>122</key>
+            <value>
+                <id>122</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Kożuszkowo-Pomiany</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0007</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>123</key>
+            <value>
+                <id>123</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Krzywe Kolano</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0008</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>124</key>
+            <value>
+                <id>124</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Kuśnierz</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0009</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>125</key>
+            <value>
+                <id>125</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Lenartowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0010</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>126</key>
+            <value>
+                <id>126</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Lubstówek</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0011</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>127</key>
+            <value>
+                <id>127</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Nowa Wieś</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0012</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>128</key>
+            <value>
+                <id>128</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Nożyczyn</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0013</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>129</key>
+            <value>
+                <id>129</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Proszyska</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0014</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>130</key>
+            <value>
+                <id>130</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Rzeszyn</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0015</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>131</key>
+            <value>
+                <id>131</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Rzeszynek</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0016</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>132</key>
+            <value>
+                <id>132</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Siemionki</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0017</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>133</key>
+            <value>
+                <id>133</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Siedlimowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0018</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>134</key>
+            <value>
+                <id>134</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Sierakowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0019</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>135</key>
+            <value>
+                <id>135</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Włostowo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0021</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>136</key>
+            <value>
+                <id>136</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Wola Kożuszkowa</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0022</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>137</key>
+            <value>
+                <id>137</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Wójcin</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0023</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>138</key>
+            <value>
+                <id>138</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Żółwiny i Wycinki</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0024</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>139</key>
+            <value>
+                <id>139</id>
+                <id_jednostki_ewidencyjnej>31</id_jednostki_ewidencyjnej>
+                <nazwa>Golejewo</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Jeziora Wielkie</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040902_2.0025</numer_gus>
+            </value>
+        </entry>
+        <entry>
+            <key>140</key>
+            <value>
+                <id>140</id>
+                <id_jednostki_ewidencyjnej>7</id_jednostki_ewidencyjnej>
+                <nazwa>Mogilno</nazwa>
+                <nazwa_jednostki_ewidencyjnej>Mogilno - miasto</nazwa_jednostki_ewidencyjnej>
+                <numer_gus>040903_4.0001</numer_gus>
+            </value>
+        </entry>
+    </EGB_ObrebEwidencyjny>

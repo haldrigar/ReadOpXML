@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema elementFormDefault="qualified" targetNamespace="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema">
+
+	<simpleType name="PZG_CelPracy">
+		<restriction base="string">
+			<enumeration value="sporządzenie dokumentacji geodezyjnej na potrzeby rozgraniczenia nieruchomości"/>
+			<enumeration value="wykonanie innych czynn. lub dok. geod. w postaci map, rej. lub wyk., skutkujących zmianą w bazach danych, z wyj. prac wyk. na zam. organu SGiK"/>
+			<enumeration value="geodezyjna inwentaryzacja powykonawcza obiektów budowlanych"/>
+			<enumeration value="sporządzenie mapy do celów projektowych"/>
+			<enumeration value="geodezyjna inwentaryzacja powykonawcza obiektów budowlanych"/>
+			<enumeration value="wznowienie znaków granicznych, wyznaczenie punktów granicznych lub ustalenie przebiegu granic działek ewidencyjnych"/>
+			<enumeration value="sporządzenie mapy z projektem podziału nieruchomości"/>
+			<enumeration value="sporządzenie projektu scalenia i podziału nieruchomości"/>
+			<enumeration value="sporządzenie innej mapy do celów prawnych"/>
+			<enumeration value="sporządzenie projektu scalenia lub wymiany gruntów"/>
+		</restriction>
+	</simpleType>
+	
+</schema>

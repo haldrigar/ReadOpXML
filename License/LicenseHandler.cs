@@ -128,7 +128,7 @@ namespace License
 
             if (File.Exists("license.lic"))
             {
-                MyLicense license = (MyLicense)ReadLicense(typeof(MyLicense), File.ReadAllText("license.lic"), certPublicKeyData, out licStatus, out validationMsg);
+                MyLicense license = (MyLicense)ReadLicense(typeof(MyLicense), File.ReadAllText("license.lic", Encoding.UTF8), certPublicKeyData, out licStatus, out validationMsg);
 
                 return license;
             }

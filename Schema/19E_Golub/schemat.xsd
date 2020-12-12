@@ -159,9 +159,18 @@
 
                     <xs:element name="osoba_id" maxOccurs="1" minOccurs="0">
                       <xs:simpleType>
-                        <xs:restriction base="xs:integer">
-                          <xs:minExclusive value="0"/>
-                        </xs:restriction>
+                        <xs:union>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:length value="0"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:integer">
+                              <xs:minExclusive value="0"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:union>
                       </xs:simpleType>
                     </xs:element>
 
@@ -690,9 +699,18 @@
 
                     <xs:element name="osoba_id" maxOccurs="1" minOccurs="0">
                       <xs:simpleType>
-                        <xs:restriction base="xs:integer">
-                          <xs:minExclusive value="0"/>
-                        </xs:restriction>
+                        <xs:union>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:length value="0"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:integer">
+                              <xs:minExclusive value="0"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:union>
                       </xs:simpleType>
                     </xs:element>
 
@@ -753,6 +771,24 @@
               <xs:element name="osobaUprawniona" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                   <xs:sequence>
+                    
+                    <xs:element name="osoba_id" maxOccurs="1" minOccurs="0">
+                      <xs:simpleType>
+                        <xs:union>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:length value="0"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:integer">
+                              <xs:minExclusive value="0"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:union>
+                      </xs:simpleType>
+                    </xs:element>
+                    
                     <xs:element name="imie" type="xs:string" maxOccurs="1" minOccurs="0"/>
                     <xs:element name="nazwisko" type="xs:string" maxOccurs="1" minOccurs="1"/>
                     <xs:element name="numer_uprawnien" type="xs:string" maxOccurs="1" minOccurs="0"/>
@@ -775,21 +811,6 @@
                 </xs:simpleType>
               </xs:element>
 
-              <xs:element name="pzg_rodzaj" minOccurs="0">
-                <xs:simpleType>
-                  <xs:union>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:length value="0"/>
-                      </xs:restriction>
-                    </xs:simpleType>
-                    <xs:simpleType>
-                      <xs:restriction base="xs:PZG_RodzajPracy"/>
-                    </xs:simpleType>
-                  </xs:union>
-                </xs:simpleType>
-              </xs:element>
-
               <xs:element name="celArchiwalny" maxOccurs="unbounded" minOccurs="0">
                 <xs:simpleType>
                   <xs:union>
@@ -805,6 +826,21 @@
                 </xs:simpleType>
               </xs:element>
 
+              <xs:element name="pzg_rodzaj" minOccurs="0">
+                <xs:simpleType>
+                  <xs:union>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:length value="0"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:PZG_RodzajPracy"/>
+                    </xs:simpleType>
+                  </xs:union>
+                </xs:simpleType>
+              </xs:element>
+              
             </xs:sequence>
           </xs:complexType>
           

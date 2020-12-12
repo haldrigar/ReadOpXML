@@ -33,7 +33,8 @@
             this.buttonGeneruj = new System.Windows.Forms.Button();
             this.textBoxLicencja = new System.Windows.Forms.TextBox();
             this.groupBoxUstawieniaLicencji = new System.Windows.Forms.GroupBox();
-            this.buttonReadLicense = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textBoxAtr1 = new System.Windows.Forms.TextBox();
             this.groupBoxLogo = new System.Windows.Forms.GroupBox();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.groupBoxDataZakonczenia = new System.Windows.Forms.GroupBox();
@@ -46,10 +47,10 @@
             this.groupBoxTypLicencji = new System.Windows.Forms.GroupBox();
             this.radioButtonVolume = new System.Windows.Forms.RadioButton();
             this.radioButtonSingle = new System.Windows.Forms.RadioButton();
+            this.buttonReadLicense = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBoxAtr1 = new System.Windows.Forms.TextBox();
             this.groupBoxUstawieniaLicencji.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBoxLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.groupBoxDataZakonczenia.SuspendLayout();
@@ -58,7 +59,6 @@
             this.groupBoxIdLicencji.SuspendLayout();
             this.groupBoxTypLicencji.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxUid
@@ -82,6 +82,7 @@
             // textBoxLicencja
             // 
             this.textBoxLicencja.Location = new System.Drawing.Point(6, 19);
+            this.textBoxLicencja.MaxLength = 100000;
             this.textBoxLicencja.Multiline = true;
             this.textBoxLicencja.Name = "textBoxLicencja";
             this.textBoxLicencja.Size = new System.Drawing.Size(369, 381);
@@ -103,16 +104,22 @@
             this.groupBoxUstawieniaLicencji.TabStop = false;
             this.groupBoxUstawieniaLicencji.Text = "Ustawienia licencji";
             // 
-            // buttonReadLicense
+            // groupBox4
             // 
-            this.buttonReadLicense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonReadLicense.Location = new System.Drawing.Point(611, 433);
-            this.buttonReadLicense.Name = "buttonReadLicense";
-            this.buttonReadLicense.Size = new System.Drawing.Size(108, 23);
-            this.buttonReadLicense.TabIndex = 3;
-            this.buttonReadLicense.Text = "Odczytaj licencję";
-            this.buttonReadLicense.UseVisualStyleBackColor = true;
-            this.buttonReadLicense.Click += new System.EventHandler(this.ButtonReadLicense_Click);
+            this.groupBox4.Controls.Add(this.textBoxAtr1);
+            this.groupBox4.Location = new System.Drawing.Point(164, 306);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(138, 101);
+            this.groupBox4.TabIndex = 5;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Atrybuty";
+            // 
+            // textBoxAtr1
+            // 
+            this.textBoxAtr1.Location = new System.Drawing.Point(8, 20);
+            this.textBoxAtr1.Name = "textBoxAtr1";
+            this.textBoxAtr1.Size = new System.Drawing.Size(124, 20);
+            this.textBoxAtr1.TabIndex = 3;
             // 
             // groupBoxLogo
             // 
@@ -233,6 +240,17 @@
             this.radioButtonSingle.Text = "Pojedyńcza Licencja";
             this.radioButtonSingle.UseVisualStyleBackColor = true;
             // 
+            // buttonReadLicense
+            // 
+            this.buttonReadLicense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonReadLicense.Location = new System.Drawing.Point(611, 433);
+            this.buttonReadLicense.Name = "buttonReadLicense";
+            this.buttonReadLicense.Size = new System.Drawing.Size(108, 23);
+            this.buttonReadLicense.TabIndex = 3;
+            this.buttonReadLicense.Text = "Odczytaj licencję";
+            this.buttonReadLicense.UseVisualStyleBackColor = true;
+            this.buttonReadLicense.Click += new System.EventHandler(this.ButtonReadLicense_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.textBoxLicencja);
@@ -242,23 +260,6 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Klucz licencji";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.textBoxAtr1);
-            this.groupBox4.Location = new System.Drawing.Point(164, 306);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(138, 101);
-            this.groupBox4.TabIndex = 5;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Atrybuty";
-            // 
-            // textBoxAtr1
-            // 
-            this.textBoxAtr1.Location = new System.Drawing.Point(8, 20);
-            this.textBoxAtr1.Name = "textBoxAtr1";
-            this.textBoxAtr1.Size = new System.Drawing.Size(124, 20);
-            this.textBoxAtr1.TabIndex = 3;
             // 
             // FormMain
             // 
@@ -273,6 +274,8 @@
             this.Name = "FormMain";
             this.Text = "Generowanie licencji";
             this.groupBoxUstawieniaLicencji.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBoxLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.groupBoxDataZakonczenia.ResumeLayout(false);
@@ -286,8 +289,6 @@
             this.groupBoxTypLicencji.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }

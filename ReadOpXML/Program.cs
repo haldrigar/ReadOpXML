@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Spatial;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -452,42 +453,50 @@ namespace ReadOpXML
 
                 foreach (PzgZgloszenie zgloszenie in pzgZgloszenieDict.Values)
                 {
-                    string pzgIdZgloszenia = GetPzgIdZgloszenia(zgloszenie);                   
+                    string pzgIdZgloszenia = GetPzgIdZgloszenia(zgloszenie);
 
-                    if (zgloszenie.PzgIdZgloszenia != pzgIdZgloszenia)
+                    if (zgloszenie.PzgIdZgloszenia == "--brak znacznika--")
                     {
-                        Console.WriteLine($"Błąd: {zgloszenie.XmlPath}: Nazwa zgłoszenia nie pasuje do jego składowych.");
-                        ModelErrorLogList.Add(new ModelErrorLog(zgloszenie.IdFile, zgloszenie.XmlPath, "Błąd", "pzg_IdZgloszenia", zgloszenie.PzgIdZgloszenia,"Nazwa zgłoszenia nie pasuje do jego składowych."));
+                        Console.WriteLine($"Błąd: {zgloszenie.XmlPath}: Brak zgłoszenia dla operatu.");
+                        ModelErrorLogList.Add(new ModelErrorLog(zgloszenie.IdFile, zgloszenie.XmlPath, "Ostrzeżenie", "pzg_IdZgloszenia", zgloszenie.PzgIdZgloszenia,"Brak zgłoszenia dla operatu."));
                     }
-
-                    int zgloszenieCount = pzgZgloszenieDict.Values.Count(o => o.PzgIdZgloszenia == zgloszenie.PzgIdZgloszenia);
-
-                    if (zgloszenieCount > 1)
+                    else
                     {
-                        int zgloszenieMultiAttributesCount = pzgZgloszenieDict.Values.Count(z =>
-                            z.PzgIdZgloszenia == zgloszenie.PzgIdZgloszenia &&
-                            z.PzgDataZgloszenia == zgloszenie.PzgDataZgloszenia &&
-                            z.Obreb == zgloszenie.Obreb &&  
-                            z.PzgPodmiotZglaszajacyOsobaId == zgloszenie.PzgPodmiotZglaszajacyOsobaId &&
-                            z.PzgPodmiotZglaszajacyNazwa == zgloszenie.PzgPodmiotZglaszajacyNazwa &&
-                            z.PzgPodmiotZglaszajacyRegon == zgloszenie.PzgPodmiotZglaszajacyRegon &&
-                            z.PzgPodmiotZglaszajacyPesel == zgloszenie.PzgPodmiotZglaszajacyPesel &&
-                            z.OsobaUprawnionaList == zgloszenie.OsobaUprawnionaList &&
-                            z.PzgCelList == zgloszenie.PzgCelList &&
-                            z.CelArchiwalnyList == zgloszenie.CelArchiwalnyList &&
-                            z.PzgRodzaj == zgloszenie.PzgRodzaj);
+                        if (zgloszenie.PzgIdZgloszenia != pzgIdZgloszenia)
+                        {
+                            Console.WriteLine($"Błąd: {zgloszenie.XmlPath}: Nazwa zgłoszenia nie pasuje do jego składowych.");
+                            ModelErrorLogList.Add(new ModelErrorLog(zgloszenie.IdFile, zgloszenie.XmlPath, "Błąd", "pzg_IdZgloszenia", zgloszenie.PzgIdZgloszenia,"Nazwa zgłoszenia nie pasuje do jego składowych."));
+                        }
 
-                        if (zgloszenieMultiAttributesCount == zgloszenieCount)
+                        int zgloszenieCount = pzgZgloszenieDict.Values.Count(o => o.PzgIdZgloszenia == zgloszenie.PzgIdZgloszenia);
+
+                        if (zgloszenieCount > 1)
                         {
-                            Console.WriteLine($"Ostrzeżenie: {zgloszenie.XmlPath}: Powielony numer zgłoszenia dla operatu.");
-                            ModelErrorLogList.Add(new ModelErrorLog(zgloszenie.IdFile, zgloszenie.XmlPath, "Ostrzeżenie", "pzg_IdZgloszenia", zgloszenie.PzgIdZgloszenia,"Powielony numer zgłoszenia dla operatu."));
+                            int zgloszenieMultiAttributesCount = pzgZgloszenieDict.Values.Count(z =>
+                                z.PzgIdZgloszenia == zgloszenie.PzgIdZgloszenia &&
+                                z.PzgDataZgloszenia == zgloszenie.PzgDataZgloszenia &&
+                                z.Obreb == zgloszenie.Obreb &&  
+                                z.PzgPodmiotZglaszajacyOsobaId == zgloszenie.PzgPodmiotZglaszajacyOsobaId &&
+                                z.PzgPodmiotZglaszajacyNazwa == zgloszenie.PzgPodmiotZglaszajacyNazwa &&
+                                z.PzgPodmiotZglaszajacyRegon == zgloszenie.PzgPodmiotZglaszajacyRegon &&
+                                z.PzgPodmiotZglaszajacyPesel == zgloszenie.PzgPodmiotZglaszajacyPesel &&
+                                z.OsobaUprawnionaList == zgloszenie.OsobaUprawnionaList &&
+                                z.PzgCelList == zgloszenie.PzgCelList &&
+                                z.CelArchiwalnyList == zgloszenie.CelArchiwalnyList &&
+                                z.PzgRodzaj == zgloszenie.PzgRodzaj);
+
+                            if (zgloszenieMultiAttributesCount == zgloszenieCount)
+                            {
+                                Console.WriteLine($"Ostrzeżenie: {zgloszenie.XmlPath}: Powielony numer zgłoszenia dla operatu.");
+                                ModelErrorLogList.Add(new ModelErrorLog(zgloszenie.IdFile, zgloszenie.XmlPath, "Ostrzeżenie", "pzg_IdZgloszenia", zgloszenie.PzgIdZgloszenia,"Powielony numer zgłoszenia dla operatu."));
+                            }
+                            else
+                            {
+                                Console.WriteLine($"Błąd: {zgloszenie.XmlPath}: Duplikat nazwy zgłoszenia.");
+                                ModelErrorLogList.Add(new ModelErrorLog(zgloszenie.IdFile, zgloszenie.XmlPath, "Błąd", "pzg_IdZgloszenia", zgloszenie.PzgIdZgloszenia,"Duplikat nazwy zgłoszenia."));
+                            }
                         }
-                        else
-                        {
-                            Console.WriteLine($"Błąd: {zgloszenie.XmlPath}: Duplikat nazwy zgłoszenia.");
-                            ModelErrorLogList.Add(new ModelErrorLog(zgloszenie.IdFile, zgloszenie.XmlPath, "Błąd", "pzg_IdZgloszenia", zgloszenie.PzgIdZgloszenia,"Duplikat nazwy zgłoszenia."));
-                        }
-                    }
+                    } 
                 }
 
                 Console.WriteLine("");

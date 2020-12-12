@@ -1,0 +1,738 @@
+<SLO_CelPracyArchiwalny>
+        <entry>
+            <key>101121</key>
+            <value>udostepnienie w formie zbiorów wektorowych me</value>
+        </entry>
+        <entry>
+            <key>1</key>
+            <value>założenie ewidencji gruntów i budynków (EGiB)</value>
+        </entry>
+        <entry>
+            <key>101120</key>
+            <value>tyczenie i inwentaryzacja</value>
+        </entry>
+        <entry>
+            <key>2</key>
+            <value>modernizacja ewidencji gruntów i budynków (EGiB)</value>
+        </entry>
+        <entry>
+            <key>101123</key>
+            <value>udostępnienie dokumentu z  zasobu</value>
+        </entry>
+        <entry>
+            <key>3</key>
+            <value>aktualizacja ewidencji gruntów i budynków (EGiB)</value>
+        </entry>
+        <entry>
+            <key>101122</key>
+            <value>ud</value>
+        </entry>
+        <entry>
+            <key>4</key>
+            <value>utworzenie bazy danych geodezyjnej sieci uzbrojenia terenu (GESUT)</value>
+        </entry>
+        <entry>
+            <key>101125</key>
+            <value>udostępnienie materiałów do prac nie zgłaszanych</value>
+        </entry>
+        <entry>
+            <key>5</key>
+            <value>aktualizacja bazy danych geodezyjnej sieci uzbrojenia terenu (GESUT)</value>
+        </entry>
+        <entry>
+            <key>101124</key>
+            <value>udostępnienie map dla wykonania reprodukcji</value>
+        </entry>
+        <entry>
+            <key>6</key>
+            <value>utworzenie bazy danych obiektów topograficznych (BDOT500)</value>
+        </entry>
+        <entry>
+            <key>101127</key>
+            <value>uo</value>
+        </entry>
+        <entry>
+            <key>7</key>
+            <value>aktualizacja bazy danych obiektów topograficznych (BDOT500)</value>
+        </entry>
+        <entry>
+            <key>101126</key>
+            <value>um</value>
+        </entry>
+        <entry>
+            <key>8</key>
+            <value>utworzenie bazy danych szczegółowych osnów geodezyjnych (BDSOG)</value>
+        </entry>
+        <entry>
+            <key>101129</key>
+            <value>uw</value>
+        </entry>
+        <entry>
+            <key>9</key>
+            <value>aktualizacja bazy danych szczegółowych osnów geodezyjnych (BDSOG)</value>
+        </entry>
+        <entry>
+            <key>101128</key>
+            <value>up</value>
+        </entry>
+        <entry>
+            <key>101131</key>
+            <value>uzgodnienie projektu</value>
+        </entry>
+        <entry>
+            <key>11</key>
+            <value>mapa z projektem podziału nieruchomości rolnej/leśnej</value>
+        </entry>
+        <entry>
+            <key>101130</key>
+            <value>uz</value>
+        </entry>
+        <entry>
+            <key>101133</key>
+            <value>wd</value>
+        </entry>
+        <entry>
+            <key>13</key>
+            <value>projekt scalenia gruntów</value>
+        </entry>
+        <entry>
+            <key>101132</key>
+            <value>w</value>
+        </entry>
+        <entry>
+            <key>14</key>
+            <value>projekt wymiany gruntów</value>
+        </entry>
+        <entry>
+            <key>101135</key>
+            <value>wektoryzacja map katastralnych</value>
+        </entry>
+        <entry>
+            <key>101134</key>
+            <value>we</value>
+        </entry>
+        <entry>
+            <key>101137</key>
+            <value>weryfikacja danych ewidencyjnych</value>
+        </entry>
+        <entry>
+            <key>101136</key>
+            <value>wektoryzacjka map katastralnych</value>
+        </entry>
+        <entry>
+            <key>101139</key>
+            <value>wgląd do materiałów zasobu- szacowanie nieruchomości</value>
+        </entry>
+        <entry>
+            <key>101138</key>
+            <value>wgląd do dokumentacji</value>
+        </entry>
+        <entry>
+            <key>20</key>
+            <value>tyczenie obiektów budowlanych</value>
+        </entry>
+        <entry>
+            <key>101141</key>
+            <value>wypis + odbitka z mapy</value>
+        </entry>
+        <entry>
+            <key>101140</key>
+            <value>wypis+ odbitka z wykazu zmian gruntowych</value>
+        </entry>
+        <entry>
+            <key>101143</key>
+            <value>wypis skrócony</value>
+        </entry>
+        <entry>
+            <key>101142</key>
+            <value>wypis + wyrys</value>
+        </entry>
+        <entry>
+            <key>101145</key>
+            <value>wypis + odbitka z dokumentu</value>
+        </entry>
+        <entry>
+            <key>101144</key>
+            <value>odbitka z dokumentu</value>
+        </entry>
+        <entry>
+            <key>101147</key>
+            <value>wypis z rejestru gruntów</value>
+        </entry>
+        <entry>
+            <key>101146</key>
+            <value>odbitka z mapy</value>
+        </entry>
+        <entry>
+            <key>101149</key>
+            <value>wywłaszczenie drogi</value>
+        </entry>
+        <entry>
+            <key>101148</key>
+            <value>wyrys z mapy ewidencyjnej</value>
+        </entry>
+        <entry>
+            <key>101151</key>
+            <value>wyznaczenie punktów granicznych</value>
+        </entry>
+        <entry>
+            <key>101150</key>
+            <value>wz</value>
+        </entry>
+        <entry>
+            <key>101153</key>
+            <value>wznowienie znaków granicznych</value>
+        </entry>
+        <entry>
+            <key>101152</key>
+            <value>ustalenie granic działki</value>
+        </entry>
+        <entry>
+            <key>101155</key>
+            <value>zmiana konfiguracji</value>
+        </entry>
+        <entry>
+            <key>101154</key>
+            <value>założenie szczegółowej osnowy poziomej III  klasy</value>
+        </entry>
+        <entry>
+            <key>101162</key>
+            <value>wykaz zmian gruntowych</value>
+        </entry>
+        <entry>
+            <key>101183</key>
+            <value>założenie szczegółowej osnowy pomiarowej</value>
+        </entry>
+        <entry>
+            <key>101185</key>
+            <value>wznowienie granic działki</value>
+        </entry>
+        <entry>
+            <key>101184</key>
+            <value>Aktualizacja wektora granic działek z integracją cz.opisowej</value>
+        </entry>
+        <entry>
+            <key>101189</key>
+            <value>aktualizacja i wdrożenie num.mapy ew. gruntów</value>
+        </entry>
+        <entry>
+            <key>101192</key>
+            <value>zmiana nośnika informacji mapy bez jej aktualizowania</value>
+        </entry>
+        <entry>
+            <key>101195</key>
+            <value>Modernizacja EGiB z założeniem ewidencji budynków i lokali</value>
+        </entry>
+        <entry>
+            <key>101197</key>
+            <value>Połączenie działek</value>
+        </entry>
+        <entry>
+            <key>101196</key>
+            <value>mapa numeryczna</value>
+        </entry>
+        <entry>
+            <key>101205</key>
+            <value>mapa syt-wys + ustalenie granic działki</value>
+        </entry>
+        <entry>
+            <key>101206</key>
+            <value>syt wys + ustalenie granic działki</value>
+        </entry>
+        <entry>
+            <key>101209</key>
+            <value>inwentaryzacja nasypu</value>
+        </entry>
+        <entry>
+            <key>101211</key>
+            <value>nowy pomiar-założenie ewidencji gruntów</value>
+        </entry>
+        <entry>
+            <key>101210</key>
+            <value>syt-wys + wyznaczenie pkt granicznych</value>
+        </entry>
+        <entry>
+            <key>101213</key>
+            <value>wytyczenie obiektów budowlanych</value>
+        </entry>
+        <entry>
+            <key>101212</key>
+            <value>przydomowa oczyszczalnia ścieków</value>
+        </entry>
+        <entry>
+            <key>101214</key>
+            <value>utworzenie baz danych geodezyjnej ewidencji sieci uzbrojenia</value>
+        </entry>
+        <entry>
+            <key>101001</key>
+            <value>aktualizacja  mapy syt-wys</value>
+        </entry>
+        <entry>
+            <key>101003</key>
+            <value>aktualizacja map do celów projektowych</value>
+        </entry>
+        <entry>
+            <key>101002</key>
+            <value>aktualizacja centroidów</value>
+        </entry>
+        <entry>
+            <key>101005</key>
+            <value>gleboznawcza klasyfikacja gruntów</value>
+        </entry>
+        <entry>
+            <key>101004</key>
+            <value>am</value>
+        </entry>
+        <entry>
+            <key>101007</key>
+            <value>ic</value>
+        </entry>
+        <entry>
+            <key>101006</key>
+            <value>ib</value>
+        </entry>
+        <entry>
+            <key>101009</key>
+            <value>ie</value>
+        </entry>
+        <entry>
+            <key>101008</key>
+            <value>id</value>
+        </entry>
+        <entry>
+            <key>101011</key>
+            <value>ik</value>
+        </entry>
+        <entry>
+            <key>101010</key>
+            <value>błędny wpis</value>
+        </entry>
+        <entry>
+            <key>101013</key>
+            <value>in</value>
+        </entry>
+        <entry>
+            <key>101012</key>
+            <value>udostepnienie bazy danych Systemu informacji o Terenie</value>
+        </entry>
+        <entry>
+            <key>101015</key>
+            <value>inwentaryzacja budynku</value>
+        </entry>
+        <entry>
+            <key>101014</key>
+            <value>inwentaryzacja kostki brukowej</value>
+        </entry>
+        <entry>
+            <key>101017</key>
+            <value>inwentaryzacja budynku i uzbrojenia</value>
+        </entry>
+        <entry>
+            <key>101016</key>
+            <value>inwentaryzacja budynku i kabla energetycznego</value>
+        </entry>
+        <entry>
+            <key>101019</key>
+            <value>inwentaryzacja gazu</value>
+        </entry>
+        <entry>
+            <key>101018</key>
+            <value>inwentaryzacja drogi</value>
+        </entry>
+        <entry>
+            <key>101021</key>
+            <value>inwentaryzacja kabla energetycznego</value>
+        </entry>
+        <entry>
+            <key>101020</key>
+            <value>inwentaryzacja istniejącej sieci uzbrojenia</value>
+        </entry>
+        <entry>
+            <key>101023</key>
+            <value>inwentaryzacja kabla telefonicznego</value>
+        </entry>
+        <entry>
+            <key>101022</key>
+            <value>inwentaryzacja kabla NN</value>
+        </entry>
+        <entry>
+            <key>101025</key>
+            <value>inwentaryzacja kanalizacji telefonicznej</value>
+        </entry>
+        <entry>
+            <key>101024</key>
+            <value>inwentaryzacja kanalizacji</value>
+        </entry>
+        <entry>
+            <key>101027</key>
+            <value>inwentaryzacja linii telefonicznej (teletechnicznej)</value>
+        </entry>
+        <entry>
+            <key>101026</key>
+            <value>inwentaryzacja linii energetycznej</value>
+        </entry>
+        <entry>
+            <key>101029</key>
+            <value>inwentaryzacja modernizacji drogi</value>
+        </entry>
+        <entry>
+            <key>101028</key>
+            <value>inwentaryzacja linii telekomunikacyjnej i kabla energet.</value>
+        </entry>
+        <entry>
+            <key>101031</key>
+            <value>inwentaryzacja powykonawcza</value>
+        </entry>
+        <entry>
+            <key>101030</key>
+            <value>inwentaryzacja ogrodzenia</value>
+        </entry>
+        <entry>
+            <key>101033</key>
+            <value>inwentaryzacja powykonawcza mostu</value>
+        </entry>
+        <entry>
+            <key>101032</key>
+            <value>inwentaryzacja powykonawcza kabla NN</value>
+        </entry>
+        <entry>
+            <key>101035</key>
+            <value>inwentaryzacja sieci  ciepłowniczej</value>
+        </entry>
+        <entry>
+            <key>101034</key>
+            <value>inwentaryzacja ropociągu</value>
+        </entry>
+        <entry>
+            <key>101037</key>
+            <value>inwentaryzacja sieci energetycznej</value>
+        </entry>
+        <entry>
+            <key>101036</key>
+            <value>inwentaryzacja sieci ciepłowniczej</value>
+        </entry>
+        <entry>
+            <key>101039</key>
+            <value>inwentaryzacja sieci (telefonicznej) teletechnicznej</value>
+        </entry>
+        <entry>
+            <key>101038</key>
+            <value>inwentaryzacja sieci kanalizacyjnej</value>
+        </entry>
+        <entry>
+            <key>101041</key>
+            <value>inwentaryzacja sieci wodociągowej</value>
+        </entry>
+        <entry>
+            <key>101040</key>
+            <value>inwentaryzacja sieci telekomunikacyjnej</value>
+        </entry>
+        <entry>
+            <key>101043</key>
+            <value>inwentaryzacja słupów oświetleniowych</value>
+        </entry>
+        <entry>
+            <key>101042</key>
+            <value>inwentaryzacja słupów energetycznych</value>
+        </entry>
+        <entry>
+            <key>101045</key>
+            <value>inwentaryzacja stacji gazowej</value>
+        </entry>
+        <entry>
+            <key>101044</key>
+            <value>inwentaryzacja stacji benzynowej</value>
+        </entry>
+        <entry>
+            <key>101047</key>
+            <value>inwentaryzacja wodociągu</value>
+        </entry>
+        <entry>
+            <key>101046</key>
+            <value>inwentaryzacja uzbrojenia</value>
+        </entry>
+        <entry>
+            <key>101049</key>
+            <value>inwentaryzacja zjazdu do drogi</value>
+        </entry>
+        <entry>
+            <key>101048</key>
+            <value>inwentaryzacja wodociągu i kanalizacji</value>
+        </entry>
+        <entry>
+            <key>101051</key>
+            <value>ir</value>
+        </entry>
+        <entry>
+            <key>101050</key>
+            <value>ip</value>
+        </entry>
+        <entry>
+            <key>101053</key>
+            <value>it</value>
+        </entry>
+        <entry>
+            <key>101052</key>
+            <value>iś</value>
+        </entry>
+        <entry>
+            <key>101055</key>
+            <value>iz</value>
+        </entry>
+        <entry>
+            <key>101054</key>
+            <value>iw</value>
+        </entry>
+        <entry>
+            <key>101057</key>
+            <value>klasyfikacja gleboznawcza gruntów</value>
+        </entry>
+        <entry>
+            <key>101056</key>
+            <value>kl</value>
+        </entry>
+        <entry>
+            <key>101059</key>
+            <value>mapa  syt-wys do celów projektowych</value>
+        </entry>
+        <entry>
+            <key>101058</key>
+            <value>ln</value>
+        </entry>
+        <entry>
+            <key>101061</key>
+            <value>mapa syt wys +inwentaryzacja</value>
+        </entry>
+        <entry>
+            <key>101060</key>
+            <value>mapa do celów prawnych + pomiar kontrolny</value>
+        </entry>
+        <entry>
+            <key>101063</key>
+            <value>mapa syt-wys do celów projektowych</value>
+        </entry>
+        <entry>
+            <key>101062</key>
+            <value>mapa sytuacyjno-wysokościowa do celów projektowych</value>
+        </entry>
+        <entry>
+            <key>101065</key>
+            <value>mapa w postaci rastrowej</value>
+        </entry>
+        <entry>
+            <key>101064</key>
+            <value>mapa syt-wys+inwentaryzacja</value>
+        </entry>
+        <entry>
+            <key>101067</key>
+            <value>mn</value>
+        </entry>
+        <entry>
+            <key>101066</key>
+            <value>mk</value>
+        </entry>
+        <entry>
+            <key>101069</key>
+            <value>mw</value>
+        </entry>
+        <entry>
+            <key>101068</key>
+            <value>odbitka z mapy sytuacyjno-wysokościowej</value>
+        </entry>
+        <entry>
+            <key>101071</key>
+            <value>odnowienie map ewidencji gruntów</value>
+        </entry>
+        <entry>
+            <key>101070</key>
+            <value>nowy pomiar</value>
+        </entry>
+        <entry>
+            <key>101073</key>
+            <value>ok</value>
+        </entry>
+        <entry>
+            <key>101072</key>
+            <value>odtworzenie granic</value>
+        </entry>
+        <entry>
+            <key>101075</key>
+            <value>oprac mapy zas w sys informatycznym i mapy numerycznej</value>
+        </entry>
+        <entry>
+            <key>101074</key>
+            <value>op</value>
+        </entry>
+        <entry>
+            <key>101077</key>
+            <value>opracowanie dokumentacji własnościowej</value>
+        </entry>
+        <entry>
+            <key>101076</key>
+            <value>opracowanie do celów prawnych</value>
+        </entry>
+        <entry>
+            <key>101079</key>
+            <value>opracowanie mapy  do celów prawnych</value>
+        </entry>
+        <entry>
+            <key>101078</key>
+            <value>opracowanie leśnej mapy numerycznej</value>
+        </entry>
+        <entry>
+            <key>101081</key>
+            <value>opracowanie mapy zasadniczej</value>
+        </entry>
+        <entry>
+            <key>101080</key>
+            <value>opracowanie mapy do celów prawnych</value>
+        </entry>
+        <entry>
+            <key>101083</key>
+            <value>p</value>
+        </entry>
+        <entry>
+            <key>101082</key>
+            <value>opracowanie numerycznej mapy ewidencji gruntów</value>
+        </entry>
+        <entry>
+            <key>101085</key>
+            <value>pk</value>
+        </entry>
+        <entry>
+            <key>101084</key>
+            <value>pi</value>
+        </entry>
+        <entry>
+            <key>101087</key>
+            <value>po</value>
+        </entry>
+        <entry>
+            <key>101086</key>
+            <value>pm</value>
+        </entry>
+        <entry>
+            <key>101089</key>
+            <value>podział + inwentaryzacja</value>
+        </entry>
+        <entry>
+            <key>101088</key>
+            <value>podział</value>
+        </entry>
+        <entry>
+            <key>101091</key>
+            <value>podział +opracowanie mapy do celów prawnych</value>
+        </entry>
+        <entry>
+            <key>101090</key>
+            <value>pomiar kontrolny</value>
+        </entry>
+        <entry>
+            <key>101093</key>
+            <value>pomiar  kontrolny</value>
+        </entry>
+        <entry>
+            <key>101092</key>
+            <value>ustalenie granic</value>
+        </entry>
+        <entry>
+            <key>101095</key>
+            <value>pomiar kontrolny + opracowanie do celów prawnych</value>
+        </entry>
+        <entry>
+            <key>101097</key>
+            <value>pomiar sytuacyjno-wysokościowy</value>
+        </entry>
+        <entry>
+            <key>101096</key>
+            <value>pomiar syt;syt-wys z uzbrojeniem</value>
+        </entry>
+        <entry>
+            <key>101099</key>
+            <value>pomiar uzupełniający</value>
+        </entry>
+        <entry>
+            <key>101098</key>
+            <value>pomiar sytuacyjny</value>
+        </entry>
+        <entry>
+            <key>101101</key>
+            <value>pp</value>
+        </entry>
+        <entry>
+            <key>101100</key>
+            <value>pomiar użytków</value>
+        </entry>
+        <entry>
+            <key>101103</key>
+            <value>przekroje dolinowe rzek</value>
+        </entry>
+        <entry>
+            <key>101102</key>
+            <value>pr</value>
+        </entry>
+        <entry>
+            <key>101105</key>
+            <value>pś</value>
+        </entry>
+        <entry>
+            <key>101104</key>
+            <value>ps</value>
+        </entry>
+        <entry>
+            <key>101107</key>
+            <value>reprodukcja</value>
+        </entry>
+        <entry>
+            <key>101106</key>
+            <value>pu</value>
+        </entry>
+        <entry>
+            <key>101109</key>
+            <value>ro</value>
+        </entry>
+        <entry>
+            <key>101108</key>
+            <value>regulacja stanu prawnego</value>
+        </entry>
+        <entry>
+            <key>101111</key>
+            <value>rs</value>
+        </entry>
+        <entry>
+            <key>101110</key>
+            <value>rozgraniczenie</value>
+        </entry>
+        <entry>
+            <key>101113</key>
+            <value>scalenie i wymiana gruntów</value>
+        </entry>
+        <entry>
+            <key>101112</key>
+            <value>sc</value>
+        </entry>
+        <entry>
+            <key>101115</key>
+            <value>sporządzenie mapy sytuacyjnej do celów projektowych</value>
+        </entry>
+        <entry>
+            <key>101114</key>
+            <value>si</value>
+        </entry>
+        <entry>
+            <key>101117</key>
+            <value>sw</value>
+        </entry>
+        <entry>
+            <key>101116</key>
+            <value>stabilizacja granic po podziale</value>
+        </entry>
+        <entry>
+            <key>101119</key>
+            <value>transfer danych ewid. z EGiB do ESEGR i ZG</value>
+        </entry>
+        <entry>
+            <key>101118</key>
+            <value>sz</value>
+        </entry>
+    </SLO_CelPracyArchiwalny>

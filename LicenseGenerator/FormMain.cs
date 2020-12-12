@@ -4,6 +4,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Reflection;
 using System.Security;
+using System.Text;
 using System.Windows.Forms;
 using License;
 
@@ -114,7 +115,9 @@ namespace LicenseGenerator
                 certPublicKeyData = memoryStream.ToArray();
             }
 
-            MyLicense license = (MyLicense)LicenseHandler.ReadLicense(typeof(MyLicense), textBoxLicencja.Text, certPublicKeyData, out LicenseStatus status, out string msg);
+            byte[] bytes = Encoding.UTF8.GetBytes(textBoxLicencja.Text);
+
+            MyLicense license = (MyLicense)LicenseHandler.ReadLicense(typeof(MyLicense), Encoding.Default.GetString(bytes), certPublicKeyData, out LicenseStatus status, out string msg);
 
             switch (status)
             {

@@ -1,0 +1,38 @@
+<PZG_RodzajPracy>
+        <entry>
+            <key>1</key>
+            <value>pomiary sytuacyjne i przetwarzanie rezultatów tych pomiarów</value>
+        </entry>
+        <entry>
+            <key>2</key>
+            <value>pomiary wysokościowe i przetwarzanie rezultatów tych pomiarów</value>
+        </entry>
+        <entry>
+            <key>3</key>
+            <value>pomiary sytuacyjno-wysokościowe i przetwarzanie rezultatów tych pomiarów</value>
+        </entry>
+        <entry>
+            <key>4</key>
+            <value>pomiary osnów geodezyjnych i przetwarzanie rezultatów tych pomiarów</value>
+        </entry>
+        <entry>
+            <key>5</key>
+            <value>pomiary osnów grawimetrycznych i przetwarzanie rezultatów tych pomiarów</value>
+        </entry>
+        <entry>
+            <key>6</key>
+            <value>pomiary osnów magnetycznych i przetwarzanie rezultatów tych pomiarów</value>
+        </entry>
+        <entry>
+            <key>7</key>
+            <value>wykonywanie zobrazowań lotniczych</value>
+        </entry>
+        <entry>
+            <key>8</key>
+            <value>skaning laserowy</value>
+        </entry>
+        <entry>
+            <key>9</key>
+            <value>inny</value>
+        </entry>
+    </PZG_RodzajPracy>

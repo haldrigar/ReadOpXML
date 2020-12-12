@@ -844,7 +844,6 @@ namespace OfficeOpenXml.Drawing.Chart
         }
         #endregion
 
-        #region GridLines 
         //Pull request from aesalazar
         const string _majorGridlinesPath = "c:majorGridlines"; 
         ExcelDrawingBorder _majorGridlines = null; 
@@ -915,6 +914,5 @@ namespace OfficeOpenXml.Drawing.Chart
                 _minorGridlines = null; 
             } 
         } 
-        #endregion 
     }
 }
