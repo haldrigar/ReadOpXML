@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Spatial;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Xml;
 using System.Xml.Schema;
 using CommandLine;
@@ -502,6 +502,22 @@ namespace ReadOpXML
                 Console.WriteLine("");
             }
 
+            Console.WriteLine("Zapis plików WKT z XML...");
+            
+            foreach (PzgMaterialZasobu pzgMaterialZasobu in pzgMaterialZasobuDict.Values)
+            {
+                string wktName = pzgMaterialZasobu.XmlPath.Replace(".xml", ".wkt");
+                
+                File.WriteAllText(wktName, pzgMaterialZasobu.PzgPolozenieObszaru, Encoding.UTF8);
+            }
+            
+            foreach (PzgZgloszenie pzgZgloszenie in pzgZgloszenieDict.Values)
+            {
+                string wktName = pzgZgloszenie.XmlPath.Replace(".xml", "_zgl.wkt");
+                
+                File.WriteAllText(wktName, pzgZgloszenie.PzgPolozenieObszaru, Encoding.UTF8);
+            }
+            
             // -------------------------------------------------------------------------------------------
 
             using (ExcelPackage excelPackage = new ExcelPackage())
@@ -526,7 +542,7 @@ namespace ReadOpXML
                     {
                         case "operaty" :
 
-                            sheet.Cells[1, 1].LoadFromCollection(pzgMaterialZasobuDict.Values, true);
+                            sheet.Cells[1, 1].LoadFromCollection(pzgMaterialZasobuDict, true);
 
                             Console.WriteLine("\nWeryfikacja pzg_polozenieObszaru...");
 
